@@ -1,10 +1,11 @@
-import { Button } from "shared/Button/Button";
-import { ContentWrapper } from "shared/ContentWrapper/ContentWrapper";
-import { H123 } from "shared/H123/H123";
-import { Header } from "shared/Header/Header";
-import { Input } from "shared/Input/Input";
-import { MainMenu } from "shared/MainMenu/MainMenu";
-import { TextLine } from "shared/Text/TextLine";
+import { Button } from "shared/ui/Button/Button";
+import { ContentWrapper } from "shared/ui/ContentWrapper/ContentWrapper";
+import { H123 } from "shared/ui/H123/H123";
+import { Header } from "shared/ui/Header/Header";
+import { Input } from "shared/ui/Input/Input";
+import { MainMenu } from "shared/ui/MainMenu/MainMenu";
+import { TextLine } from "shared/ui/Text/TextLine";
+import { VSpace } from "shared/ui/VSpace/VSpace";
 
 function App() {
   return (
@@ -20,7 +21,9 @@ function App() {
             text="Sign up any way you like to start working out"
             align="center"
           />
+          <VSpace />
           <Input placeholder="E-mail / Phone / Telegram" name="email" />
+          <Input placeholder="Password" name="password" />
           <Button text="test" />
         </ContentWrapper>
       </div>

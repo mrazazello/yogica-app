@@ -9,12 +9,13 @@ export default {
       },
       spacing: {
         "10px": "10px",
+        "20px": "20px",
       },
     },
     fontSize: {
       sm: "0.75rem",
       base: "0.875rem",
-      xl: "1.25rem",
+      xl: "1rem",
       "2xl": "1.5rem",
       "3xl": "1.75rem",
     },

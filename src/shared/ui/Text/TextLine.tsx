@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { cn } from "shared/lib/classNames/classNames";
 
 interface IProps {
   text: string;
@@ -8,7 +9,13 @@ interface IProps {
 export const TextLine: FC<IProps> = (props) => {
   const { text, align = "left" } = props;
   return (
-    <div className={`text-sm text-blue-400 font-Raleway text-${align}`}>
+    <div
+      className={cn(
+        "text-sm text-blue-400 font-Raleway",
+        { "text-center": align === "center", "text-right": align === "right" },
+        []
+      )}
+    >
       {text}
     </div>
   );

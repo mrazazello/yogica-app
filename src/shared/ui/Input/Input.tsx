@@ -36,22 +36,28 @@ export const InputComponent: FC<IProps> = (props: IProps) => {
     }
   }, [autofocus]);
 
+  const input = (
+    <input
+      className="bg-white border border-blue-200 text-blue-200 text-xl rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full p-2.5"
+      name={name}
+      value={value}
+      onChange={onChangeHandler}
+      readOnly={readonly}
+      {...otherProps}
+      ref={inputRef}
+    />
+  );
+
   return (
     <div>
-      {placeholder && (
+      {placeholder ? (
         <label className="block mb-2 text-sm font-medium text-blue-400">
           {placeholder}
+          {input}
         </label>
+      ) : (
+        input
       )}
-      <input
-        className="bg-white border border-blue-200 text-blue-200 text-sm rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full p-2.5"
-        name={name}
-        value={value}
-        onChange={onChangeHandler}
-        readOnly={readonly}
-        {...otherProps}
-        ref={inputRef}
-      />
     </div>
   );
 };
