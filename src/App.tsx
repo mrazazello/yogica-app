@@ -1,4 +1,4 @@
-import Button from "./shared/Button/Button";
+import Button from "shared/Button/Button";
 import H123 from "./shared/H123/H123";
 import { Header } from "./shared/Header/Header";
 import { MainMenu } from "./shared/MainMenu/MainMenu";
