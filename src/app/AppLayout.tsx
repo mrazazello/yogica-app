@@ -16,5 +16,3 @@ export const AppLayout: FC<IProps> = (props) => {
     </div>
   );
 };
-
-export default AppLayout;

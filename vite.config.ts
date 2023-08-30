@@ -9,6 +9,8 @@ export default defineConfig({
       app: "/src/app",
       pages: "/src/pages",
       shared: "/src/shared",
+      features: "/src/features",
+      entities: "/src/entities",
     },
   },
 });
