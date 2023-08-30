@@ -4,6 +4,10 @@ import { Input } from "shared/ui/Input/Input";
 import { TextLine } from "shared/ui/Text/TextLine";
 import { VSpace } from "shared/ui/VSpace/VSpace";
 
+import fb from "/facebook.svg";
+import gl from "/google.svg";
+import tg from "/telegram.svg";
+
 export const RegistrationForm = () => {
   return (
     <>
@@ -14,9 +18,15 @@ export const RegistrationForm = () => {
       />
       <VSpace />
       <Input placeholder="E-mail / Phone / Telegram" name="email" required />
-
+      <VSpace />
+      <div className="flex justify-center gap-4">
+        <img src={tg} width={24} height={24} alt="Telegram" />
+        <img src={fb} width={24} height={24} alt="Facebook" />
+        <img src={gl} width={24} height={24} alt="Google" />
+      </div>
+      <VSpace />
       <TextLine text="Already registered? Login is here" align="center" />
-
+      <VSpace />
       <Button text="Continue" />
     </>
   );

@@ -1,14 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
-import Login from "../pages/Login/Login";
-import Registration from "../pages/Registration/Registration";
+
+import { LoginAsync } from "pages/Login/LoginAsync";
+import { RegistrationAsync } from "pages/Registration/RegistrationAsync";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Login />,
+    element: <LoginAsync />,
   },
   {
     path: "/reg",
-    element: <Registration />,
+    element: <RegistrationAsync />,
   },
 ]);

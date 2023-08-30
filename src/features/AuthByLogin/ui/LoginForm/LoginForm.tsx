@@ -1,5 +1,6 @@
 import { FC } from "react";
 
+import { Link } from "react-router-dom";
 import { Button } from "shared/ui/Button/Button";
 import { H123 } from "shared/ui/H123/H123";
 import { Input } from "shared/ui/Input/Input";
@@ -29,9 +30,14 @@ export const LoginForm: FC = () => {
       </div>
       <VSpace />
       <TextLine
-        text="Already registered? Registration is here"
+        text={
+          <>
+            Already registered? <Link to="/">Registration is here</Link>
+          </>
+        }
         align="center"
       />
+      <VSpace />
       <Button text="Continue" />
     </>
   );

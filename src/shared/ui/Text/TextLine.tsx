@@ -2,7 +2,7 @@ import { FC } from "react";
 import { cn } from "shared/lib/classNames/classNames";
 
 interface IProps {
-  text: string;
+  text: React.ReactElement | string;
   align?: "left" | "center" | "right";
 }
 
