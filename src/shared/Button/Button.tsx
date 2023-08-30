@@ -7,7 +7,7 @@ interface IProps {
 const Button: FC<IProps> = (props) => {
   const { text } = props;
   return (
-    <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+    <button className="bg-green-100 hover:bg-green-300 text-green-300 font-bold py-2 px-4 border-b-4 border-green-200 hover:border-green-300 rounded">
       {text}
     </button>
   );

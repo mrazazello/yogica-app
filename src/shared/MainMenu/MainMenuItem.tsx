@@ -8,7 +8,7 @@ interface IProps {
 export const MainMenuItem: FC<IProps> = (props) => {
   const { title, icon } = props;
   return (
-    <div className="flex items-center justify-end flex-col text-xs">
+    <div className="flex items-center justify-end flex-col text-xs font-Nunito">
       <img
         src={icon}
         width={24}
