@@ -11,20 +11,24 @@ function App() {
   return (
     <div className="flex items-center justify-center flex-col h-screen">
       <Header />
-      <div className="h-full bg-blue-100">
+      <div className="h-full w-full bg-blue-100">
         <ContentWrapper valign="center">
-          <H123
-            title="Whereas recognition of the inherent dignity"
-            align="center"
-          />
+          <H123 title="Login" align="center" />
           <TextLine
             text="Sign up any way you like to start working out"
             align="center"
           />
           <VSpace />
-          <Input placeholder="E-mail / Phone / Telegram" name="email" />
+          <Input
+            placeholder="E-mail / Phone / Telegram"
+            name="email"
+            required
+          />
           <Input placeholder="Password" name="password" />
-          <Button text="test" />
+
+          <TextLine text="Already registered? Login is here" align="center" />
+
+          <Button text="Continue" />
         </ContentWrapper>
       </div>
       <MainMenu />

@@ -11,6 +11,7 @@ interface IProps extends HTMLInputPropsType {
   value?: string | number;
   onChange?: (value: string) => void;
   readonly?: boolean;
+  required?: boolean;
 }
 
 export const InputComponent: FC<IProps> = (props: IProps) => {
@@ -21,6 +22,7 @@ export const InputComponent: FC<IProps> = (props: IProps) => {
     value,
     onChange,
     readonly = false,
+    required = false,
     ...otherProps
   } = props;
 
@@ -53,6 +55,7 @@ export const InputComponent: FC<IProps> = (props: IProps) => {
       {placeholder ? (
         <label className="block mb-2 text-sm font-medium text-blue-400">
           {placeholder}
+          {required && <span className="ml-1 text-red">*</span>}
           {input}
         </label>
       ) : (
