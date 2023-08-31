@@ -1,44 +1,45 @@
 import { routePaths } from "app/routes";
 import { FC } from "react";
 import { MainMenuItem } from "./MainMenuItem";
-import favorite from "./assets/favorite.svg";
-import more from "./assets/more.svg";
-import orders from "./assets/orders.svg";
-import progress from "./assets/progress.svg";
-import start from "./assets/start.svg";
+
+import { FavoriteIcon } from "./icons/Favorite";
+import { StartIcon } from "./icons/Start";
+import { MoreIcon } from "./icons/More";
+import { OrdersIcon } from "./icons/Orders";
+import { ProgressIcon } from "./icons/Progress";
 
 interface IProps {}
 
 type MenuItemType = {
   title: string;
-  icon: string;
+  icon: FC<{ className: string }>;
   url: string;
 };
 
 const mainMenuItems: MenuItemType[] = [
   {
     title: "Start",
-    icon: start,
+    icon: StartIcon,
     url: routePaths.start,
   },
   {
     title: "Favorite",
-    icon: favorite,
+    icon: FavoriteIcon,
     url: routePaths.favorites,
   },
   {
     title: "Progress",
-    icon: progress,
+    icon: ProgressIcon,
     url: routePaths.progress,
   },
   {
     title: "Orders",
-    icon: orders,
+    icon: OrdersIcon,
     url: routePaths.orders,
   },
   {
     title: "More",
-    icon: more,
+    icon: MoreIcon,
     url: routePaths.more,
   },
 ];
