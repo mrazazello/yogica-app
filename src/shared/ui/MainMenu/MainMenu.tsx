@@ -1,3 +1,4 @@
+import { routePaths } from "app/routes";
 import { FC } from "react";
 import { MainMenuItem } from "./MainMenuItem";
 import favorite from "./assets/favorite.svg";
@@ -8,26 +9,37 @@ import start from "./assets/start.svg";
 
 interface IProps {}
 
-const mainMenuItems = [
+type MenuItemType = {
+  title: string;
+  icon: string;
+  url: string;
+};
+
+const mainMenuItems: MenuItemType[] = [
   {
     title: "Start",
     icon: start,
+    url: routePaths.start,
   },
   {
     title: "Favorite",
     icon: favorite,
+    url: routePaths.favorites,
   },
   {
     title: "Progress",
     icon: progress,
+    url: routePaths.progress,
   },
   {
     title: "Orders",
     icon: orders,
+    url: routePaths.orders,
   },
   {
     title: "More",
     icon: more,
+    url: routePaths.more,
   },
 ];
 
@@ -35,7 +47,7 @@ export const MainMenu: FC<IProps> = () => {
   return (
     <div className="flex flex-wrap justify-between h-16 p-10px w-screen bg-blue-400 text-white">
       {mainMenuItems.map((item) => (
-        <MainMenuItem title={item.title} icon={item.icon} />
+        <MainMenuItem key={item.title} item={item} />
       ))}
     </div>
   );
