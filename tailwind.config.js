@@ -47,6 +47,10 @@ export default {
         300: "#2B6B54",
       },
     },
+    aspectRatio: {
+      "2/1": "2 / 1",
+      "4/3": "4 / 3",
+    },
   },
   plugins: [],
 };

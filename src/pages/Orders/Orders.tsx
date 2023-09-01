@@ -1,12 +1,7 @@
 import { AppLayout } from "app/AppLayout";
-import { ContentWrapper } from "shared/ui/ContentWrapper/ContentWrapper";
 
 function Orders() {
-  return (
-    <AppLayout title="Orders">
-      <ContentWrapper valign="center">dddd</ContentWrapper>
-    </AppLayout>
-  );
+  return <AppLayout title="Orders">asasdasd</AppLayout>;
 }
 
 export default Orders;
