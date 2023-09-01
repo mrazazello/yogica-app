@@ -40,7 +40,7 @@ export const InputComponent: FC<IProps> = (props: IProps) => {
 
   const input = (
     <input
-      className="bg-white border border-blue-200 text-blue-200 text-xl rounded-md focus:ring-blue-300 focus:border-blue-300 block w-full p-2.5"
+      className="bg-white border border-blue-200 text-black text-xl rounded-md focus:ring-blue-300 focus:border-blue-300 block w-full p-2.5"
       name={name}
       value={value}
       onChange={onChangeHandler}

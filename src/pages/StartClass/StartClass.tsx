@@ -5,6 +5,15 @@ import { Input } from "shared/ui/Input/Input";
 import { Select } from "shared/ui/Select/Select";
 import { VSpace } from "shared/ui/VSpace/VSpace";
 
+const people = [
+  { name: "Wade Cooper 2" },
+  { name: "Arlene Mccoy" },
+  { name: "Devon Webb" },
+  { name: "Tom Cook" },
+  { name: "Tanya Fox" },
+  { name: "Hellen Schmidt" },
+];
+
 function StartClass() {
   return (
     <AppLayout title="Start Class #1">
@@ -14,7 +23,7 @@ function StartClass() {
         <Input name="level" placeholder="Pranoyama" required />
         <Input name="level" placeholder="Chanting" required />
         <Input name="level" placeholder="Shavasana" required />
-        <Select />
+        <Select placeholder="Test" name="test" data={people} />
         <VSpace />
         <Button text="Start" />
       </ContentWrapper>

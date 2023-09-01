@@ -1,12 +1,13 @@
-import { routePaths } from "app/routes";
 import { FC } from "react";
-import { MainMenuItem } from "./MainMenuItem";
 
+import { routePaths } from "shared/config/router/routes";
+
+import { MainMenuItem } from "./MainMenuItem";
 import { FavoriteIcon } from "./icons/Favorite";
-import { StartIcon } from "./icons/Start";
 import { MoreIcon } from "./icons/More";
 import { OrdersIcon } from "./icons/Orders";
 import { ProgressIcon } from "./icons/Progress";
+import { StartIcon } from "./icons/Start";
 
 interface IProps {}
 
