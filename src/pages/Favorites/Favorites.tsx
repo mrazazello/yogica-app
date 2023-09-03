@@ -1,30 +1,45 @@
 import { AppLayout } from "app/AppLayout";
-import { H123 } from "shared/ui/H123/H123";
-import { TextLine } from "shared/ui/Text/TextLine";
-import { VSpace } from "shared/ui/VSpace/VSpace";
-import { VideoPreview } from "shared/ui/VideoPreview/VideoPreview";
+import { FavoritesItem } from "./FavoritesItem";
 
-function Favorites() {
+const favorites = [
+  {
+    id: "1",
+    title: "Class #111",
+    url: "/temp/videoScreen.jpg",
+    duration: "23",
+    level: "Zero level",
+  },
+  {
+    id: "2",
+    title: "Class #111",
+    url: "/temp/videoScreen.jpg",
+    duration: "23",
+    level: "Zero level",
+  },
+  {
+    id: "3",
+    title: "Class #111",
+    url: "/temp/videoScreen.jpg",
+    duration: "23",
+    level: "Zero level",
+  },
+  {
+    id: "4",
+    title: "Class #111",
+    url: "/temp/videoScreen.jpg",
+    duration: "23",
+    level: "Zero level",
+  },
+];
+
+const Favorites = () => {
   return (
     <AppLayout title="Favorites">
-      <div className="w-full">
-        <VideoPreview url="/temp/videoScreen.jpg" />
-        <H123 title="Class #111" type="h2" />
-        <TextLine text="25 min duration, Zero Level" />
-      </div>
-      <VSpace />
-      <div className="w-full">
-        <VideoPreview url="/temp/videoScreen.jpg" />
-        <H123 title="Class #123" type="h2" />
-        <TextLine text="25 min duration, Zero Level" />
-      </div>
-      <div className="w-full">
-        <VideoPreview url="/temp/videoScreen.jpg" />
-        <H123 title="Class #123" type="h2" />
-        <TextLine text="25 min duration, Zero Level" />
-      </div>
+      {favorites.map((item) => (
+        <FavoritesItem key={item.id} item={item} />
+      ))}
     </AppLayout>
   );
-}
+};
 
 export default Favorites;

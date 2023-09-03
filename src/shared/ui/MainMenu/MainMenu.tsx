@@ -46,10 +46,16 @@ const mainMenuItems: MenuItemType[] = [
 ];
 
 export const MainMenu: FC<IProps> = () => {
+  const location = window.location.pathname;
+
   return (
     <div className="flex flex-wrap justify-between h-16 p-10px w-screen bg-blue-400 text-white">
       {mainMenuItems.map((item) => (
-        <MainMenuItem key={item.title} item={item} />
+        <MainMenuItem
+          key={item.title}
+          item={item}
+          current={location === item.url}
+        />
       ))}
     </div>
   );

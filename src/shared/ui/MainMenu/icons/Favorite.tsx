@@ -17,8 +17,8 @@ export const FavoriteIcon: FC<IProps> = ({ className }) => {
       <path
         d="M4.75 4V20L12.25 15.5L19.75 20V4H4.75Z"
         stroke="currentColor"
-        stroke-width="2"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinejoin="round"
       />
     </svg>
   );

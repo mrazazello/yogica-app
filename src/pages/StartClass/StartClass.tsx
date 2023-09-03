@@ -11,6 +11,18 @@ const people = [
   { name: "Tom Cook" },
   { name: "Tanya Fox" },
   { name: "Hellen Schmidt" },
+  { name: "Wade Cooper 2" },
+  { name: "Arlene Mccoy" },
+  { name: "Devon Webb" },
+  { name: "Tom Cook" },
+  { name: "Tanya Fox" },
+  { name: "Hellen Schmidt" },
+  { name: "Wade Cooper 2" },
+  { name: "Arlene Mccoy" },
+  { name: "Devon Webb" },
+  { name: "Tom Cook" },
+  { name: "Tanya Fox" },
+  { name: "Hellen Schmidt" },
 ];
 
 function StartClass() {

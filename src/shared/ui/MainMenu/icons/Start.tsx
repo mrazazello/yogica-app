@@ -20,14 +20,14 @@ export const StartIcon: FC<IProps> = ({ className }) => {
         rx="7"
         ry="3"
         stroke="currentColor"
-        stroke-width="2"
+        strokeWidth="2"
       />
       <path
         d="M11.5 10.5L21.5 6.5L11.5 2.5L11.5 10.5ZM11.5 10.5V18"
         stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

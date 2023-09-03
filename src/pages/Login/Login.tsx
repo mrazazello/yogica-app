@@ -1,12 +1,12 @@
 import { AppLayout } from "app/AppLayout";
 import { LoginForm } from "features/AuthByLogin";
 
-function MainPage() {
+const MainPage = () => {
   return (
     <AppLayout valign="center">
       <LoginForm />
     </AppLayout>
   );
-}
+};
 
 export default MainPage;

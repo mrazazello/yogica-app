@@ -15,7 +15,8 @@ export default {
     fontSize: {
       sm: "0.75rem",
       base: "0.875rem",
-      xl: "1rem",
+      lg: "1rem",
+      xl: "1.125rem",
       "2xl": "1.5rem",
       "3xl": "1.75rem",
     },
@@ -50,6 +51,9 @@ export default {
     aspectRatio: {
       "2/1": "2 / 1",
       "4/3": "4 / 3",
+    },
+    gridTemplateColumns: {
+      dateList: "minmax(min-content, 25%) 1fr",
     },
   },
   plugins: [],
