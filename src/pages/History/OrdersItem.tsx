@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { Price } from "shared/ui/Price/Price";
 import { TextLine } from "shared/ui/Text/TextLine";
 
 interface IProps {
@@ -16,9 +17,7 @@ export const OrdersItem: FC<IProps> = (props) => {
     <div className="grid grid-cols-dateList gap-x-4 mb-4">
       <TextLine text={date} align="right" />
       <div>
-        <span className="text-black font-bold text-[0.875rem]">
-          $<span className="text-[1.25rem] ">{summ}</span>.00
-        </span>
+        <Price sum={summ} />
         <TextLine text={` / ${plan}`} inline />
         <TextLine text={period} />
       </div>

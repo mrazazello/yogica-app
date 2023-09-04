@@ -7,9 +7,11 @@ import { Preloader } from "shared/ui/Preloader/Preloader";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <Suspense fallback={<Preloader />}>
-      <RouterProvider router={router} />
-    </Suspense>
-  </React.StrictMode>
+  <div className="w-screen h-screen">
+    <React.StrictMode>
+      <Suspense fallback={<Preloader />}>
+        <RouterProvider router={router} />
+      </Suspense>
+    </React.StrictMode>
+  </div>
 );

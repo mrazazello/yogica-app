@@ -1,6 +1,7 @@
 import { RouteObject, createBrowserRouter } from "react-router-dom";
 
 import { FavoritesAsync } from "pages/Favorites/FavoritesAsync";
+import { HistoryAsyns } from "pages/History/HistoryAsyns";
 import { LoginAsync } from "pages/Login/LoginAsync";
 import { MoreAsyns } from "pages/More/MoreAsync";
 import { OrdersAsyns } from "pages/Orders/OrdersAsyns";
@@ -14,6 +15,7 @@ enum AppRoutesEnum {
   FAVORITES = "favorites",
   PROGRESS = "progress",
   ORDERS = "orders",
+  HISTORY = "history",
   MORE = "more",
 
   REGISTRATION = "registration",
@@ -26,6 +28,7 @@ export const routePaths: Record<AppRoutesEnum, string> = {
   [AppRoutesEnum.FAVORITES]: "/favorites",
   [AppRoutesEnum.PROGRESS]: "/progress",
   [AppRoutesEnum.ORDERS]: "/orders",
+  [AppRoutesEnum.HISTORY]: "/history",
   [AppRoutesEnum.MORE]: "/more",
 
   [AppRoutesEnum.REGISTRATION]: "/reg",
@@ -52,6 +55,10 @@ const routeConfig: Record<AppRoutesEnum, RouteObject> = {
   [AppRoutesEnum.ORDERS]: {
     path: routePaths.orders,
     element: <OrdersAsyns />,
+  },
+  [AppRoutesEnum.HISTORY]: {
+    path: routePaths.history,
+    element: <HistoryAsyns />,
   },
   [AppRoutesEnum.MORE]: {
     path: routePaths.more,
