@@ -1,6 +1,7 @@
 import { Listbox, Transition } from "@headlessui/react";
 import { FC, Fragment, useState } from "react";
 // import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
+import { FOCUS_STYLES } from "shared/consts/styles";
 import ChevronUpDownIcon from "./ChevronUpDown.svg";
 
 interface IProps {
@@ -24,7 +25,9 @@ export const Select: FC<IProps> = (props) => {
 
         <Listbox value={selected} onChange={setSelected}>
           <div className="relative mt-1">
-            <Listbox.Button className="relative w-full cursor-default rounded-md bg-white border border-blue-200 py-2.5 pl-3 pr-10 text-black text-left text-xl focus:outline-none focus-visible:border-blue-300 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-200">
+            <Listbox.Button
+              className={`relative w-full cursor-default rounded-md bg-white border border-blue-200 py-2.5 pl-3 pr-10 text-black text-left text-xl ${FOCUS_STYLES}`}
+            >
               <span className="block truncate">{selected.name}</span>
               <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                 <img

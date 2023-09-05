@@ -3,58 +3,68 @@ import { Link } from "react-router-dom";
 import { routePaths } from "shared/config/router/routes";
 import { Alert } from "shared/ui/Alert/Alert";
 import { Button } from "shared/ui/Button/Button";
-import { VSpace } from "shared/ui/VSpace/VSpace";
+import { Price } from "shared/ui/Price/Price";
+import { RadioBordered } from "shared/ui/RadioBordered/RadioBordered";
+import { TextLine } from "shared/ui/Text/TextLine";
+
+const El1 = (
+  <div className="w-full flex justify-between">
+    <div>
+      <Price sum="120.00" />
+      <TextLine text="12 Month Membership" />
+    </div>
+    <div>
+      <Price sum="10.00" />
+      <TextLine text="/ Day" />
+    </div>
+  </div>
+);
+
+const El2 = (
+  <div className="w-full flex justify-between">
+    <div>
+      <Price sum="20.00" />
+      <TextLine text="12 Month Membership" />
+    </div>
+    <div>
+      <Price sum="0.67" />
+      <TextLine text="/ Day" />
+    </div>
+  </div>
+);
+
+const options = [
+  {
+    label: El1,
+    value: "1",
+  },
+  {
+    label: El2,
+    value: "2",
+  },
+  {
+    label: "sadasdas",
+    value: "3",
+  },
+];
 
 const Orders = () => {
   return (
     <AppLayout title="Orders">
-      <Alert
-        type="warning"
-        title="Your trial period is activated"
-        description="
-      It will end on 14.09.2023 12:35 UTC. You can renew our service by clicking on 'Subscribe' button"
-      />
-      <VSpace />
-
-      <div className="flex items-center pl-4 border border-green-200 rounded-md">
-        <input
-          id="bordered-radio-1"
-          type="radio"
-          value=""
-          name="bordered-radio"
-          className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-400 focus:ring-2"
+      <div className="flex flex-col gap-10px">
+        <Alert
+          type="warning"
+          title="Your trial period is activated"
+          description="It will end on 14.09.2023 12:35 UTC. You can renew our service by clicking on 'Subscribe' button"
         />
-        <label
-          htmlFor="bordered-radio-1"
-          className="w-full py-4 ml-2 text-sm font-medium text-black"
-        >
-          Default radio
-        </label>
-      </div>
 
-      <div className="flex items-center pl-4 border border-gray-200 rounded-md">
-        <input
-          checked
-          id="bordered-radio-2"
-          type="radio"
-          value=""
-          name="bordered-radio"
-          className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-400 focus:ring-2"
-        />
-        <label
-          htmlFor="bordered-radio-2"
-          className="w-full py-4 ml-2 text-sm font-medium text-black"
-        >
-          Checked state
-        </label>
-      </div>
+        <RadioBordered data={options} name="tariff" selected="1" />
 
-      <VSpace />
-      <Button text="Start" />
-      <VSpace />
-      <Link to={routePaths.history} className="text-center">
-        History of the payments
-      </Link>
+        <Button text="Start" />
+        <Link to={routePaths.history} className="text-center">
+          History of the payments
+        </Link>
+      </div>
     </AppLayout>
   );
 };

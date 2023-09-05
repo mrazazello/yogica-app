@@ -11,7 +11,7 @@ interface IProps {
   };
 }
 
-export const OrdersItem: FC<IProps> = (props) => {
+export const HistoryItem: FC<IProps> = (props) => {
   const { date, summ, plan, period } = props.item;
   return (
     <div className="grid grid-cols-dateList gap-x-4 mb-4">

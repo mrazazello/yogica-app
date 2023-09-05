@@ -1,5 +1,5 @@
 import { AppLayout } from "app/AppLayout";
-import { OrdersItem } from "./OrdersItem";
+import { HistoryItem } from "./HistoryItem";
 
 const orders = [
   {
@@ -36,7 +36,7 @@ const History = () => {
   return (
     <AppLayout title="History of payments">
       {orders.map((item) => (
-        <OrdersItem key={item.id} item={item} />
+        <HistoryItem key={item.id} item={item} />
       ))}
     </AppLayout>
   );

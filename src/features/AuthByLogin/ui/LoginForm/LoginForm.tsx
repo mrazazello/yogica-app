@@ -7,6 +7,7 @@ import { Input } from "shared/ui/Input/Input";
 import { TextLine } from "shared/ui/Text/TextLine";
 import { VSpace } from "shared/ui/VSpace/VSpace";
 
+import { routePaths } from "shared/config/router/routes";
 import fb from "/facebook.svg";
 import gl from "/google.svg";
 import tg from "/telegram.svg";
@@ -32,7 +33,8 @@ export const LoginForm: FC = () => {
       <TextLine
         text={
           <>
-            Already registered? <Link to="/">Registration is here</Link>
+            Already registered?{" "}
+            <Link to={routePaths.registration}>Registration is here</Link>
           </>
         }
         align="center"

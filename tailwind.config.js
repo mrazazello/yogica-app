@@ -11,6 +11,9 @@ export default {
         "10px": "10px",
         "20px": "20px",
       },
+      outlineWidth: {
+        3: "3px",
+      },
     },
     fontSize: {
       sm: "0.75rem",
