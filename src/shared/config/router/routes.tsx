@@ -1,5 +1,6 @@
 import { RouteObject, createBrowserRouter } from "react-router-dom";
 
+import { ClassDetailAsync } from "pages/ClassDatail/ClassDatailAsync";
 import { FavoritesAsync } from "pages/Favorites/FavoritesAsync";
 import { HistoryAsyns } from "pages/History/HistoryAsyns";
 import { LoginAsync } from "pages/Login/LoginAsync";
@@ -18,6 +19,8 @@ enum AppRoutesEnum {
   HISTORY = "history",
   MORE = "more",
 
+  CLASS_DETAIL = "classDetail",
+
   REGISTRATION = "registration",
   NOT_FOUND = "not_found",
 }
@@ -30,6 +33,8 @@ export const routePaths: Record<AppRoutesEnum, string> = {
   [AppRoutesEnum.ORDERS]: "/orders",
   [AppRoutesEnum.HISTORY]: "/history",
   [AppRoutesEnum.MORE]: "/more",
+
+  [AppRoutesEnum.CLASS_DETAIL]: "/class",
 
   [AppRoutesEnum.REGISTRATION]: "/reg",
   [AppRoutesEnum.NOT_FOUND]: "*",
@@ -63,6 +68,10 @@ const routeConfig: Record<AppRoutesEnum, RouteObject> = {
   [AppRoutesEnum.MORE]: {
     path: routePaths.more,
     element: <MoreAsyns />,
+  },
+  [AppRoutesEnum.CLASS_DETAIL]: {
+    path: routePaths.classDetail,
+    element: <ClassDetailAsync />,
   },
 
   [AppRoutesEnum.REGISTRATION]: {

@@ -49,7 +49,7 @@ export const MainMenu: FC<IProps> = () => {
   const location = window.location.pathname;
 
   return (
-    <div className="flex flex-wrap justify-between h-16 p-10px w-screen bg-blue-400 text-white">
+    <div className="w-full h-16 p-10px flex justify-between bg-blue-400 text-white">
       {mainMenuItems.map((item) => (
         <MainMenuItem
           key={item.title}

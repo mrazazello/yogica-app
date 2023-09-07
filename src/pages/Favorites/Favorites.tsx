@@ -35,9 +35,11 @@ const favorites = [
 const Favorites = () => {
   return (
     <AppLayout title="Favorites">
-      {favorites.map((item) => (
-        <FavoritesItem key={item.id} item={item} />
-      ))}
+      <div className="flex flex-col gap-20px">
+        {favorites.map((item) => (
+          <FavoritesItem key={item.id} item={item} />
+        ))}
+      </div>
     </AppLayout>
   );
 };

@@ -8,7 +8,7 @@ interface IProps {
 export const Header: FC<IProps> = (props) => {
   const { title } = props;
   return (
-    <div className="flex w-screen items-center pt-4 pb-2 pl-2 pr-2 flex-col border-b border-solid border-gray-300">
+    <div className="w-full flex items-center justify-center py-2 px-2 border-b border-solid border-gray-300">
       {title ? (
         <h1 className="text-3xl font-bold">{title}</h1>
       ) : (

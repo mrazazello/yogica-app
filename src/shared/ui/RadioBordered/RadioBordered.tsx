@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useCallback, useState } from "react";
 
 export interface IRadioOptions {
   label: string | React.ReactElement;
@@ -16,10 +16,13 @@ export const RadioBordered: FC<IProps> = (props) => {
   const { name, selected, data, onChange } = props;
   const [current, setCurrent] = useState<string | undefined>(selected);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCurrent(e.target.value);
-    onChange?.(e.target.value);
-  };
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setCurrent(e.target.value);
+      onChange?.(e.target.value);
+    },
+    [onChange]
+  );
 
   return (
     <>
