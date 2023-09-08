@@ -1,11 +1,11 @@
 import { RouteObject, createBrowserRouter } from "react-router-dom";
 
-import { ClassDetailAsync } from "pages/ClassDatail/ClassDatailAsync";
+import { ClassAsync } from "pages/ClassDatail/ClassAsync";
 import { FavoritesAsync } from "pages/Favorites/FavoritesAsync";
-import { HistoryAsyns } from "pages/History/HistoryAsyns";
 import { LoginAsync } from "pages/Login/LoginAsync";
 import { MoreAsyns } from "pages/More/MoreAsync";
-import { OrdersAsyns } from "pages/Orders/OrdersAsyns";
+import { OrderAsyns } from "pages/Orders/OrderAsyns";
+import { PaymentsAsyns } from "pages/Payments/PaymentsAsyns";
 import { ProgressAsync } from "pages/Progress/ProgressAsync";
 import { RegistrationAsync } from "pages/Registration/RegistrationAsync";
 import { StartClassAsync } from "pages/StartClass/StartClassAsync";
@@ -59,11 +59,11 @@ const routeConfig: Record<AppRoutesEnum, RouteObject> = {
   },
   [AppRoutesEnum.ORDERS]: {
     path: routePaths.orders,
-    element: <OrdersAsyns />,
+    element: <OrderAsyns />,
   },
   [AppRoutesEnum.HISTORY]: {
     path: routePaths.history,
-    element: <HistoryAsyns />,
+    element: <PaymentsAsyns />,
   },
   [AppRoutesEnum.MORE]: {
     path: routePaths.more,
@@ -71,7 +71,7 @@ const routeConfig: Record<AppRoutesEnum, RouteObject> = {
   },
   [AppRoutesEnum.CLASS_DETAIL]: {
     path: routePaths.classDetail,
-    element: <ClassDetailAsync />,
+    element: <ClassAsync />,
   },
 
   [AppRoutesEnum.REGISTRATION]: {

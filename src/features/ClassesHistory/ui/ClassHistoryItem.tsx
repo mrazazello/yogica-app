@@ -11,7 +11,7 @@ interface IProps {
   };
 }
 
-export const ProgressItem: FC<IProps> = (props) => {
+export const ClassHistoryItem: FC<IProps> = (props) => {
   const { date, title, duration, level } = props.item;
   return (
     <div className="grid grid-cols-dateList gap-4 mb-20px">

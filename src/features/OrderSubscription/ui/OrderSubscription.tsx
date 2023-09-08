@@ -1,5 +1,5 @@
-import { AppLayout } from "app/AppLayout";
 import { Link } from "react-router-dom";
+
 import { routePaths } from "shared/config/router/routes";
 import { Alert } from "shared/ui/Alert/Alert";
 import { Button } from "shared/ui/Button/Button";
@@ -48,25 +48,21 @@ const options = [
   },
 ];
 
-const Orders = () => {
+export const OrderSubscription = () => {
   return (
-    <AppLayout title="Orders">
-      <div className="flex flex-col gap-10px">
-        <Alert
-          type="warning"
-          title="Your trial period is activated"
-          description="It will end on 14.09.2023 12:35 UTC. You can renew our service by clicking on 'Subscribe' button"
-        />
+    <div className="flex flex-col gap-10px">
+      <Alert
+        type="warning"
+        title="Your trial period is activated"
+        description="It will end on 14.09.2023 12:35 UTC. You can renew our service by clicking on 'Subscribe' button"
+      />
 
-        <RadioBordered data={options} name="tariff" selected="1" />
+      <RadioBordered data={options} name="tariff" selected="1" />
 
-        <Button text="Start" />
-        <Link to={routePaths.history} className="text-center">
-          History of the payments
-        </Link>
-      </div>
-    </AppLayout>
+      <Button text="Start" />
+      <Link to={routePaths.history} className="text-center">
+        History of the payments
+      </Link>
+    </div>
   );
 };
-
-export default Orders;

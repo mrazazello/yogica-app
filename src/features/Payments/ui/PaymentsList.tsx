@@ -1,5 +1,4 @@
-import { AppLayout } from "app/AppLayout";
-import { HistoryItem } from "./HistoryItem";
+import { PaymentsItem } from "./PaymentsItem";
 
 const orders = [
   {
@@ -32,14 +31,12 @@ const orders = [
   },
 ];
 
-const History = () => {
+export const PaymentsList = () => {
   return (
-    <AppLayout title="History of payments">
+    <>
       {orders.map((item) => (
-        <HistoryItem key={item.id} item={item} />
+        <PaymentsItem key={item.id} item={item} />
       ))}
-    </AppLayout>
+    </>
   );
 };
-
-export default History;

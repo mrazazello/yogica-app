@@ -1,14 +1,13 @@
-import { AppLayout } from "app/AppLayout";
+import { Button } from "shared/ui/Button/Button";
 import { TextLine } from "shared/ui/Text/TextLine";
 import { VideoPreview } from "shared/ui/VideoPreview/VideoPreview";
-import { ExerciseItem } from "./ExerciseItem";
 
-import { Button } from "shared/ui/Button/Button";
+import { ExerciseItem } from "./ExerciseItem";
 import FavoriteIcon from "./favorite.svg";
 
-const ClassDetail = () => {
+export const ClassDetail = () => {
   return (
-    <AppLayout title="Class # 111" noPadding={true}>
+    <>
       <div className="w-full h-auto p-10px ">
         <VideoPreview url="/temp/videoScreen.jpg" />
         <div className="flex justify-between">
@@ -33,8 +32,6 @@ const ClassDetail = () => {
       <div className="w-full p-10px border-t border-blue-200">
         <Button text="Start" wFull />
       </div>
-    </AppLayout>
+    </>
   );
 };
-
-export default ClassDetail;
