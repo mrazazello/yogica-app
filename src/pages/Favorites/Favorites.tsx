@@ -1,5 +1,5 @@
-import { AppLayout } from "app/AppLayout";
-import { FavoritesList } from "features/Favorites";
+import { AppLayout } from "@app/AppLayout";
+import { FavoritesList } from "@features/Favorites";
 
 const Favorites = () => {
   return (

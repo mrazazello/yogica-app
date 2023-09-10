@@ -1,6 +1,6 @@
+import { H123 } from "@shared/ui/H123/H123";
+import { TextLine } from "@shared/ui/Text/TextLine";
 import { FC } from "react";
-import { H123 } from "shared/ui/H123/H123";
-import { TextLine } from "shared/ui/Text/TextLine";
 
 interface IProps {
   item: {

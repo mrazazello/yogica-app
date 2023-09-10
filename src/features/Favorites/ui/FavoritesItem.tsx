@@ -1,9 +1,9 @@
+import { routePaths } from "@shared/config/router/routes";
+import { H123 } from "@shared/ui/H123/H123";
+import { TextLine } from "@shared/ui/Text/TextLine";
+import { VideoPreview } from "@shared/ui/VideoPreview/VideoPreview";
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import { routePaths } from "shared/config/router/routes";
-import { H123 } from "shared/ui/H123/H123";
-import { TextLine } from "shared/ui/Text/TextLine";
-import { VideoPreview } from "shared/ui/VideoPreview/VideoPreview";
 
 interface IProps {
   item: {

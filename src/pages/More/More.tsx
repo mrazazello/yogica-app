@@ -1,5 +1,5 @@
-import { AppLayout } from "app/AppLayout";
-import { FoldresList } from "shared/ui/FoldersList/FoldersList";
+import { AppLayout } from "@app/AppLayout";
+import { FoldresList } from "@shared/ui/FoldersList/FoldersList";
 
 const More = () => {
   return (

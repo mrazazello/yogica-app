@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { routePaths } from "shared/config/router/routes";
+import { routePaths } from "@shared/config/router/routes";
 
 import { MainMenuItem } from "./MainMenuItem";
 import { FavoriteIcon } from "./icons/Favorite";

@@ -1,6 +1,6 @@
-import { Button } from "shared/ui/Button/Button";
-import { TextLine } from "shared/ui/Text/TextLine";
-import { VideoPreview } from "shared/ui/VideoPreview/VideoPreview";
+import { Button } from "@shared/ui/Button/Button";
+import { TextLine } from "@shared/ui/Text/TextLine";
+import { VideoPreview } from "@shared/ui/VideoPreview/VideoPreview";
 
 import { ExerciseItem } from "./ExerciseItem";
 import FavoriteIcon from "./favorite.svg";

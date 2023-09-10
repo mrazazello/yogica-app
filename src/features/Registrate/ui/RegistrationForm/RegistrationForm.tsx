@@ -1,8 +1,8 @@
-import { Button } from "shared/ui/Button/Button";
-import { H123 } from "shared/ui/H123/H123";
-import { Input } from "shared/ui/Input/Input";
-import { TextLine } from "shared/ui/Text/TextLine";
-import { VSpace } from "shared/ui/VSpace/VSpace";
+import { Button } from "@shared/ui/Button/Button";
+import { H123 } from "@shared/ui/H123/H123";
+import { Input } from "@shared/ui/Input/Input";
+import { TextLine } from "@shared/ui/Text/TextLine";
+import { VSpace } from "@shared/ui/VSpace/VSpace";
 
 import fb from "/facebook.svg";
 import gl from "/google.svg";

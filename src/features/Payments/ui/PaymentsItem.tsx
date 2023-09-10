@@ -1,6 +1,6 @@
+import { Price } from "@shared/ui/Price/Price";
+import { TextLine } from "@shared/ui/Text/TextLine";
 import { FC } from "react";
-import { Price } from "shared/ui/Price/Price";
-import { TextLine } from "shared/ui/Text/TextLine";
 
 interface IProps {
   item: {

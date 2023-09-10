@@ -1,7 +1,7 @@
+import { cn } from "@shared/lib/classNames/classNames";
+import { Header } from "@shared/ui/Header/Header";
+import { MainMenu } from "@shared/ui/MainMenu/MainMenu";
 import { FC } from "react";
-import { cn } from "shared/lib/classNames/classNames";
-import { Header } from "shared/ui/Header/Header";
-import { MainMenu } from "shared/ui/MainMenu/MainMenu";
 
 interface IProps {
   title?: string;

@@ -1,5 +1,5 @@
-import { AppLayout } from "app/AppLayout";
-import { RegistrationForm } from "features/Registrate";
+import { AppLayout } from "@app/AppLayout";
+import { RegistrationForm } from "@features/Registrate";
 
 const Registration = () => {
   return (

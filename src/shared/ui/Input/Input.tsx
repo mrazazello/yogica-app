@@ -1,5 +1,5 @@
 import { FC, InputHTMLAttributes, memo, useEffect, useRef } from "react";
-import { FOCUS_STYLES } from "shared/consts/styles";
+import { FOCUS_STYLES } from "@shared/consts/styles";
 
 type HTMLInputPropsType = Omit<
   InputHTMLAttributes<HTMLInputElement>,

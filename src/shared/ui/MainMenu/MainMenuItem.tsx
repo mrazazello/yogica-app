@@ -1,6 +1,6 @@
+import { cn } from "@shared/lib/classNames/classNames";
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import { cn } from "shared/lib/classNames/classNames";
 
 interface IProps {
   current: boolean;

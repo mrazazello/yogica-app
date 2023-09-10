@@ -1,14 +1,14 @@
 import { RouteObject, createBrowserRouter } from "react-router-dom";
 
-import { ClassAsync } from "pages/ClassDatail/ClassAsync";
-import { FavoritesAsync } from "pages/Favorites/FavoritesAsync";
-import { LoginAsync } from "pages/Login/LoginAsync";
-import { MoreAsyns } from "pages/More/MoreAsync";
-import { OrderAsyns } from "pages/Orders/OrderAsyns";
-import { PaymentsAsyns } from "pages/Payments/PaymentsAsyns";
-import { ProgressAsync } from "pages/Progress/ProgressAsync";
-import { RegistrationAsync } from "pages/Registration/RegistrationAsync";
-import { StartClassAsync } from "pages/StartClass/StartClassAsync";
+import { ClassAsync } from "@pages/ClassDatail/ClassAsync";
+import { FavoritesAsync } from "@pages/Favorites/FavoritesAsync";
+import { LoginAsync } from "@pages/Login/LoginAsync";
+import { MoreAsyns } from "@pages/More/MoreAsync";
+import { OrderAsyns } from "@pages/Orders/OrderAsyns";
+import { PaymentsAsyns } from "@pages/Payments/PaymentsAsyns";
+import { ProgressAsync } from "@pages/Progress/ProgressAsync";
+import { RegistrationAsync } from "@pages/Registration/RegistrationAsync";
+import { StartClassAsync } from "@pages/StartClass/StartClassAsync";
 
 enum AppRoutesEnum {
   MAIN = "main",

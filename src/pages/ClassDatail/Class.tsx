@@ -1,5 +1,5 @@
-import { AppLayout } from "app/AppLayout";
-import { ClassDetail } from "features/ClassDetail";
+import { AppLayout } from "@app/AppLayout";
+import { ClassDetail } from "@features/ClassDetail";
 
 const Class = () => {
   return (

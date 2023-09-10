@@ -1,4 +1,4 @@
-import { FolderCard } from "shared/ui/FolderCard/FolderCard";
+import { FolderCard } from "@shared/ui/FolderCard/FolderCard";
 
 import LogoutIcon from "./icons/logout.svg";
 import SettingsIcon from "./icons/settings.svg";

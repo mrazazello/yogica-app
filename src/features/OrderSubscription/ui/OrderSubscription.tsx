@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
-import { routePaths } from "shared/config/router/routes";
-import { Alert } from "shared/ui/Alert/Alert";
-import { Button } from "shared/ui/Button/Button";
-import { Price } from "shared/ui/Price/Price";
-import { RadioBordered } from "shared/ui/RadioBordered/RadioBordered";
-import { TextLine } from "shared/ui/Text/TextLine";
+import { routePaths } from "@shared/config/router/routes";
+import { Alert } from "@shared/ui/Alert/Alert";
+import { Button } from "@shared/ui/Button/Button";
+import { Price } from "@shared/ui/Price/Price";
+import { RadioBordered } from "@shared/ui/RadioBordered/RadioBordered";
+import { TextLine } from "@shared/ui/Text/TextLine";
 
 const El1 = (
   <div className="w-full flex justify-between">

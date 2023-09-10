@@ -1,8 +1,8 @@
-import { AppLayout } from "app/AppLayout";
-import { Button } from "shared/ui/Button/Button";
-import { Input } from "shared/ui/Input/Input";
-import { Select } from "shared/ui/Select/Select";
-import { VSpace } from "shared/ui/VSpace/VSpace";
+import { AppLayout } from "@app/AppLayout";
+import { Button } from "@shared/ui/Button/Button";
+import { Input } from "@shared/ui/Input/Input";
+import { Select } from "@shared/ui/Select/Select";
+import { VSpace } from "@shared/ui/VSpace/VSpace";
 
 const people = [
   { name: "Wade Cooper 2" },
