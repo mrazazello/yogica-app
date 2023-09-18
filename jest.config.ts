@@ -2,7 +2,7 @@ export default {
   preset: "ts-jest",
   testEnvironment: "jest-environment-jsdom",
   transform: {
-    "^.+\\.tsx?$": "ts-jest",
+    "^.+\\.tsx?$": "ts-jest"
     // process `*.tsx` files with `ts-jest`
   },
   moduleNameMapper: {
@@ -12,6 +12,6 @@ export default {
     "@pages/(.*)": "<rootDir>/src/pages/$1",
     "@entities/(.*)": "<rootDir>/src/entities/$1",
     "@features/(.*)": "<rootDir>/src/features/$1",
-    "@shared/(.*)": "<rootDir>/src/shared/$1",
-  },
+    "@shared/(.*)": "<rootDir>/src/shared/$1"
+  }
 };

@@ -8,17 +8,17 @@ const folders = [
   {
     title: "Profile",
     icon: ProfileIcon,
-    description: "User Settings, Birth Date, Age, Gender, Common Data",
+    description: "User Settings, Birth Date, Age, Gender, Common Data"
   },
   {
     title: "Settings",
     icon: SettingsIcon,
-    description: "Custom Application Parameters and Settings",
+    description: "Custom Application Parameters and Settings"
   },
   {
     title: "Logout",
-    icon: LogoutIcon,
-  },
+    icon: LogoutIcon
+  }
 ];
 
 export const FoldresList = () => {

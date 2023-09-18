@@ -19,14 +19,14 @@ export const MainMenuItem: FC<IProps> = (props) => {
       <div className="flex items-center justify-end flex-col">
         {icon({
           className: cn("text-blue-200 group-hover:text-green-200", {
-            "text-green-200": current,
-          }),
+            "text-green-200": current
+          })
         })}
         <span
           className={cn(
             "font-Nunito text-blue-200 text-xs group-hover:text-green-200",
             {
-              "text-green-200": current,
+              "text-green-200": current
             }
           )}
         >

@@ -22,7 +22,7 @@ export const TextLine: FC<IProps> = (props) => {
           "text-base": size === "base",
           "text-lg": size === "lg",
 
-          inline: inline === true,
+          inline: inline === true
         },
         []
       )}

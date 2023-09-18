@@ -10,32 +10,32 @@ const exercises = [
     id: "1",
     title: "Chuturanga",
     url: "/temp/exercisePreview.jpg",
-    duration: "2",
+    duration: "2"
   },
   {
     id: "2",
     title: "Chuturanga",
     url: "/temp/exercisePreview.jpg",
-    duration: "2",
+    duration: "2"
   },
   {
     id: "3",
     title: "Chuturanga",
     url: "/temp/exercisePreview.jpg",
-    duration: "3",
+    duration: "3"
   },
   {
     id: "4",
     title: "Chuturanga",
     url: "/temp/exercisePreview.jpg",
-    duration: "5",
+    duration: "5"
   },
   {
     id: "1",
     title: "Chuturanga",
     url: "/temp/exercisePreview.jpg",
-    duration: "2",
-  },
+    duration: "2"
+  }
 ];
 
 export const ClassDetail = () => {

@@ -20,7 +20,7 @@ export const H123: FC<IProps> = (props) => {
           "text-xl": type === "h3",
           "text-center": align === "center",
           "text-right": align === "right",
-          inline: inline,
+          inline: inline
         },
         []
       )}

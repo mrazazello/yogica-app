@@ -22,7 +22,7 @@ export const AppLayout: FC<IProps> = (props) => {
             "p-10px": !noPadding,
             "justify-start": valign === "top",
             "justify-center": valign === "center",
-            "justify-end": valign === "bottom",
+            "justify-end": valign === "bottom"
           }
         )}
       >

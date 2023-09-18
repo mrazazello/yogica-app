@@ -10,6 +10,6 @@ export const cn = (
     ...Object.keys(mods)
       .filter((el) => mods[el] === true)
       .map((el) => el),
-    ...addons.filter(Boolean),
+    ...addons.filter(Boolean)
   ].join(" ");
 };

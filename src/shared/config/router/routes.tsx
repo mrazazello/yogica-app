@@ -22,7 +22,7 @@ enum AppRoutesEnum {
   CLASS_DETAIL = "classDetail",
 
   REGISTRATION = "registration",
-  NOT_FOUND = "not_found",
+  NOT_FOUND = "not_found"
 }
 
 export const routePaths: Record<AppRoutesEnum, string> = {
@@ -37,51 +37,51 @@ export const routePaths: Record<AppRoutesEnum, string> = {
   [AppRoutesEnum.CLASS_DETAIL]: "/class",
 
   [AppRoutesEnum.REGISTRATION]: "/reg",
-  [AppRoutesEnum.NOT_FOUND]: "*",
+  [AppRoutesEnum.NOT_FOUND]: "*"
 };
 
 const routeConfig: Record<AppRoutesEnum, RouteObject> = {
   [AppRoutesEnum.MAIN]: {
     path: routePaths.main,
-    element: <LoginAsync />,
+    element: <LoginAsync />
   },
   [AppRoutesEnum.START]: {
     path: routePaths.start,
-    element: <StartClassAsync />,
+    element: <StartClassAsync />
   },
   [AppRoutesEnum.FAVORITES]: {
     path: routePaths.favorites,
-    element: <FavoritesAsync />,
+    element: <FavoritesAsync />
   },
   [AppRoutesEnum.PROGRESS]: {
     path: routePaths.progress,
-    element: <ProgressAsync />,
+    element: <ProgressAsync />
   },
   [AppRoutesEnum.ORDERS]: {
     path: routePaths.orders,
-    element: <OrderAsyns />,
+    element: <OrderAsyns />
   },
   [AppRoutesEnum.HISTORY]: {
     path: routePaths.history,
-    element: <PaymentsAsyns />,
+    element: <PaymentsAsyns />
   },
   [AppRoutesEnum.MORE]: {
     path: routePaths.more,
-    element: <MoreAsyns />,
+    element: <MoreAsyns />
   },
   [AppRoutesEnum.CLASS_DETAIL]: {
     path: routePaths.classDetail,
-    element: <ClassAsync />,
+    element: <ClassAsync />
   },
 
   [AppRoutesEnum.REGISTRATION]: {
     path: routePaths.registration,
-    element: <RegistrationAsync />,
+    element: <RegistrationAsync />
   },
   [AppRoutesEnum.NOT_FOUND]: {
     path: routePaths.not_found,
-    element: <RegistrationAsync />,
-  },
+    element: <RegistrationAsync />
+  }
 };
 
 export const router = createBrowserRouter(Object.values(routeConfig));

@@ -21,7 +21,7 @@ const people = [
   { name: "Devon Webb" },
   { name: "Tom Cook" },
   { name: "Tanya Fox" },
-  { name: "Hellen Schmidt" },
+  { name: "Hellen Schmidt" }
 ];
 
 export const StartClassForm = () => {

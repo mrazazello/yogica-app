@@ -21,28 +21,28 @@ const mainMenuItems: MenuItemType[] = [
   {
     title: "Start",
     icon: StartIcon,
-    url: routePaths.start,
+    url: routePaths.start
   },
   {
     title: "Favorite",
     icon: FavoriteIcon,
-    url: routePaths.favorites,
+    url: routePaths.favorites
   },
   {
     title: "Progress",
     icon: ProgressIcon,
-    url: routePaths.progress,
+    url: routePaths.progress
   },
   {
     title: "Orders",
     icon: OrdersIcon,
-    url: routePaths.orders,
+    url: routePaths.orders
   },
   {
     title: "More",
     icon: MoreIcon,
-    url: routePaths.more,
-  },
+    url: routePaths.more
+  }
 ];
 
 export const MainMenu: FC<IProps> = () => {
