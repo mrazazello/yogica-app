@@ -1,5 +1,5 @@
 import { AppLayout } from "@app/AppLayout";
-import { ClassesHistory } from "@features/ClassesHistory";
+import { ClassesHistory } from "@entities/ClassesHistory";
 
 function Progress() {
   return (

@@ -1,5 +1,5 @@
 import { AppLayout } from "@app/AppLayout";
-import { PaymentsList } from "@features/Payments";
+import { PaymentsList } from "@entities/Payments";
 
 const Payments = () => {
   return (

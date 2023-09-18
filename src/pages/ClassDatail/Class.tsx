@@ -1,5 +1,5 @@
 import { AppLayout } from "@app/AppLayout";
-import { ClassDetail } from "@features/ClassDetail";
+import { ClassDetail } from "@entities/ClassDetail";
 
 const Class = () => {
   return (

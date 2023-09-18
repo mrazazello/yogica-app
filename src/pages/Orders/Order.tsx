@@ -1,5 +1,5 @@
 import { AppLayout } from "@app/AppLayout";
-import { OrderSubscription } from "@features/OrderSubscription";
+import { OrderSubscription } from "@entities/OrderSubscription";
 
 const Order = () => {
   return (
