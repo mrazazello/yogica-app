@@ -14,15 +14,21 @@ interface IProps {
   };
 }
 
-export const FavoritesItem: FC<IProps> = (props) => {
+export const ClassListFullItem: FC<IProps> = (props) => {
   const { title, url, duration, level } = props.item;
+
   return (
     <div className="w-full">
-      <Link to={`${routePaths.classDetail}?id=1`} className="no-underline">
-        <VideoPreview url={url} />
-        <H123 title={title} type="h2" />
-        <TextLine text={`${duration} min duration, ${level}`} />
+      <Link to={`${routePaths.classDetail}?id=1`}>
+        <VideoPreview url={url} className="mb-5px" />
       </Link>
+      <Link
+        to={`${routePaths.classDetail}?id=1`}
+        className="no-underline text-black"
+      >
+        <H123 title={title} type="h3" />
+      </Link>
+      <TextLine text={`${duration} min duration, ${level}`} />
     </div>
   );
 };

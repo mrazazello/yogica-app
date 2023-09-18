@@ -8,6 +8,7 @@ export default {
         Nunito: ["Nunito", "sans-serif"],
       },
       spacing: {
+        "5px": "5px",
         "10px": "10px",
         "20px": "20px",
       },

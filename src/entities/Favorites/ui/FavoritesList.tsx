@@ -1,4 +1,4 @@
-import { FavoritesItem } from "./FavoritesItem";
+import { ClassListFullItem } from "@shared/ui/ClassListFullItem/ClassListFullItem";
 
 const favorites = [
   {
@@ -35,7 +35,7 @@ export const FavoritesList = () => {
   return (
     <div className="flex flex-col gap-20px">
       {favorites.map((item) => (
-        <FavoritesItem key={item.id} item={item} />
+        <ClassListFullItem key={item.id} item={item} />
       ))}
     </div>
   );

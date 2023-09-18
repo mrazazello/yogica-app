@@ -1,4 +1,4 @@
-import { PaymentsItem } from "./PaymentsItem";
+import { PaymentListItem } from "@shared/ui/PaymentListItem/PaymentListItem";
 
 const orders = [
   {
@@ -35,7 +35,7 @@ export const PaymentsList = () => {
   return (
     <>
       {orders.map((item) => (
-        <PaymentsItem key={item.id} item={item} />
+        <PaymentListItem key={item.id} item={item} />
       ))}
     </>
   );

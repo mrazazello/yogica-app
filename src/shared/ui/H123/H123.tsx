@@ -5,10 +5,11 @@ interface IProps {
   title: string;
   align?: "left" | "right" | "center";
   type?: "h1" | "h2" | "h3";
+  inline?: boolean;
 }
 
 export const H123: FC<IProps> = (props) => {
-  const { title, align = "left", type = "h1" } = props;
+  const { title, align = "left", type = "h1", inline = false } = props;
   return (
     <h1
       className={cn(
@@ -19,6 +20,7 @@ export const H123: FC<IProps> = (props) => {
           "text-xl": type === "h3",
           "text-center": align === "center",
           "text-right": align === "right",
+          inline: inline,
         },
         []
       )}

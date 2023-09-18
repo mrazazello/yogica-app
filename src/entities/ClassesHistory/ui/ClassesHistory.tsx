@@ -1,4 +1,4 @@
-import { ClassHistoryItem } from "./ClassHistoryItem";
+import { ClassListCompactItem } from "@shared/ui/ClassListCompactItem/ClassListCompactItem";
 
 const classes = [
   {
@@ -42,7 +42,7 @@ export const ClassesHistory = () => {
   return (
     <>
       {classes.map((item) => (
-        <ClassHistoryItem key={item.id} item={item} />
+        <ClassListCompactItem key={item.id} item={item} />
       ))}
     </>
   );

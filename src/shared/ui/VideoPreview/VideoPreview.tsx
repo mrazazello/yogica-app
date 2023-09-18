@@ -1,16 +1,22 @@
+import { cn } from "@shared/lib/classNames/classNames";
 import { FC } from "react";
 import PlayIcon from "./playIcon.svg";
 import "./videoPreview.css";
 
 interface IProps {
+  className?: string;
   url: string;
 }
 
 export const VideoPreview: FC<IProps> = (props) => {
-  const { url } = props;
+  const { className, url } = props;
   return (
     <div
-      className="flex items-center justify-center w-full bg-no-repeat bg-cover aspect-[2/1]"
+      className={cn(
+        "flex items-center justify-center w-full bg-no-repeat bg-cover aspect-[2/1]",
+        {},
+        [className]
+      )}
       style={{ backgroundImage: `url(${url})` }}
     >
       <div className="playIcon flex items-center justify-center">
