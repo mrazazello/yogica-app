@@ -40,7 +40,7 @@ export const routePaths: Record<AppRoutesEnum, string> = {
   [AppRoutesEnum.NOT_FOUND]: "*"
 };
 
-const routeConfig: Record<AppRoutesEnum, RouteObject> = {
+export const routeConfig: Record<AppRoutesEnum, RouteObject> = {
   [AppRoutesEnum.MAIN]: {
     path: routePaths.main,
     element: <LoginAsync />

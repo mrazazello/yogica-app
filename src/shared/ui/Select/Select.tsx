@@ -1,7 +1,7 @@
 import { Listbox, Transition } from "@headlessui/react";
 import { FC, Fragment, useState } from "react";
 // import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
-import { FOCUS_STYLES } from "@shared/consts/styles";
+import { FOCUS_STYLES } from "@shared/const/styles";
 import ChevronUpDownIcon from "./ChevronUpDown.svg";
 
 interface IProps {

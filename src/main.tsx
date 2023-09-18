@@ -1,17 +1,19 @@
-import { router } from "@shared/config/router/routes";
-import { Preloader } from "@shared/ui/Preloader/Preloader";
-import React, { Suspense } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
+import App from "@app/App";
+import { StoreProvider } from "@app/storeProvider/ui/StoreProvider";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <div className="w-screen h-screen">
     <React.StrictMode>
-      <Suspense fallback={<Preloader />}>
-        <RouterProvider router={router} />
-      </Suspense>
+      <BrowserRouter>
+        <StoreProvider>
+          <App />
+        </StoreProvider>
+      </BrowserRouter>
     </React.StrictMode>
   </div>
 );
