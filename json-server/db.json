@@ -1,0 +1,15 @@
+{
+  "profile": {
+    "firstName": "Ivan3-1w2",
+    "lastName": "Programerov3",
+    "age": 44,
+    "username": "aza"
+  },
+  "users": [
+    {
+      "id": "1",
+      "username": "aza",
+      "password": "test"
+    }
+  ]
+}
