@@ -4,8 +4,11 @@ import { FC, Fragment, useState } from "react";
 import { FOCUS_STYLES } from "@shared/const/styles";
 import ChevronUpDownIcon from "./ChevronUpDown.svg";
 
+export interface ISelectOption {
+  name: string;
+}
 interface IProps {
-  data: Array<{ name: string }>;
+  data: ISelectOption[];
   placeholder: string;
   name: string;
   value?: string | number;
@@ -14,7 +17,7 @@ interface IProps {
 }
 
 export const Select: FC<IProps> = (props) => {
-  const { data, placeholder, required } = props;
+  const { data, placeholder, name, required } = props;
   const [selected, setSelected] = useState(data[0]);
 
   return (
@@ -23,7 +26,7 @@ export const Select: FC<IProps> = (props) => {
         {placeholder}
         {required && <span className="ml-1 text-red">*</span>}
 
-        <Listbox value={selected} onChange={setSelected}>
+        <Listbox value={selected} onChange={setSelected} name={name}>
           <div className="relative mt-1">
             <Listbox.Button
               className={`relative w-full cursor-default rounded-md bg-white border border-blue-200 py-2.5 pl-3 pr-10 text-black text-left text-xl ${FOCUS_STYLES}`}

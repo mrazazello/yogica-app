@@ -4,10 +4,12 @@ import { api } from "@shared/api/api";
 // import { createReducerManager } from "./reducerManager";
 import { loginReducer } from "@features/AuthByLogin/model/slice/loginSlice";
 import { IStateSchema, IThunkExtraArg } from "./stateSchema";
+import { userReducer } from "@entities/user/model/slice/userSlice";
 
 export function createReduxStore(initialState?: IStateSchema) {
   const rootReducers: ReducersMapObject<IStateSchema> = {
-    login: loginReducer
+    loginForm: loginReducer,
+    user: userReducer
   };
 
   //   const reducerManager = createReducerManager(rootReducers);
@@ -31,4 +33,5 @@ export function createReduxStore(initialState?: IStateSchema) {
   return store;
 }
 
+export type RootStateType = ReturnType<typeof createReduxStore>["getState"];
 export type AppDispatchType = ReturnType<typeof createReduxStore>["dispatch"];

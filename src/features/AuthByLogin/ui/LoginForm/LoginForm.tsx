@@ -1,18 +1,57 @@
-import { FC } from "react";
+import { FC, useCallback } from "react";
+import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 
+import { getLoginError } from "@features/AuthByLogin/model/selectors/getLoginError/getLoginError";
+import { getLoginIsLoading } from "@features/AuthByLogin/model/selectors/getLoginIsLoading/getLoginIsLoading";
+import { getLoginPassword } from "@features/AuthByLogin/model/selectors/getLoginPassword/getLoginPassword";
+import { routePaths } from "@shared/config/router/routes";
+import { useAppDispatch } from "@shared/lib/storeHooks/storeHooks";
+import { Alert } from "@shared/ui/Alert/Alert";
 import { Button } from "@shared/ui/Button/Button";
 import { H123 } from "@shared/ui/H123/H123";
 import { Input } from "@shared/ui/Input/Input";
 import { TextLine } from "@shared/ui/Text/TextLine";
 import { VSpace } from "@shared/ui/VSpace/VSpace";
-import { Link } from "react-router-dom";
 
-import { routePaths } from "@shared/config/router/routes";
+import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLoginUsername";
+import { loginUserByName } from "../../model/services/loginByUsername/loginByUsername";
+import { loginActions } from "../../model/slice/loginSlice";
+
 import fb from "/facebook.svg";
 import gl from "/google.svg";
 import tg from "/telegram.svg";
 
 export const LoginForm: FC = () => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const username = useSelector(getLoginUsername);
+  const password = useSelector(getLoginPassword);
+  const isLoading = useSelector(getLoginIsLoading);
+  const error = useSelector(getLoginError);
+
+  const loginHandler = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setUserName(value));
+    },
+    [dispatch]
+  );
+
+  const passwordHandler = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setUserPassword(value));
+    },
+    [dispatch]
+  );
+
+  const submitHandler = useCallback(async () => {
+    const res = await dispatch(loginUserByName({ username, password }));
+    if (res.meta.requestStatus === "fulfilled") {
+      navigate(routePaths.start);
+    }
+  }, [dispatch, navigate, username, password]);
+
   return (
     <>
       <H123 title="Login" align="center" />
@@ -21,8 +60,22 @@ export const LoginForm: FC = () => {
         align="center"
       />
       <VSpace />
-      <Input placeholder="E-mail / Phone / Telegram" name="email" required />
-      <Input placeholder="Password" name="password" required />
+      {error && <Alert title={error} className="mb-20px" />}
+      <Input
+        placeholder="E-mail / Phone / Telegram"
+        name="email"
+        required
+        onChange={loginHandler}
+        value={username}
+      />
+      <Input
+        placeholder="Password"
+        name="password"
+        type="password"
+        required
+        onChange={passwordHandler}
+        value={password}
+      />
       <VSpace />
       <div className="flex justify-center gap-4">
         <img src={tg} width={24} height={24} alt="Telegram" />
@@ -40,7 +93,7 @@ export const LoginForm: FC = () => {
         align="center"
       />
       <VSpace />
-      <Button text="Continue" />
+      <Button text="Continue" onClick={submitHandler} disabled={isLoading} />
     </>
   );
 };

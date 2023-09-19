@@ -1,7 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { ILoginSchema } from "../types/loginSchema";
-// import { loginUserByName } from "../services/loginByUserName/loginByUserName";
-// import { ILoginSchema } from "../types/loginSchema";
+import { loginUserByName } from "../services/loginByUsername/loginByUsername";
+import { ILoginSchema } from "../types/login";
 
 const initialState: ILoginSchema = {
   username: "",
@@ -19,21 +18,21 @@ export const loginSlice = createSlice({
     setUserPassword: (state, action: PayloadAction<string>) => {
       state.password = action.payload;
     }
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(loginUserByName.pending, (state) => {
+        state.error = undefined;
+        state.isLoading = true;
+      })
+      .addCase(loginUserByName.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(loginUserByName.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
   }
-  //   extraReducers: (builder) => {
-  //     builder
-  //       .addCase(loginUserByName.pending, (state) => {
-  //         state.error = undefined;
-  //         state.isLoading = true;
-  //       })
-  //       .addCase(loginUserByName.fulfilled, (state) => {
-  //         state.isLoading = false;
-  //       })
-  //       .addCase(loginUserByName.rejected, (state, action) => {
-  //         state.isLoading = false;
-  //         state.error = action.payload;
-  //       });
-  //   }
 });
 
 export const { actions: loginActions } = loginSlice;

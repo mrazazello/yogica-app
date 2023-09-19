@@ -8,7 +8,6 @@
 
     "baseUrl": ".",
     "paths": {
-      // "@/*": ["./src"]
       "@app/*": ["./src/app/*"],
       "@pages/*": ["./src/pages/*"],
       "@entities/*": ["./src/entities/*"],
@@ -30,6 +29,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "./config/**/*.ts", "./config/**/*.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
