@@ -1,30 +1,16 @@
-import { FolderCard } from "@shared/ui/FolderCard/FolderCard";
+import { FolderCard, IFolderItem } from "@shared/ui/FolderCard/FolderCard";
+import { FC } from "react";
 
-import LogoutIcon from "./icons/logout.svg";
-import SettingsIcon from "./icons/settings.svg";
-import ProfileIcon from "./icons/user.svg";
+interface IProps {
+  data: IFolderItem[];
+}
 
-const folders = [
-  {
-    title: "Profile",
-    icon: ProfileIcon,
-    description: "User Settings, Birth Date, Age, Gender, Common Data"
-  },
-  {
-    title: "Settings",
-    icon: SettingsIcon,
-    description: "Custom Application Parameters and Settings"
-  },
-  {
-    title: "Logout",
-    icon: LogoutIcon
-  }
-];
+export const FoldresList: FC<IProps> = (props) => {
+  const { data } = props;
 
-export const FoldresList = () => {
   return (
     <>
-      {folders.map((item) => (
+      {data.map((item) => (
         <FolderCard key={item.title} item={item} />
       ))}
     </>

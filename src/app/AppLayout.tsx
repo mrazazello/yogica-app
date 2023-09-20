@@ -1,7 +1,9 @@
+import { getUserAuthData } from "@entities/user/model/selectors/getUserAuthData/getUserAuthData";
 import { cn } from "@shared/lib/classNames/classNames";
 import { Header } from "@shared/ui/Header/Header";
 import { MainMenu } from "@shared/ui/MainMenu/MainMenu";
 import { FC } from "react";
+import { useSelector } from "react-redux";
 
 interface IProps {
   title?: string;
@@ -12,6 +14,8 @@ interface IProps {
 
 export const AppLayout: FC<IProps> = (props) => {
   const { title, valign = "top", noPadding = false, children } = props;
+  const auth = useSelector(getUserAuthData);
+
   return (
     <div className="w-full h-full flex flex-col items-center justify-center">
       <Header title={title} />
@@ -28,7 +32,7 @@ export const AppLayout: FC<IProps> = (props) => {
       >
         {children}
       </div>
-      <MainMenu />
+      {auth && <MainMenu />}
     </div>
   );
 };
