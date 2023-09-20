@@ -4,11 +4,16 @@ import { ClassAsync } from "@pages/ClassDatail/ClassAsync";
 import { FavoritesAsync } from "@pages/Favorites/FavoritesAsync";
 import { LoginAsync } from "@pages/Login/LoginAsync";
 import { MoreAsyns } from "@pages/More/MoreAsync";
+import { NotFoundAsync } from "@pages/NotFound/NotFoundAsync";
 import { OrderAsyns } from "@pages/Orders/OrderAsyns";
 import { PaymentsAsyns } from "@pages/Payments/PaymentsAsyns";
 import { ProgressAsync } from "@pages/Progress/ProgressAsync";
 import { RegistrationAsync } from "@pages/Registration/RegistrationAsync";
 import { StartClassAsync } from "@pages/StartClass/StartClassAsync";
+
+type AppRouteProps = RouteObject & {
+  authOnly?: boolean;
+};
 
 enum AppRoutesEnum {
   MAIN = "main",
@@ -40,47 +45,54 @@ export const routePaths: Record<AppRoutesEnum, string> = {
   [AppRoutesEnum.NOT_FOUND]: "*"
 };
 
-export const routeConfig: Record<AppRoutesEnum, RouteObject> = {
+export const routeConfig: Record<AppRoutesEnum, AppRouteProps> = {
   [AppRoutesEnum.MAIN]: {
     path: routePaths.main,
     element: <LoginAsync />
   },
-  [AppRoutesEnum.START]: {
-    path: routePaths.start,
-    element: <StartClassAsync />
-  },
-  [AppRoutesEnum.FAVORITES]: {
-    path: routePaths.favorites,
-    element: <FavoritesAsync />
-  },
-  [AppRoutesEnum.PROGRESS]: {
-    path: routePaths.progress,
-    element: <ProgressAsync />
-  },
-  [AppRoutesEnum.ORDERS]: {
-    path: routePaths.orders,
-    element: <OrderAsyns />
-  },
-  [AppRoutesEnum.HISTORY]: {
-    path: routePaths.history,
-    element: <PaymentsAsyns />
-  },
-  [AppRoutesEnum.MORE]: {
-    path: routePaths.more,
-    element: <MoreAsyns />
-  },
-  [AppRoutesEnum.CLASS_DETAIL]: {
-    path: routePaths.classDetail,
-    element: <ClassAsync />
-  },
-
   [AppRoutesEnum.REGISTRATION]: {
     path: routePaths.registration,
     element: <RegistrationAsync />
   },
   [AppRoutesEnum.NOT_FOUND]: {
     path: routePaths.not_found,
-    element: <RegistrationAsync />
+    element: <NotFoundAsync />
+  },
+  // protected routes
+  [AppRoutesEnum.START]: {
+    path: routePaths.start,
+    element: <StartClassAsync />,
+    authOnly: true
+  },
+  [AppRoutesEnum.FAVORITES]: {
+    path: routePaths.favorites,
+    element: <FavoritesAsync />,
+    authOnly: true
+  },
+  [AppRoutesEnum.PROGRESS]: {
+    path: routePaths.progress,
+    element: <ProgressAsync />,
+    authOnly: true
+  },
+  [AppRoutesEnum.ORDERS]: {
+    path: routePaths.orders,
+    element: <OrderAsyns />,
+    authOnly: true
+  },
+  [AppRoutesEnum.HISTORY]: {
+    path: routePaths.history,
+    element: <PaymentsAsyns />,
+    authOnly: true
+  },
+  [AppRoutesEnum.MORE]: {
+    path: routePaths.more,
+    element: <MoreAsyns />,
+    authOnly: true
+  },
+  [AppRoutesEnum.CLASS_DETAIL]: {
+    path: routePaths.classDetail,
+    element: <ClassAsync />,
+    authOnly: true
   }
 };
 
