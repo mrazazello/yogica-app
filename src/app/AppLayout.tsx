@@ -1,7 +1,7 @@
 import { getUserAuthData } from "@entities/user/model/selectors/getUserAuthData/getUserAuthData";
 import { cn } from "@shared/lib/classNames/classNames";
-import { Header } from "@shared/ui/Header/Header";
-import { MainMenu } from "@shared/ui/MainMenu/MainMenu";
+import { Header } from "@shared/ui/header/Header";
+import { MainMenu } from "@shared/ui/mainMenu/MainMenu";
 import { FC } from "react";
 import { useSelector } from "react-redux";
 

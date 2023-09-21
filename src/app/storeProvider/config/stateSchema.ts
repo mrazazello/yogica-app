@@ -1,5 +1,5 @@
 import { IUserSchema } from "@entities/user/model/types/user";
-import { ILoginSchema } from "@features/AuthByLogin";
+import { ILoginSchema } from "@features/authByLogin";
 import { AxiosInstance } from "axios";
 
 export interface IStateSchema {

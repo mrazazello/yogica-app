@@ -1,15 +1,16 @@
 import { RouteObject, createBrowserRouter } from "react-router-dom";
 
-import { ClassAsync } from "@pages/ClassDatail/ClassAsync";
-import { FavoritesAsync } from "@pages/Favorites/FavoritesAsync";
-import { LoginAsync } from "@pages/Login/LoginAsync";
-import { MoreAsyns } from "@pages/More/MoreAsync";
-import { NotFoundAsync } from "@pages/NotFound/NotFoundAsync";
-import { OrderAsyns } from "@pages/Orders/OrderAsyns";
-import { PaymentsAsyns } from "@pages/Payments/PaymentsAsyns";
-import { ProgressAsync } from "@pages/Progress/ProgressAsync";
-import { RegistrationAsync } from "@pages/Registration/RegistrationAsync";
-import { StartClassAsync } from "@pages/StartClass/StartClassAsync";
+import { ClassAsync } from "@pages/classDatail/ClassAsync";
+import { FavoritesAsync } from "@pages/favorites/FavoritesAsync";
+import { LoginAsync } from "@pages/login/LoginAsync";
+import { MoreAsync } from "@pages/more/MoreAsync";
+import { NotFoundAsync } from "@pages/notFound/NotFoundAsync";
+import { OrderAsyns } from "@pages/orders/OrderAsyns";
+import { PaymentsAsyns } from "@pages/payments/PaymentsAsyns";
+import { ProfileAsync } from "@pages/profile/ProfileAsync";
+import { ProgressAsync } from "@pages/progress/ProgressAsync";
+import { RegistrationAsync } from "@pages/registration/RegistrationAsync";
+import { StartClassAsync } from "@pages/startClass/StartClassAsync";
 
 type AppRouteProps = RouteObject & {
   authOnly?: boolean;
@@ -17,32 +18,32 @@ type AppRouteProps = RouteObject & {
 
 enum AppRoutesEnum {
   MAIN = "main",
+  REGISTRATION = "registration",
+  NOT_FOUND = "not_found",
+
   START = "start",
   FAVORITES = "favorites",
   PROGRESS = "progress",
   ORDERS = "orders",
   HISTORY = "history",
   MORE = "more",
-
   CLASS_DETAIL = "classDetail",
-
-  REGISTRATION = "registration",
-  NOT_FOUND = "not_found"
+  PROFILE = "profile"
 }
 
 export const routePaths: Record<AppRoutesEnum, string> = {
   [AppRoutesEnum.MAIN]: "/",
+  [AppRoutesEnum.REGISTRATION]: "/reg",
+  [AppRoutesEnum.NOT_FOUND]: "*",
+
   [AppRoutesEnum.START]: "/start",
   [AppRoutesEnum.FAVORITES]: "/favorites",
   [AppRoutesEnum.PROGRESS]: "/progress",
   [AppRoutesEnum.ORDERS]: "/orders",
   [AppRoutesEnum.HISTORY]: "/history",
   [AppRoutesEnum.MORE]: "/more",
-
   [AppRoutesEnum.CLASS_DETAIL]: "/class",
-
-  [AppRoutesEnum.REGISTRATION]: "/reg",
-  [AppRoutesEnum.NOT_FOUND]: "*"
+  [AppRoutesEnum.PROFILE]: "/profile"
 };
 
 export const routeConfig: Record<AppRoutesEnum, AppRouteProps> = {
@@ -86,12 +87,17 @@ export const routeConfig: Record<AppRoutesEnum, AppRouteProps> = {
   },
   [AppRoutesEnum.MORE]: {
     path: routePaths.more,
-    element: <MoreAsyns />,
+    element: <MoreAsync />,
     authOnly: true
   },
   [AppRoutesEnum.CLASS_DETAIL]: {
     path: routePaths.classDetail,
     element: <ClassAsync />,
+    authOnly: true
+  },
+  [AppRoutesEnum.PROFILE]: {
+    path: routePaths.profile,
+    element: <ProfileAsync />,
     authOnly: true
   }
 };

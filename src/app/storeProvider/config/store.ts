@@ -2,9 +2,9 @@ import { ReducersMapObject, configureStore } from "@reduxjs/toolkit";
 
 import { api } from "@shared/api/api";
 // import { createReducerManager } from "./reducerManager";
-import { loginReducer } from "@features/AuthByLogin/model/slice/loginSlice";
-import { IStateSchema, IThunkExtraArg } from "./stateSchema";
 import { userReducer } from "@entities/user/model/slice/userSlice";
+import { loginReducer } from "@features/authByLogin/model/slice/loginSlice";
+import { IStateSchema, IThunkExtraArg } from "./stateSchema";
 
 export function createReduxStore(initialState?: IStateSchema) {
   const rootReducers: ReducersMapObject<IStateSchema> = {

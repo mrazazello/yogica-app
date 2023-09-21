@@ -4,7 +4,7 @@ import { getUserAuthData } from "@entities/user/model/selectors/getUserAuthData/
 import { userActions } from "@entities/user/model/slice/userSlice";
 import { routeConfig } from "@shared/config/router/routes";
 import { useAppDispatch } from "@shared/lib/storeHooks/storeHooks";
-import { Preloader } from "@shared/ui/Preloader/Preloader";
+import { Preloader } from "@shared/ui/preloader/Preloader";
 import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 
