@@ -4,12 +4,14 @@ import { api } from "@shared/api/api";
 // import { createReducerManager } from "./reducerManager";
 import { userReducer } from "@entities/user/model/slice/userSlice";
 import { loginReducer } from "@features/authByLogin/model/slice/loginSlice";
+import { startClassReducer } from "@features/startClass/model/slice/startClassSlice";
 import { IStateSchema, IThunkExtraArg } from "./stateSchema";
 
 export function createReduxStore(initialState?: IStateSchema) {
   const rootReducers: ReducersMapObject<IStateSchema> = {
     loginForm: loginReducer,
-    user: userReducer
+    user: userReducer,
+    startClass: startClassReducer
   };
 
   //   const reducerManager = createReducerManager(rootReducers);
@@ -21,7 +23,7 @@ export function createReduxStore(initialState?: IStateSchema) {
   const store = configureStore({
     reducer: rootReducers,
     preloadedState: initialState,
-    //   devTools: IS_DEV,
+    devTools: true, // нужно пробросить из .env
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         thunk: {

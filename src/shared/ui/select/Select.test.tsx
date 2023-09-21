@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 
 import { ISelectOption, Select } from "./Select";
 
-const options: ISelectOption[] = [{ name: "test 1" }];
+const options: ISelectOption[] = [{ label: "test 1", value: "1" }];
 
 describe("Select tests", () => {
   test("Select in docement", () => {

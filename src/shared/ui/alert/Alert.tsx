@@ -21,7 +21,7 @@ export const Alert: FC<IProps> = (props) => {
     >
       <img src={RingIcon} width={26} height={26} alt="Ring icon" />
       <div>
-        <div className="text-pink-400 font-bold text-lg">{title}d</div>
+        <div className="text-pink-400 font-bold text-lg">{title}</div>
         <div className="text-pink-400 text-sm mt-10px">{description}</div>
       </div>
     </div>

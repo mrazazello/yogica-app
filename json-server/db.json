@@ -10,5 +10,20 @@
       "username": "aza",
       "password": "test"
     }
-  ]
+  ],
+  "randomClass": {
+    "id": "1",
+    "duration": "20",
+    "level": "Zero level",
+    "exercises": [
+      {
+        "name": "Chuturanga",
+        "duration": "30"
+      },
+      {
+        "name": "Tadasana",
+        "duration": "30"
+      }
+    ]
+  }
 }
