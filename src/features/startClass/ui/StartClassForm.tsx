@@ -1,17 +1,21 @@
+import { useCallback, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import { ChantingSelect } from "@entities/chantingSelect";
 import { DurationSelect } from "@entities/durationSelect";
 import { LevelSelect } from "@entities/levelSelect";
 import { PranoyamaSelect } from "@entities/pranoyamaSelect";
 import { ShavasanaSelect } from "@entities/shavasanaSelect";
+import { routePaths } from "@shared/config/router/routes";
 import { useAppDispatch } from "@shared/lib/storeHooks/storeHooks";
+import { Alert } from "@shared/ui/alert/Alert";
 import { Button } from "@shared/ui/button/Button";
 import { VSpace } from "@shared/ui/vSpace/VSpace";
 
-import { Alert } from "@shared/ui/alert/Alert";
-import { useCallback, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { getStartClassFormData } from "..";
 import { getStartClassError } from "../model/selectors/getStartClassError/getStartClassError";
+import { getStartClassFormData } from "../model/selectors/getStartClassFormData/getStartClassFormData";
+import { getStartClassLoading } from "../model/selectors/getStartClassLoading/getStartClassLoading";
 import { getRandomClass } from "../model/services/getRandomClass/getRandomClass";
 import { startClassActions } from "../model/slice/startClassSlice";
 import { IStartClassForm } from "../types/startClass";
@@ -26,9 +30,11 @@ const initialParams: IStartClassForm = {
 
 export const StartClassForm = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const formData = useSelector(getStartClassFormData);
   const error = useSelector(getStartClassError);
+  const loading = useSelector(getStartClassLoading);
 
   useEffect(() => {
     dispatch(startClassActions.updateFormData(initialParams));
@@ -69,10 +75,14 @@ export const StartClassForm = () => {
     [dispatch]
   );
 
-  const submitHandler = () => {
-    console.log(formData);
-    formData && dispatch(getRandomClass(formData));
-  };
+  const submitHandler = useCallback(async () => {
+    if (formData) {
+      const res = await dispatch(getRandomClass(formData));
+      if (res.meta.requestStatus === "fulfilled") {
+        navigate(routePaths.classDetail);
+      }
+    }
+  }, [formData, dispatch, navigate]);
 
   return (
     formData && (
@@ -96,7 +106,7 @@ export const StartClassForm = () => {
           selected={formData.shavasanaDuration}
         />
         <VSpace />
-        <Button text="Start" onClick={submitHandler} />
+        <Button text="Start" onClick={submitHandler} disabled={loading} />
       </>
     )
   );

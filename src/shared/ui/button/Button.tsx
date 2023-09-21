@@ -12,7 +12,7 @@ export const Button: FC<IProps> = (props) => {
   return (
     <button
       className={cn(
-        "py-2 px-4 bg-green-100 text-green-300 font-bold border-b-4 border-green-200 rounded-lg",
+        "py-2 px-4 bg-green-100 text-green-300 font-bold border-b-4 border-green-200 rounded-lg disabled:bg-gray-300 disabled:border-gray-400",
         { "w-full": wFull }
       )}
       onClick={onClick}

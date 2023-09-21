@@ -17,12 +17,16 @@
     "level": "Zero level",
     "exercises": [
       {
+        "id": "1",
         "name": "Chuturanga",
-        "duration": "30"
+        "duration": "30",
+        "url": "/temp/exercisePreview.jpg"
       },
       {
+        "id": "2",
         "name": "Tadasana",
-        "duration": "30"
+        "duration": "30",
+        "url": "/temp/exercisePreview.jpg"
       }
     ]
   }
