@@ -14,7 +14,7 @@ export const Header: FC<IProps> = (props) => {
       {title ? (
         <h1 className="text-3xl font-bold">{title}</h1>
       ) : (
-        <Link to={routePaths.main}>
+        <Link to={routePaths.main.URL()}>
           <img src={logo} width={320} height={63} alt="Yogica" />
         </Link>
       )}

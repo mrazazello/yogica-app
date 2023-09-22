@@ -18,11 +18,11 @@ const More = () => {
 
   const logoutHandler = useCallback(() => {
     dispatch(userActions.logout());
-    navigate(routePaths.main);
+    navigate(routePaths.main.URL());
   }, [dispatch, navigate]);
 
   const profileHandler = useCallback(() => {
-    navigate(routePaths.profile);
+    navigate(routePaths.profile.URL());
   }, [navigate]);
 
   const folders: IFolderItem[] = useMemo(

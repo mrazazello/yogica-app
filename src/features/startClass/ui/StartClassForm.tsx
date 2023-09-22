@@ -79,7 +79,7 @@ export const StartClassForm = () => {
     if (formData) {
       const res = await dispatch(getRandomClass(formData));
       if (res.meta.requestStatus === "fulfilled") {
-        navigate(routePaths.classDetail);
+        navigate(routePaths.classDetail.URL(res.payload.id));
       }
     }
   }, [formData, dispatch, navigate]);

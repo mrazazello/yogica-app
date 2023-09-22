@@ -12,10 +12,6 @@ import { ProgressAsync } from "@pages/progress/ProgressAsync";
 import { RegistrationAsync } from "@pages/registration/RegistrationAsync";
 import { StartClassAsync } from "@pages/startClass/StartClassAsync";
 
-type AppRouteProps = RouteObject & {
-  authOnly?: boolean;
-};
-
 enum AppRoutesEnum {
   MAIN = "main",
   REGISTRATION = "registration",
@@ -31,72 +27,116 @@ enum AppRoutesEnum {
   PROFILE = "profile"
 }
 
-export const routePaths: Record<AppRoutesEnum, string> = {
-  [AppRoutesEnum.MAIN]: "/",
-  [AppRoutesEnum.REGISTRATION]: "/reg",
-  [AppRoutesEnum.NOT_FOUND]: "*",
+type URLFuncType = (() => string) | ((id?: string) => string);
 
-  [AppRoutesEnum.START]: "/start",
-  [AppRoutesEnum.FAVORITES]: "/favorites",
-  [AppRoutesEnum.PROGRESS]: "/progress",
-  [AppRoutesEnum.ORDERS]: "/orders",
-  [AppRoutesEnum.HISTORY]: "/history",
-  [AppRoutesEnum.MORE]: "/more",
-  [AppRoutesEnum.CLASS_DETAIL]: "/class",
-  [AppRoutesEnum.PROFILE]: "/profile"
+interface IRoutePath {
+  path: string;
+  URL: URLFuncType;
+}
+
+export const routePaths: Record<AppRoutesEnum, IRoutePath> = {
+  [AppRoutesEnum.MAIN]: {
+    path: "/",
+    URL: () => "/"
+  },
+  [AppRoutesEnum.REGISTRATION]: {
+    path: "/reg",
+    URL: () => "/reg"
+  },
+  [AppRoutesEnum.NOT_FOUND]: {
+    path: "*",
+    URL: () => "*"
+  },
+  // private paths
+  [AppRoutesEnum.START]: {
+    path: "/start",
+    URL: () => "/start"
+  },
+  [AppRoutesEnum.FAVORITES]: {
+    path: "/favorites",
+    URL: () => "/favorites"
+  },
+  [AppRoutesEnum.PROGRESS]: {
+    path: "/progress",
+    URL: () => "/progress"
+  },
+  [AppRoutesEnum.ORDERS]: {
+    path: "/orders",
+    URL: () => "/orders"
+  },
+  [AppRoutesEnum.HISTORY]: {
+    path: "/history",
+    URL: () => "/history"
+  },
+  [AppRoutesEnum.MORE]: {
+    path: "/more",
+    URL: () => "/more"
+  },
+  [AppRoutesEnum.CLASS_DETAIL]: {
+    path: "/class/:id",
+    URL: (id?: string) => `/class/${id}`
+  },
+  [AppRoutesEnum.PROFILE]: {
+    path: "/profile",
+    URL: () => "/profile"
+  }
+};
+
+type AppRouteProps = RouteObject & {
+  authOnly?: boolean;
 };
 
 export const routeConfig: Record<AppRoutesEnum, AppRouteProps> = {
   [AppRoutesEnum.MAIN]: {
-    path: routePaths.main,
+    path: routePaths.main.path,
     element: <LoginAsync />
   },
   [AppRoutesEnum.REGISTRATION]: {
-    path: routePaths.registration,
+    path: routePaths.registration.path,
     element: <RegistrationAsync />
   },
   [AppRoutesEnum.NOT_FOUND]: {
-    path: routePaths.not_found,
+    path: routePaths.not_found.path,
     element: <NotFoundAsync />
   },
   // protected routes
   [AppRoutesEnum.START]: {
-    path: routePaths.start,
+    path: routePaths.start.path,
     element: <StartClassAsync />,
     authOnly: true
   },
   [AppRoutesEnum.FAVORITES]: {
-    path: routePaths.favorites,
+    path: routePaths.favorites.path,
     element: <FavoritesAsync />,
     authOnly: true
   },
   [AppRoutesEnum.PROGRESS]: {
-    path: routePaths.progress,
+    path: routePaths.progress.path,
     element: <ProgressAsync />,
     authOnly: true
   },
   [AppRoutesEnum.ORDERS]: {
-    path: routePaths.orders,
+    path: routePaths.orders.path,
     element: <OrderAsyns />,
     authOnly: true
   },
   [AppRoutesEnum.HISTORY]: {
-    path: routePaths.history,
+    path: routePaths.history.path,
     element: <PaymentsAsyns />,
     authOnly: true
   },
   [AppRoutesEnum.MORE]: {
-    path: routePaths.more,
+    path: routePaths.more.path,
     element: <MoreAsync />,
     authOnly: true
   },
   [AppRoutesEnum.CLASS_DETAIL]: {
-    path: routePaths.classDetail,
+    path: routePaths.classDetail.path,
     element: <ClassAsync />,
     authOnly: true
   },
   [AppRoutesEnum.PROFILE]: {
-    path: routePaths.profile,
+    path: routePaths.profile.path,
     element: <ProfileAsync />,
     authOnly: true
   }

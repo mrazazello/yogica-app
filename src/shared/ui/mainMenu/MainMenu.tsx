@@ -21,27 +21,27 @@ const mainMenuItems: MenuItemType[] = [
   {
     title: "Start",
     icon: StartIcon,
-    url: routePaths.start
+    url: routePaths.start.URL()
   },
   {
     title: "Favorite",
     icon: FavoriteIcon,
-    url: routePaths.favorites
+    url: routePaths.favorites.URL()
   },
   {
     title: "Progress",
     icon: ProgressIcon,
-    url: routePaths.progress
+    url: routePaths.progress.URL()
   },
   {
     title: "Orders",
     icon: OrdersIcon,
-    url: routePaths.orders
+    url: routePaths.orders.URL()
   },
   {
     title: "More",
     icon: MoreIcon,
-    url: routePaths.more
+    url: routePaths.more.URL()
   }
 ];
 

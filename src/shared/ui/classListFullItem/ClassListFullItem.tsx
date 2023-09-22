@@ -19,11 +19,11 @@ export const ClassListFullItem: FC<IProps> = (props) => {
 
   return (
     <div className="w-full">
-      <Link to={`${routePaths.classDetail}?id=1`}>
+      <Link to={routePaths.classDetail.URL("1")}>
         <VideoPreview url={url} className="mb-5px" />
       </Link>
       <Link
-        to={`${routePaths.classDetail}?id=1`}
+        to={routePaths.classDetail.URL("1")}
         className="no-underline text-black"
       >
         <H123 title={title} type="h3" />

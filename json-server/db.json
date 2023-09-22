@@ -1,9 +1,4 @@
 {
-  "profile": {
-    "firstName": "Konstantin",
-    "lastName": "Volkov",
-    "username": "aza"
-  },
   "users": [
     {
       "id": "1",
@@ -11,7 +6,15 @@
       "password": "test"
     }
   ],
+  "profile": {
+    "firstName": "Konstantin",
+    "lastName": "Volkov",
+    "username": "aza"
+  },
   "randomClass": {
+    "id": "1"
+  },
+  "classDetail": {
     "id": "1",
     "duration": "20",
     "level": "Zero level",

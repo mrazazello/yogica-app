@@ -48,7 +48,7 @@ export const LoginForm: FC = () => {
   const submitHandler = useCallback(async () => {
     const res = await dispatch(loginUserByName({ username, password }));
     if (res.meta.requestStatus === "fulfilled") {
-      navigate(routePaths.start);
+      navigate(routePaths.start.URL());
     }
   }, [dispatch, navigate, username, password]);
 
@@ -87,7 +87,7 @@ export const LoginForm: FC = () => {
         text={
           <>
             Already registered?{" "}
-            <Link to={routePaths.registration}>Registration is here</Link>
+            <Link to={routePaths.registration.URL()}>Registration is here</Link>
           </>
         }
         align="center"
