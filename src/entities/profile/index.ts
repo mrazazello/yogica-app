@@ -5,6 +5,7 @@ import { getProfileReadonly } from "./model/selectors/getProfileReadonly/getProf
 import { fetchProfileData } from "./model/services/fetchProfileData/fetchProfileData";
 import { updateProfileData } from "./model/services/updateProfileData/updateProfileData";
 import { profileActions, profileReducer } from "./model/slice/profileSlice";
+import { IProfileSchema } from "./model/types/profile";
 import { ProfileCard } from "./ui/ProfileCard";
 
 export {
@@ -18,3 +19,5 @@ export {
   profileReducer,
   updateProfileData
 };
+
+export type { IProfileSchema };

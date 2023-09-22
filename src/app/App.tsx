@@ -1,12 +1,11 @@
 import { Suspense, useEffect, useMemo } from "react";
+import { useSelector } from "react-redux";
+import { Route, Routes } from "react-router-dom";
 
-import { getUserAuthData } from "@entities/user/model/selectors/getUserAuthData/getUserAuthData";
-import { userActions } from "@entities/user/model/slice/userSlice";
+import { getUserAuthData, userActions } from "@entities/user";
 import { routeConfig } from "@shared/config/router/routes";
 import { useAppDispatch } from "@shared/lib/storeHooks/storeHooks";
 import { Preloader } from "@shared/ui/preloader/Preloader";
-import { useSelector } from "react-redux";
-import { Route, Routes } from "react-router-dom";
 
 const App = () => {
   const dispatch = useAppDispatch();

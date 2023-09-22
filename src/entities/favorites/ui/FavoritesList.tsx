@@ -1,42 +1,21 @@
 import { ClassListFullItem } from "@shared/ui/classListFullItem/ClassListFullItem";
+import { FC } from "react";
+import { IFavorite } from "..";
 
-const favorites = [
-  {
-    id: "1",
-    title: "Class #111",
-    url: "/temp/videoScreen.jpg",
-    duration: "23",
-    level: "Zero level"
-  },
-  {
-    id: "2",
-    title: "Class #111",
-    url: "/temp/videoScreen.jpg",
-    duration: "23",
-    level: "Zero level"
-  },
-  {
-    id: "3",
-    title: "Class #111",
-    url: "/temp/videoScreen.jpg",
-    duration: "23",
-    level: "Zero level"
-  },
-  {
-    id: "4",
-    title: "Class #111",
-    url: "/temp/videoScreen.jpg",
-    duration: "23",
-    level: "Zero level"
-  }
-];
+interface IProps {
+  data?: IFavorite[];
+}
 
-export const FavoritesList = () => {
+export const FavoritesList: FC<IProps> = (props) => {
+  const { data } = props;
+
   return (
-    <div className="flex flex-col gap-20px">
-      {favorites.map((item) => (
-        <ClassListFullItem key={item.id} item={item} />
-      ))}
-    </div>
+    data && (
+      <div className="flex flex-col gap-20px">
+        {data.map((item) => (
+          <ClassListFullItem key={item.id} item={item} />
+        ))}
+      </div>
+    )
   );
 };

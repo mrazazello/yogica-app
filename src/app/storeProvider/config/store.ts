@@ -5,15 +5,21 @@ import { api } from "@shared/api/api";
 import { userReducer } from "@entities/user/model/slice/userSlice";
 import { loginReducer } from "@features/authByLogin/model/slice/loginSlice";
 import { startClassReducer } from "@features/startClass/model/slice/startClassSlice";
-import { IStateSchema, IThunkExtraArg } from "./stateSchema";
+
+import { classDetailReducer } from "@entities/classDetail";
+import { favoritesReducer } from "@entities/favorites";
 import { profileReducer } from "@entities/profile";
+
+import { IStateSchema, IThunkExtraArg } from "./stateSchema";
 
 export function createReduxStore(initialState?: IStateSchema) {
   const rootReducers: ReducersMapObject<IStateSchema> = {
     loginForm: loginReducer,
     user: userReducer,
     startClass: startClassReducer,
-    profile: profileReducer
+    profile: profileReducer,
+    classDetail: classDetailReducer,
+    favorites: favoritesReducer
   };
 
   //   const reducerManager = createReducerManager(rootReducers);

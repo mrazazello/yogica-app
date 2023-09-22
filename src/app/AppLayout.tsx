@@ -1,9 +1,10 @@
-import { getUserAuthData } from "@entities/user/model/selectors/getUserAuthData/getUserAuthData";
+import { FC } from "react";
+import { useSelector } from "react-redux";
+
+import { getUserAuthData } from "@entities/user";
 import { cn } from "@shared/lib/classNames/classNames";
 import { Header } from "@shared/ui/header/Header";
 import { MainMenu } from "@shared/ui/mainMenu/MainMenu";
-import { FC } from "react";
-import { useSelector } from "react-redux";
 
 interface IProps {
   title?: string;

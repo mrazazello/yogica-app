@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { AppLayout } from "@app/AppLayout";
-import { userActions } from "@entities/user/model/slice/userSlice";
+import { userActions } from "@entities/user";
 import { routePaths } from "@shared/config/router/routes";
 import { IFolderItem } from "@shared/ui/folderCard/FolderCard";
 import { FoldresList } from "@shared/ui/foldersList/FoldersList";

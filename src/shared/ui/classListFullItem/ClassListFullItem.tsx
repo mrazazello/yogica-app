@@ -5,29 +5,30 @@ import { VideoPreview } from "@shared/ui/videoPreview/VideoPreview";
 import { FC } from "react";
 import { Link } from "react-router-dom";
 
+export interface IFavoritesItem {
+  id: string;
+  videoPreview: string;
+  duration: string;
+  level: string;
+}
+
 interface IProps {
-  item: {
-    id: string;
-    title: string;
-    url: string;
-    duration: string;
-    level: string;
-  };
+  item: IFavoritesItem;
 }
 
 export const ClassListFullItem: FC<IProps> = (props) => {
-  const { id, title, url, duration, level } = props.item;
+  const { id, videoPreview, duration, level } = props.item;
 
   return (
     <div className="w-full">
       <Link to={routePaths.classDetail.URL(id)}>
-        <VideoPreview url={url} className="mb-5px" />
+        <VideoPreview url={videoPreview} className="mb-5px" />
       </Link>
       <Link
         to={routePaths.classDetail.URL(id)}
         className="no-underline text-black"
       >
-        <H123 title={title} type="h3" />
+        <H123 title={`# ${id}`} type="h3" />
       </Link>
       <TextLine text={`${duration} min duration, ${level}`} />
     </div>
