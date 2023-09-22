@@ -59,7 +59,7 @@ export const OrderSubscription = () => {
 
       <RadioBordered data={options} name="tariff" selected="1" />
 
-      <Button text="Start" />
+      <Button>Start</Button>
       <Link to={routePaths.history.URL()} className="text-center">
         History of the payments
       </Link>

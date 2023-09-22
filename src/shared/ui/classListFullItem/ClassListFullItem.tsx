@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 interface IProps {
   item: {
+    id: string;
     title: string;
     url: string;
     duration: string;
@@ -15,15 +16,15 @@ interface IProps {
 }
 
 export const ClassListFullItem: FC<IProps> = (props) => {
-  const { title, url, duration, level } = props.item;
+  const { id, title, url, duration, level } = props.item;
 
   return (
     <div className="w-full">
-      <Link to={routePaths.classDetail.URL("1")}>
+      <Link to={routePaths.classDetail.URL(id)}>
         <VideoPreview url={url} className="mb-5px" />
       </Link>
       <Link
-        to={routePaths.classDetail.URL("1")}
+        to={routePaths.classDetail.URL(id)}
         className="no-underline text-black"
       >
         <H123 title={title} type="h3" />

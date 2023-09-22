@@ -6,12 +6,14 @@ import { userReducer } from "@entities/user/model/slice/userSlice";
 import { loginReducer } from "@features/authByLogin/model/slice/loginSlice";
 import { startClassReducer } from "@features/startClass/model/slice/startClassSlice";
 import { IStateSchema, IThunkExtraArg } from "./stateSchema";
+import { profileReducer } from "@entities/profile";
 
 export function createReduxStore(initialState?: IStateSchema) {
   const rootReducers: ReducersMapObject<IStateSchema> = {
     loginForm: loginReducer,
     user: userReducer,
-    startClass: startClassReducer
+    startClass: startClassReducer,
+    profile: profileReducer
   };
 
   //   const reducerManager = createReducerManager(rootReducers);

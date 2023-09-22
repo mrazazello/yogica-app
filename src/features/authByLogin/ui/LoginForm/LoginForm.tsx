@@ -93,7 +93,9 @@ export const LoginForm: FC = () => {
         align="center"
       />
       <VSpace />
-      <Button text="Continue" onClick={submitHandler} disabled={isLoading} />
+      <Button onClick={submitHandler} disabled={isLoading}>
+        Continue
+      </Button>
     </>
   );
 };

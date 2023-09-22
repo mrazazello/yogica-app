@@ -12,7 +12,9 @@
     "username": "aza"
   },
   "randomClass": {
-    "id": "1"
+    "id": "1",
+    "duration": "20",
+    "level": "Zero level"
   },
   "classDetail": {
     "id": "1",

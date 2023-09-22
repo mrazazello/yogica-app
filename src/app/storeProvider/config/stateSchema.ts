@@ -1,12 +1,15 @@
+import { AxiosInstance } from "axios";
+
+import { IProfileSchema } from "@entities/profile/model/types/profile";
 import { IUserSchema } from "@entities/user/model/types/user";
 import { ILoginSchema } from "@features/authByLogin";
 import { IStartClassSchema } from "@features/startClass";
-import { AxiosInstance } from "axios";
 
 export interface IStateSchema {
   loginForm: ILoginSchema;
   user: IUserSchema;
   startClass: IStartClassSchema;
+  profile: IProfileSchema;
 }
 
 export interface IThunkExtraArg {

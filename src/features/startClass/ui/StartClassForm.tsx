@@ -78,7 +78,10 @@ export const StartClassForm = () => {
   const submitHandler = useCallback(async () => {
     if (formData) {
       const res = await dispatch(getRandomClass(formData));
-      if (res.meta.requestStatus === "fulfilled") {
+      if (
+        res.meta.requestStatus === "fulfilled" &&
+        typeof res.payload === "object"
+      ) {
         navigate(routePaths.classDetail.URL(res.payload.id));
       }
     }
@@ -106,7 +109,9 @@ export const StartClassForm = () => {
           selected={formData.shavasanaDuration}
         />
         <VSpace />
-        <Button text="Start" onClick={submitHandler} disabled={loading} />
+        <Button onClick={submitHandler} disabled={loading}>
+          Start
+        </Button>
       </>
     )
   );

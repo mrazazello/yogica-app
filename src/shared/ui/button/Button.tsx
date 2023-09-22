@@ -2,13 +2,12 @@ import { cn } from "@shared/lib/classNames/classNames";
 import { ButtonHTMLAttributes, FC } from "react";
 
 interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  text: string;
   wFull?: boolean;
   onClick?: () => void;
 }
 
 export const Button: FC<IProps> = (props) => {
-  const { text, wFull = false, onClick, ...otherProps } = props;
+  const { children, wFull = false, onClick, ...otherProps } = props;
   return (
     <button
       className={cn(
@@ -18,7 +17,7 @@ export const Button: FC<IProps> = (props) => {
       onClick={onClick}
       {...otherProps}
     >
-      {text}
+      {children}
     </button>
   );
 };

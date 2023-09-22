@@ -12,6 +12,6 @@ export interface IStartClassSchema {
   error?: string;
 }
 
-export interface IClass {
+export interface IRandomClass {
   id: string;
 }
