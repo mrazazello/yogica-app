@@ -27,7 +27,7 @@ export const RegistrationForm = () => {
       <VSpace />
       <TextLine text="Already registered? Login is here" align="center" />
       <VSpace />
-      <Button text="Continue" />
+      <Button>Continue</Button>
     </>
   );
 };

@@ -2,13 +2,12 @@ import { ReducersMapObject, configureStore } from "@reduxjs/toolkit";
 
 import { api } from "@shared/api/api";
 // import { createReducerManager } from "./reducerManager";
-import { userReducer } from "@entities/user/model/slice/userSlice";
-import { loginReducer } from "@features/authByLogin/model/slice/loginSlice";
-import { startClassReducer } from "@features/startClass/model/slice/startClassSlice";
-
 import { classDetailReducer } from "@entities/classDetail";
 import { favoritesReducer } from "@entities/favorites";
 import { profileReducer } from "@entities/profile";
+import { userReducer } from "@entities/user";
+import { loginReducer } from "@features/authByLogin";
+import { startClassReducer } from "@features/startClass";
 
 import { IStateSchema, IThunkExtraArg } from "./stateSchema";
 

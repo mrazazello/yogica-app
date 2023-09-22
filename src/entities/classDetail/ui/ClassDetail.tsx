@@ -26,7 +26,7 @@ export const ClassDetail: FC<IProps> = (props) => {
   return (
     <>
       {isLoading ? (
-        <Preloader text="loading profile" />
+        <Preloader text="loading class" />
       ) : (
         classDetail && (
           <>

@@ -1,9 +1,9 @@
 export interface IFavorite {
   id: string;
-  title: string;
   url: string;
   duration: string;
   level: string;
+  videoPreview: string;
 }
 
 export interface IFavoritesSchema {

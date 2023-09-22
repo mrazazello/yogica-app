@@ -5,7 +5,7 @@ import { Button } from "./Button";
 
 describe("Button tests", () => {
   test("Button in docement", () => {
-    render(<Button text="test button" />);
+    render(<Button>test button</Button>);
     expect(screen.getByRole("button")).toBeInTheDocument();
   });
 });
