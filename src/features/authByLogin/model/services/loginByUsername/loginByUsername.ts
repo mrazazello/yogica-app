@@ -4,6 +4,7 @@ import { AxiosError } from "axios";
 import { IThunkConfig } from "@app/storeProvider";
 import { IUser, userActions } from "@entities/user";
 import { USER_LOCALSTORAGE_KEY } from "@shared/const/localStorage";
+import { validateLoginData } from "../validateLoginData/validateLoginData";
 
 export interface ILoginProps {
   username: string;
@@ -13,9 +14,15 @@ export interface ILoginProps {
 export const loginUserByName = createAsyncThunk<
   IUser,
   ILoginProps,
-  IThunkConfig<string>
+  IThunkConfig<string[]>
 >("login/loginUserByName", async (authData, thunkAPI) => {
   const { dispatch, extra, rejectWithValue } = thunkAPI;
+
+  const err = validateLoginData(authData);
+  console.log("err: ", err);
+  if (err.length) {
+    return rejectWithValue(err);
+  }
 
   try {
     const response = await extra.api.post<IUser>("/login", authData);
@@ -28,7 +35,7 @@ export const loginUserByName = createAsyncThunk<
 
     return response.data;
   } catch (err) {
-    if (err instanceof AxiosError) return rejectWithValue(err.message);
+    if (err instanceof AxiosError) return rejectWithValue([err.message]);
     throw err;
   }
 });

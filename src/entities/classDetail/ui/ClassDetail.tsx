@@ -50,7 +50,9 @@ export const ClassDetail: FC<IProps> = (props) => {
               ))}
             </div>
             <div className="w-full p-10px border-t border-blue-200">
-              <Button wFull>Start</Button>
+              <Button wFull disabled>
+                Start
+              </Button>
             </div>
           </>
         )

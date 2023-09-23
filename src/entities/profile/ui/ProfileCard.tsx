@@ -32,7 +32,7 @@ export const ProfileCard: FC<IProps> = (props) => {
   return (
     <>
       {isLoading ? (
-        <Preloader text="loading profile 1" />
+        <Preloader text="loading profile 1" height="block" />
       ) : (
         <>
           <Input

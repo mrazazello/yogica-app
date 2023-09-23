@@ -29,7 +29,8 @@ export const LoginForm: FC = () => {
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
   const isLoading = useSelector(getLoginIsLoading);
-  const error = useSelector(getLoginError);
+  const errors = useSelector(getLoginError);
+  console.log("errors: ", errors);
 
   const loginHandler = useCallback(
     (value: string) => {
@@ -59,7 +60,8 @@ export const LoginForm: FC = () => {
         Sign up any way you like to start working out
       </TextLine>
       <VSpace />
-      {error && <Alert title={error} className="mb-20px" />}
+      {errors?.length &&
+        errors.map((item) => <Alert title={item} className="mb-20px" />)}
       <Input
         placeholder="E-mail / Phone / Telegram"
         name="email"
