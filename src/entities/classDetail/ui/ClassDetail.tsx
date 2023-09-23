@@ -20,7 +20,7 @@ export const ClassDetail: FC<IProps> = (props) => {
   const { classDetail, isLoading, error } = props;
 
   if (error) {
-    return <Alert title={error} type="error" />;
+    return <Alert title={error} type="error" className="m-10px" />;
   }
 
   return (
@@ -33,9 +33,9 @@ export const ClassDetail: FC<IProps> = (props) => {
             <div className="w-full h-auto p-10px ">
               <VideoPreview url={classDetail.videoPreview} className="mb-5px" />
               <div className="flex justify-between">
-                <TextLine
-                  text={`${classDetail.duration} min duration, ${classDetail.level} level`}
-                />
+                <TextLine>
+                  {classDetail.duration} min duration {classDetail.level} level
+                </TextLine>
                 <img
                   src={FavoriteIcon}
                   width={24}

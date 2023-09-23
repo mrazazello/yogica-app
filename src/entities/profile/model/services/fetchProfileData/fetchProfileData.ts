@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { AxiosError } from "axios";
 
 import { IThunkConfig } from "@app/storeProvider";
 import { IProfile } from "../../types/profile";
@@ -16,11 +17,9 @@ export const fetchProfileData = createAsyncThunk<
       throw new Error("Thunk error");
     }
 
-    // dispatch(profileActions.setProfileData(response.data));
-
     return response.data;
-  } catch (e) {
-    console.log(e);
-    return rejectWithValue("Error geting profile");
+  } catch (err) {
+    if (err instanceof AxiosError) return rejectWithValue(err.message);
+    throw err;
   }
 });

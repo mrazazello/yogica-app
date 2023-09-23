@@ -1,4 +1,6 @@
-import { getFavoritesData } from "./model/selectors/getFavoritesData";
+import { getFavoritesData } from "./model/selectors/getFavoritesData/getFavoritesData";
+import { getFavoritesError } from "./model/selectors/getFavoritesError/getFavoritesError";
+import { getFavoritesLoading } from "./model/selectors/getFavoritesLoading/getFavoritesLoading";
 import { fetchFavoritesData } from "./model/services/fetchFavoritesData/fetchFavoritesData";
 import {
   favoritesActions,
@@ -12,6 +14,8 @@ export {
   favoritesActions,
   favoritesReducer,
   fetchFavoritesData,
-  getFavoritesData
+  getFavoritesData,
+  getFavoritesError,
+  getFavoritesLoading
 };
 export type { IFavorite, IFavoritesSchema };

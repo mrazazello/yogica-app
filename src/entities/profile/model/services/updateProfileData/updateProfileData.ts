@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { AxiosError } from "axios";
 
 import { IThunkConfig } from "@app/storeProvider";
 
@@ -8,7 +9,7 @@ import { IProfile, ProfileErrorsEnum } from "../../types/profile";
 export const updateProfileData = createAsyncThunk<
   IProfile,
   void,
-  IThunkConfig<ProfileErrorsEnum[]>
+  IThunkConfig<ProfileErrorsEnum[] | string>
 >("profile/updateProfileData", async (_params, thunkAPI) => {
   const { extra, rejectWithValue, getState } = thunkAPI;
 
@@ -22,8 +23,8 @@ export const updateProfileData = createAsyncThunk<
     }
 
     return response.data;
-  } catch (e) {
-    console.log(e);
-    return rejectWithValue([ProfileErrorsEnum.NETWORK_ERROR]);
+  } catch (err) {
+    if (err instanceof AxiosError) return rejectWithValue(err.message);
+    throw err;
   }
 });

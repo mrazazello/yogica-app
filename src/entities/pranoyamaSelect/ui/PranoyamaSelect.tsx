@@ -1,12 +1,20 @@
-import { ISelectOption, Select } from "@shared/ui/select/Select";
 import { FC } from "react";
 
-const pranoyamaDuration: ISelectOption[] = [
-  { label: "no", value: "0" },
-  { label: "3 minutes", value: "3" },
-  { label: "5 minutes", value: "5" },
-  { label: "7 minutes", value: "7" },
-  { label: "10 minutes", value: "10" }
+import { Select } from "@shared/ui/select/Select";
+
+import { PranoyamaDurationEnum } from "../model/types/pranoyamaDuration";
+
+interface ISelectItem {
+  label: string;
+  value: PranoyamaDurationEnum;
+}
+
+const pranoyamaDurations: ISelectItem[] = [
+  { label: "no", value: PranoyamaDurationEnum["0MIN"] },
+  { label: "3 minutes", value: PranoyamaDurationEnum["3MIN"] },
+  { label: "5 minutes", value: PranoyamaDurationEnum["5MIN"] },
+  { label: "7 minutes", value: PranoyamaDurationEnum["7MIN"] },
+  { label: "10 minutes", value: PranoyamaDurationEnum["10MIN"] }
 ];
 
 interface IProps {
@@ -23,7 +31,7 @@ export const PranoyamaSelect: FC<IProps> = (props) => {
         placeholder="Pranoyama duration"
         required
         name="pranoyama"
-        data={pranoyamaDuration}
+        data={pranoyamaDurations}
         onChange={onChange}
         selectedValue={selected}
       />

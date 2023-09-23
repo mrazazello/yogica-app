@@ -1,10 +1,18 @@
-import { ISelectOption, Select } from "@shared/ui/select/Select";
 import { FC } from "react";
 
-const chantingDuration: ISelectOption[] = [
-  { label: "no", value: "0" },
-  { label: "3 minutes", value: "3" },
-  { label: "5 minutes", value: "5" }
+import { Select } from "@shared/ui/select/Select";
+
+import { ChantingDurationEnum } from "../model/types/chantingDuration";
+
+interface ISelectItem {
+  label: string;
+  value: ChantingDurationEnum;
+}
+
+const chantingDurations: ISelectItem[] = [
+  { label: "no", value: ChantingDurationEnum["0MIN"] },
+  { label: "3 minutes", value: ChantingDurationEnum["3MIN"] },
+  { label: "5 minutes", value: ChantingDurationEnum["5MIN"] }
 ];
 
 interface IProps {
@@ -21,7 +29,7 @@ export const ChantingSelect: FC<IProps> = (props) => {
         placeholder="Chanting duration"
         required
         name="chanting"
-        data={chantingDuration}
+        data={chantingDurations}
         onChange={onChange}
         selectedValue={selected}
       />

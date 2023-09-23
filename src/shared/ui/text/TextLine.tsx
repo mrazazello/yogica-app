@@ -2,14 +2,14 @@ import { cn } from "@shared/lib/classNames/classNames";
 import { FC } from "react";
 
 interface IProps {
-  text: React.ReactElement | string;
   align?: "left" | "center" | "right";
   size?: "sm" | "base" | "lg";
   inline?: boolean;
+  children: React.ReactNode;
 }
 
 export const TextLine: FC<IProps> = (props) => {
-  const { text, align = "left", size = "base", inline = "false" } = props;
+  const { children, align = "left", size = "base", inline = "false" } = props;
   return (
     <div
       className={cn(
@@ -27,7 +27,7 @@ export const TextLine: FC<IProps> = (props) => {
         []
       )}
     >
-      {text}
+      {children}
     </div>
   );
 };

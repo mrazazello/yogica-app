@@ -5,7 +5,7 @@ import {
   startClassActions,
   startClassReducer
 } from "./model/slice/startClassSlice";
-import { IStartClassSchema } from "./types/startClass";
+import { IStartClassSchema } from "./model/types/startClass";
 import { StartClassForm } from "./ui/StartClassForm";
 
 export {

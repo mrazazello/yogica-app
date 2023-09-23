@@ -55,10 +55,9 @@ export const LoginForm: FC = () => {
   return (
     <>
       <H123 title="Login" align="center" />
-      <TextLine
-        text="Sign up any way you like to start working out"
-        align="center"
-      />
+      <TextLine align="center">
+        Sign up any way you like to start working out
+      </TextLine>
       <VSpace />
       {error && <Alert title={error} className="mb-20px" />}
       <Input
@@ -83,15 +82,10 @@ export const LoginForm: FC = () => {
         <img src={gl} width={24} height={24} alt="Google" />
       </div>
       <VSpace />
-      <TextLine
-        text={
-          <>
-            Already registered?{" "}
-            <Link to={routePaths.registration.URL()}>Registration is here</Link>
-          </>
-        }
-        align="center"
-      />
+      <TextLine align="center">
+        Already registered?{" "}
+        <Link to={routePaths.registration.URL()}>Registration is here</Link>
+      </TextLine>
       <VSpace />
       <Button onClick={submitHandler} disabled={isLoading}>
         Continue

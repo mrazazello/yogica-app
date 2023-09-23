@@ -1,8 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { AxiosError } from "axios";
 
 import { IThunkConfig } from "@app/storeProvider";
 
-import { IRandomClass, IStartClassForm } from "../../../types/startClass";
+import { IRandomClass, IStartClassForm } from "../../types/startClass";
 
 export interface IClassProps extends IStartClassForm {}
 
@@ -23,8 +24,8 @@ export const getRandomClass = createAsyncThunk<
     }
 
     return response.data;
-  } catch (e) {
-    console.log(e);
-    return rejectWithValue("Generate class error");
+  } catch (err) {
+    if (err instanceof AxiosError) return rejectWithValue(err.message);
+    throw err;
   }
 });

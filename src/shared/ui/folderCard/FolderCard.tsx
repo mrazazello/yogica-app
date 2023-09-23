@@ -32,7 +32,7 @@ export const FolderCard: FC<IProps> = (props) => {
             "cursor-pointer text-blue-300": onClick !== undefined
           })}
         />
-        {description && <TextLine text={description} />}
+        {description && <TextLine>{description}</TextLine>}
       </div>
     </div>
   );

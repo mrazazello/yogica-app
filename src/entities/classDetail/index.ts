@@ -1,4 +1,6 @@
 import { getClassDetailData } from "./model/selectors/getClassDetailData/getClassDetailData";
+import { getClassDetailError } from "./model/selectors/getClassDetailError/getClassDetailError";
+import { getClassDetailLoading } from "./model/selectors/getClassDetailLoading/getClassDetailLoading";
 import { fetchClassDetailData } from "./model/services/fetchClassDetailData/fetchClassDetailData";
 import {
   classDetailActions,
@@ -12,6 +14,8 @@ export {
   classDetailActions,
   classDetailReducer,
   fetchClassDetailData,
-  getClassDetailData
+  getClassDetailData,
+  getClassDetailError,
+  getClassDetailLoading
 };
 export type { IClassDetail, IClassDetailSchema };

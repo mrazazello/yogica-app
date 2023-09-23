@@ -21,7 +21,7 @@ export const ExerciseListItem: FC<IProps> = (props) => {
       <img src={url} width={80} height={80} alt={name} />
       <div className="flex flex-col">
         <H123 title={name} type="h3" />
-        <TextLine text={`${duration} min`} />
+        <TextLine>{duration} min</TextLine>
       </div>
     </div>
   );

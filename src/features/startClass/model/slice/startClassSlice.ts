@@ -1,7 +1,7 @@
 import {
   IStartClassForm,
   IStartClassSchema
-} from "@features/startClass/types/startClass";
+} from "@features/startClass/model/types/startClass";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { getRandomClass } from "../services/getRandomClass/getRandomClass";
 

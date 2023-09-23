@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { AxiosError } from "axios";
 
 import { IThunkConfig } from "@app/storeProvider";
 import { IUser, userActions } from "@entities/user";
@@ -18,7 +19,6 @@ export const loginUserByName = createAsyncThunk<
 
   try {
     const response = await extra.api.post<IUser>("/login", authData);
-
     if (!response.data) {
       throw new Error("Thunk error");
     }
@@ -27,8 +27,8 @@ export const loginUserByName = createAsyncThunk<
     dispatch(userActions.setAuthData(response.data));
 
     return response.data;
-  } catch (e) {
-    console.log(e);
-    return rejectWithValue("Wrong login or password");
+  } catch (err) {
+    if (err instanceof AxiosError) return rejectWithValue(err.message);
+    throw err;
   }
 });

@@ -1,9 +1,17 @@
-import { ISelectOption, Select } from "@shared/ui/select/Select";
 import { FC } from "react";
 
-const shavasanaDuration: ISelectOption[] = [
-  { label: "no", value: "0" },
-  { label: "yes", value: "yes" }
+import { Select } from "@shared/ui/select/Select";
+
+import { ShavasanaDurationEnum } from "../model/types/shavasanaDuration";
+
+interface ISelectItem {
+  label: string;
+  value: ShavasanaDurationEnum;
+}
+
+const shavasanaDurations: ISelectItem[] = [
+  { label: "no", value: ShavasanaDurationEnum.NO },
+  { label: "yes", value: ShavasanaDurationEnum.YES }
 ];
 
 interface IProps {
@@ -20,7 +28,7 @@ export const ShavasanaSelect: FC<IProps> = (props) => {
         placeholder="Shavasana"
         required
         name="shavasana"
-        data={shavasanaDuration}
+        data={shavasanaDurations}
         onChange={onChange}
         selectedValue={selected}
       />

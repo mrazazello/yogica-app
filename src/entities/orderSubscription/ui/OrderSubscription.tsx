@@ -11,11 +11,11 @@ const El1 = (
   <div className="w-full flex justify-between">
     <div>
       <Price sum="120.00" />
-      <TextLine text="12 Month Membership" />
+      <TextLine>12 Month Membership</TextLine>
     </div>
     <div>
       <Price sum="10.00" />
-      <TextLine text="/ Day" />
+      <TextLine>/ Day</TextLine>
     </div>
   </div>
 );
@@ -24,11 +24,11 @@ const El2 = (
   <div className="w-full flex justify-between">
     <div>
       <Price sum="20.00" />
-      <TextLine text="12 Month Membership" />
+      <TextLine>12 Month Membership</TextLine>
     </div>
     <div>
       <Price sum="0.67" />
-      <TextLine text="/ Day" />
+      <TextLine>/ Day</TextLine>
     </div>
   </div>
 );

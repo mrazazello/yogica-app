@@ -8,7 +8,7 @@ export interface IProfileSchema {
   form?: IProfile;
   isLoading: boolean;
   error?: string;
-  validateErrors?: ProfileErrorsEnum[];
+  validateErrors?: ProfileErrorsEnum[] | string;
   readonly: boolean;
 }
 

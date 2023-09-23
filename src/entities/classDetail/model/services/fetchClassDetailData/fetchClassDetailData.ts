@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { AxiosError } from "axios";
 
 import { IThunkConfig } from "@app/storeProvider";
 import { IClassDetail } from "../../types/class";
@@ -14,16 +15,12 @@ export const fetchClassDetailData = createAsyncThunk<
     const response = await extra.api.get<IClassDetail>("/classDetail", {
       params: { id: params }
     });
-
     if (!response.data) {
       throw new Error("Thunk error");
     }
-
-    // dispatch(profileActions.setProfileData(response.data));
-
     return response.data;
-  } catch (e) {
-    console.log(e);
-    return rejectWithValue("Error geting classDetail");
+  } catch (err) {
+    if (err instanceof AxiosError) return rejectWithValue(err.message);
+    throw err;
   }
 });

@@ -1,10 +1,18 @@
-import { ISelectOption, Select } from "@shared/ui/select/Select";
 import { FC } from "react";
 
-const level: ISelectOption[] = [
-  { label: "Zero", value: "zero" },
-  { label: "Beginner", value: "beginner" },
-  { label: "Middle", value: "middle" }
+import { Select } from "@shared/ui/select/Select";
+
+import { LevelsEnum } from "../model/types/levels";
+
+interface ISelectItem {
+  label: string;
+  value: LevelsEnum;
+}
+
+const levels: ISelectItem[] = [
+  { label: "Zero", value: LevelsEnum.ZERO },
+  { label: "Beginner", value: LevelsEnum.BEGINNER },
+  { label: "Middle", value: LevelsEnum.MIDDLE }
 ];
 
 interface IProps {
@@ -21,7 +29,7 @@ export const LevelSelect: FC<IProps> = (props) => {
         placeholder="Level"
         required
         name="level"
-        data={level}
+        data={levels}
         onChange={onChange}
         selectedValue={selected}
       />

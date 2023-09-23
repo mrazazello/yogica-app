@@ -17,7 +17,9 @@ export const ClassListCompactItem: FC<IProps> = (props) => {
   const { date, title, duration, level } = props.item;
   return (
     <div className="grid grid-cols-dateList gap-4 mb-20px">
-      <TextLine text={date} align="right" size="base" />
+      <TextLine align="right" size="base">
+        {date}
+      </TextLine>
       <div>
         <div className="flex">
           <H123 title={title} type="h3" />
@@ -29,7 +31,9 @@ export const ClassListCompactItem: FC<IProps> = (props) => {
             className="ml-5px"
           />
         </div>
-        <TextLine text={`${duration} min duration, ${level}`} size="sm" />
+        <TextLine size="sm">
+          {duration} min duration, {level}
+        </TextLine>
       </div>
     </div>
   );

@@ -1,12 +1,15 @@
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+
 import { AppLayout } from "@app/AppLayout";
 import {
   FavoritesList,
   fetchFavoritesData,
-  getFavoritesData
+  getFavoritesData,
+  getFavoritesError,
+  getFavoritesLoading
 } from "@entities/favorites";
 import { useAppDispatch } from "@shared/lib/storeHooks/storeHooks";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
 
 const Favorites = () => {
   const dispatch = useAppDispatch();
@@ -16,10 +19,12 @@ const Favorites = () => {
   }, [dispatch]);
 
   const favoritesData = useSelector(getFavoritesData);
+  const error = useSelector(getFavoritesError);
+  const loading = useSelector(getFavoritesLoading);
 
   return (
     <AppLayout title="Favorites">
-      <FavoritesList data={favoritesData} />
+      <FavoritesList data={favoritesData} error={error} isLoading={loading} />
     </AppLayout>
   );
 };

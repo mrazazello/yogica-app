@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
+
+import { routePaths } from "@shared/config/router/routes";
+import { Input } from "@shared/ui/Input/Input";
 import { Button } from "@shared/ui/button/Button";
 import { H123 } from "@shared/ui/h123/H123";
-import { Input } from "@shared/ui/Input/Input";
 import { TextLine } from "@shared/ui/text/TextLine";
 import { VSpace } from "@shared/ui/vSpace/VSpace";
 
@@ -12,12 +15,13 @@ export const RegistrationForm = () => {
   return (
     <>
       <H123 title="Registration" align="center" />
-      <TextLine
-        text="Sign up any way you like to start working out"
-        align="center"
-      />
+      <TextLine align="center">
+        Sign up any way you like to start working out
+      </TextLine>
       <VSpace />
       <Input placeholder="E-mail / Phone / Telegram" name="email" required />
+      <Input placeholder="First name" name="email" required />
+      <Input placeholder="Last name" name="email" required />
       <VSpace />
       <div className="flex justify-center gap-4">
         <img src={tg} width={24} height={24} alt="Telegram" />
@@ -25,9 +29,12 @@ export const RegistrationForm = () => {
         <img src={gl} width={24} height={24} alt="Google" />
       </div>
       <VSpace />
-      <TextLine text="Already registered? Login is here" align="center" />
+      <TextLine align="center">
+        Already registered?{" "}
+        <Link to={routePaths.main.URL()}>Login is here</Link>
+      </TextLine>
       <VSpace />
-      <Button>Continue</Button>
+      <Button disabled>Continue</Button>
     </>
   );
 };

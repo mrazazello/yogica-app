@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { ChantingSelect } from "@entities/chantingSelect";
-import { DurationSelect } from "@entities/durationSelect";
 import { LevelSelect } from "@entities/levelSelect";
 import { PranoyamaSelect } from "@entities/pranoyamaSelect";
 import { ShavasanaSelect } from "@entities/shavasanaSelect";
@@ -13,12 +12,13 @@ import { Alert } from "@shared/ui/alert/Alert";
 import { Button } from "@shared/ui/button/Button";
 import { VSpace } from "@shared/ui/vSpace/VSpace";
 
+import { ExerciseDurationSelect } from "@entities/exerciseDurationSelect";
 import { getStartClassError } from "../model/selectors/getStartClassError/getStartClassError";
 import { getStartClassFormData } from "../model/selectors/getStartClassFormData/getStartClassFormData";
 import { getStartClassLoading } from "../model/selectors/getStartClassLoading/getStartClassLoading";
 import { getRandomClass } from "../model/services/getRandomClass/getRandomClass";
 import { startClassActions } from "../model/slice/startClassSlice";
-import { IStartClassForm } from "../types/startClass";
+import { IStartClassForm } from "../model/types/startClass";
 
 const initialParams: IStartClassForm = {
   exercisesDuration: "15",
@@ -91,7 +91,7 @@ export const StartClassForm = () => {
     formData && (
       <>
         {error && <Alert title={error} className="mb-20px" />}
-        <DurationSelect
+        <ExerciseDurationSelect
           onChange={changeDurationHandler}
           selected={formData.exercisesDuration}
         />

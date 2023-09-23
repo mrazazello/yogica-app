@@ -5,7 +5,9 @@ import { AppLayout } from "@app/AppLayout";
 import {
   ClassDetail,
   fetchClassDetailData,
-  getClassDetailData
+  getClassDetailData,
+  getClassDetailError,
+  getClassDetailLoading
 } from "@entities/classDetail";
 import { useAppDispatch } from "@shared/lib/storeHooks/storeHooks";
 import { useSelector } from "react-redux";
@@ -19,10 +21,16 @@ const Class = () => {
   }, [dispatch, params.id]);
 
   const classDetail = useSelector(getClassDetailData);
+  const error = useSelector(getClassDetailError);
+  const loading = useSelector(getClassDetailLoading);
 
   return (
-    <AppLayout title="Class # 111" noPadding={true}>
-      <ClassDetail classDetail={classDetail} />
+    <AppLayout title={`Class # ${classDetail?.id}`} noPadding={true}>
+      <ClassDetail
+        classDetail={classDetail}
+        isLoading={loading}
+        error={error}
+      />
     </AppLayout>
   );
 };
