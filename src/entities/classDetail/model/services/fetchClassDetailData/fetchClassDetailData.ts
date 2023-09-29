@@ -12,9 +12,9 @@ export const fetchClassDetailData = createAsyncThunk<
   const { extra, rejectWithValue } = thunkAPI;
 
   try {
-    const response = await extra.api.get<IClassDetail>("/classDetail", {
-      params: { id: params }
-    });
+    const response = await extra.api.get<IClassDetail>(
+      `/classDetail/${params}`
+    );
     if (!response.data) {
       throw new Error("Thunk error");
     }

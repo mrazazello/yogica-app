@@ -1,12 +1,12 @@
 import { FC } from "react";
 
+import { Alert } from "@shared/ui/alert/Alert";
 import { Button } from "@shared/ui/button/Button";
 import { ExerciseListItem } from "@shared/ui/exerciseListItem/ExerciseListItem";
+import { Preloader } from "@shared/ui/preloader/Preloader";
 import { TextLine } from "@shared/ui/text/TextLine";
 import { VideoPreview } from "@shared/ui/videoPreview/VideoPreview";
 
-import { Alert } from "@shared/ui/alert/Alert";
-import { Preloader } from "@shared/ui/preloader/Preloader";
 import { IClassDetail } from "../model/types/class";
 import FavoriteIcon from "./favorite.svg";
 
@@ -26,7 +26,7 @@ export const ClassDetail: FC<IProps> = (props) => {
   return (
     <>
       {isLoading ? (
-        <Preloader text="loading class" />
+        <Preloader text="loading class data" />
       ) : (
         classDetail && (
           <>

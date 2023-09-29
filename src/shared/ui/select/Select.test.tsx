@@ -6,8 +6,15 @@ import { ISelectOption, Select } from "./Select";
 const options: ISelectOption[] = [{ label: "test 1", value: "1" }];
 
 describe("Select tests", () => {
-  test("Select in docement", () => {
-    render(<Select name="test" placeholder="test select" data={options} />);
+  test("Select is in docement", () => {
+    render(
+      <Select
+        name="test"
+        placeholder="test select"
+        data={options}
+        selectedValue="1"
+      />
+    );
     expect(screen.getByRole("button")).toHaveTextContent("test 1");
   });
 });

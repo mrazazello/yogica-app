@@ -15,7 +15,11 @@ export const Alert: FC<IProps> = (props) => {
     <div
       className={cn(
         "flex gap-10px items-start border border-pink-200 rounded-md p-20px",
-        { "bg-pink-100": type === "error" },
+        {
+          "bg-pink-100": type === "error",
+          "bg-yellow-100": type === "warning",
+          "bg-green-400": type === "info"
+        },
         [className]
       )}
     >

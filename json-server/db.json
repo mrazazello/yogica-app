@@ -16,38 +16,40 @@
     "duration": "20",
     "level": "Zero level"
   },
-  "classDetail": {
-    "id": "1",
-    "duration": "20",
-    "level": "Zero level",
-    "videoPreview": "/temp/videoScreen.jpg",
-    "exercises": [
-      {
-        "id": "1",
-        "name": "Chuturanga",
-        "duration": "30",
-        "url": "/temp/exercisePreview.jpg"
-      },
-      {
-        "id": "2",
-        "name": "Tadasana",
-        "duration": "35",
-        "url": "/temp/exercisePreview.jpg"
-      },
-      {
-        "id": "3",
-        "name": "Malasana",
-        "duration": "30",
-        "url": "/temp/exercisePreview.jpg"
-      },
-      {
-        "id": "4",
-        "name": "Shavasana",
-        "duration": "60",
-        "url": "/temp/exercisePreview.jpg"
-      }
-    ]
-  },
+  "classDetail": [
+    {
+      "id": "1",
+      "duration": "20",
+      "level": "Zero level",
+      "videoPreview": "/temp/videoScreen.jpg",
+      "exercises": [
+        {
+          "id": "1",
+          "name": "Chuturanga",
+          "duration": "30",
+          "url": "/temp/exercisePreview.jpg"
+        },
+        {
+          "id": "2",
+          "name": "Tadasana",
+          "duration": "35",
+          "url": "/temp/exercisePreview.jpg"
+        },
+        {
+          "id": "3",
+          "name": "Malasana",
+          "duration": "30",
+          "url": "/temp/exercisePreview.jpg"
+        },
+        {
+          "id": "4",
+          "name": "Shavasana",
+          "duration": "60",
+          "url": "/temp/exercisePreview.jpg"
+        }
+      ]
+    }
+  ],
   "favorites": [
     {
       "id": "1",

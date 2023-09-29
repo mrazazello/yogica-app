@@ -38,7 +38,9 @@ export const ProfilePageFooter: FC<IProps> = (props) => {
         <Button onClick={onEdit}>edit</Button>
       ) : (
         <div className="flex justify-between">
-          <Button onClick={onCancelEdit}>cancel</Button>
+          <Button onClick={onCancelEdit} theme="secondary">
+            cancel
+          </Button>
           <Button onClick={onSave}>save</Button>
         </div>
       )}

@@ -31,7 +31,7 @@ export const ClassListFullItem: FC<IProps> = (props) => {
         <H123 title={`# ${id}`} type="h3" />
       </Link>
       <TextLine>
-        {duration} min duration, ${level}
+        {duration} min duration, {level}
       </TextLine>
     </div>
   );

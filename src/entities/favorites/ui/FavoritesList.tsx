@@ -14,7 +14,7 @@ export const FavoritesList: FC<IProps> = (props) => {
   const { data, error, isLoading } = props;
 
   if (isLoading) {
-    return <Preloader text="Loading favorites" />;
+    return <Preloader text="Loading favorites data" />;
   }
 
   return (

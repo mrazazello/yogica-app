@@ -43,8 +43,11 @@ export const InputComponent: FC<IProps> = (props: IProps) => {
   const input = (
     <input
       className={cn(
-        "border border-blue-200 text-black text-xl rounded-md focus:ring-blue-300 focus:border-blue-300 block w-full p-2.5",
-        { "bg-gray-200": readonly, "bg-white": !readonly },
+        "border border-blue-200  text-xl rounded-md focus:ring-blue-300 focus:border-blue-300 block w-full p-2.5",
+        {
+          "bg-gray-800 text-gray-300": readonly,
+          "bg-white text-black": !readonly
+        },
         [FOCUS_STYLES]
       )}
       name={name}
