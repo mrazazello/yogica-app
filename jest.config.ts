@@ -6,10 +6,8 @@ export default {
     "^.+\\.tsx?$": "ts-jest"
   },
   moduleNameMapper: {
-    // "\\.(gif|ttf|eot|png)$": "<rootDir>/config/jest/JestEmptyComponent.tsx",
-    // "\\.svg$": "<rootDir>/config/jest/svgTransform.js", // заглушка для импортируемых файлов типа svg
     "^.+.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2|svg)$":
-      "jest-transform-stub",
+      "jest-transform-stub", // заглушка для импортируемых файлов типа svg
     "@app/(.*)": "<rootDir>/src/app/$1",
     "@pages/(.*)": "<rootDir>/src/pages/$1",
     "@entities/(.*)": "<rootDir>/src/entities/$1",

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { ChantingSelect } from "@entities/chantingSelect";
+import { ExerciseDurationSelect } from "@entities/exerciseDurationSelect";
 import { LevelSelect } from "@entities/levelSelect";
 import { PranoyamaSelect } from "@entities/pranoyamaSelect";
 import { ShavasanaSelect } from "@entities/shavasanaSelect";
@@ -12,7 +13,6 @@ import { Alert } from "@shared/ui/alert/Alert";
 import { Button } from "@shared/ui/button/Button";
 import { VSpace } from "@shared/ui/vSpace/VSpace";
 
-import { ExerciseDurationSelect } from "@entities/exerciseDurationSelect";
 import { getStartClassError } from "../model/selectors/getStartClassError/getStartClassError";
 import { getStartClassFormData } from "../model/selectors/getStartClassFormData/getStartClassFormData";
 import { getStartClassLoading } from "../model/selectors/getStartClassLoading/getStartClassLoading";
