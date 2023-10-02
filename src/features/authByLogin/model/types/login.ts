@@ -3,14 +3,11 @@ export interface ILoginData {
   password: string;
 }
 export interface ILoginSchema {
-  username: string;
-  password: string;
+  form: ILoginData;
   isLoading: boolean;
   error?: string[];
 }
 
 export enum LoginErrorsEnum {
-  NO_LOGIN_DATA = "No data",
-  NO_USERNAME = "No user name was provided",
-  NO_PASSWORD = "No password was provided"
+  NO_LOGIN_DATA = "No username or password were provided"
 }

@@ -30,7 +30,7 @@ export const LoginForm: FC = () => {
   const password = useSelector(getLoginPassword);
   const isLoading = useSelector(getLoginIsLoading);
   const errors = useSelector(getLoginError);
-  console.log("errors: ", errors);
+  // console.log("errors: ", errors);
 
   const loginHandler = useCallback(
     (value: string) => {

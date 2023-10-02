@@ -8,12 +8,8 @@ export const validateLoginData = (data?: ILoginData) => {
   const { username, password } = data;
   const errors = [];
 
-  if (username === "") {
-    errors.push(LoginErrorsEnum.NO_USERNAME);
-  }
-
-  if (password === "") {
-    errors.push(LoginErrorsEnum.NO_PASSWORD);
+  if (username === "" || password === "") {
+    errors.push(LoginErrorsEnum.NO_LOGIN_DATA);
   }
 
   return errors;
