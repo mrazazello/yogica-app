@@ -61,7 +61,9 @@ export const LoginForm: FC = () => {
       </TextLine>
       <VSpace />
       {errors?.length &&
-        errors.map((item) => <Alert title={item} className="mb-20px" />)}
+        errors.map((item, index) => (
+          <Alert key={index} title={item} className="mb-20px" />
+        ))}
       <Input
         placeholder="E-mail / Phone / Telegram"
         name="email"

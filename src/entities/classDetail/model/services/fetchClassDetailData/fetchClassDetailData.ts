@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { AxiosError } from "axios";
+import axios, { AxiosError } from "axios";
 
 import { IThunkConfig } from "@app/storeProvider";
 import { IClassDetail } from "../../types/class";
@@ -9,12 +9,10 @@ export const fetchClassDetailData = createAsyncThunk<
   string,
   IThunkConfig<string>
 >("classDetail/fetchClassDetailData", async (params, thunkAPI) => {
-  const { extra, rejectWithValue } = thunkAPI;
+  const { rejectWithValue } = thunkAPI;
 
   try {
-    const response = await extra.api.get<IClassDetail>(
-      `/classDetail/${params}`
-    );
+    const response = await axios.get<IClassDetail>(`/classDetail/${params}`);
     if (!response.data) {
       throw new Error("Thunk error");
     }

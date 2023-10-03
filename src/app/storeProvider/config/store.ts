@@ -1,6 +1,5 @@
 import { ReducersMapObject, configureStore } from "@reduxjs/toolkit";
 
-import { api } from "@shared/api/api";
 // import { createReducerManager } from "./reducerManager";
 import { classDetailReducer } from "@entities/classDetail";
 import { favoritesReducer } from "@entities/favorites";
@@ -9,7 +8,7 @@ import { userReducer } from "@entities/user";
 import { loginReducer } from "@features/authByLogin";
 import { startClassReducer } from "@features/startClass";
 
-import { IStateSchema, IThunkExtraArg } from "./stateSchema";
+import { IStateSchema } from "./stateSchema";
 
 export function createReduxStore(initialState?: IStateSchema) {
   const rootReducers: ReducersMapObject<IStateSchema> = {
@@ -23,20 +22,10 @@ export function createReduxStore(initialState?: IStateSchema) {
 
   //   const reducerManager = createReducerManager(rootReducers);
 
-  const extraArg: IThunkExtraArg = {
-    api: api
-  };
-
   const store = configureStore({
     reducer: rootReducers,
     preloadedState: initialState,
-    devTools: true, // нужно пробросить из .env
-    middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({
-        thunk: {
-          extraArgument: extraArg
-        }
-      })
+    devTools: import.meta.env.DEV
   });
 
   return store;

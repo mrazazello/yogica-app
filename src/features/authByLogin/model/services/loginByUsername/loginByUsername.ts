@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { AxiosError } from "axios";
+import axios, { AxiosError } from "axios";
 
 import { IThunkConfig } from "@app/storeProvider";
 import { IUser, userActions } from "@entities/user";
@@ -16,7 +16,7 @@ export const loginUserByName = createAsyncThunk<
   ILoginProps,
   IThunkConfig<string[]>
 >("login/loginUserByName", async (authData, thunkAPI) => {
-  const { dispatch, extra, rejectWithValue } = thunkAPI;
+  const { dispatch, rejectWithValue } = thunkAPI;
 
   const err = validateLoginData(authData);
   console.log("err: ", err);
@@ -25,7 +25,7 @@ export const loginUserByName = createAsyncThunk<
   }
 
   try {
-    const response = await extra.api.post<IUser>("/login", authData);
+    const response = await axios.post<IUser>("/login", authData);
     if (!response.data) {
       throw new Error("Thunk error");
     }

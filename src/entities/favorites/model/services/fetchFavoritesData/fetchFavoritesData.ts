@@ -1,7 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { AxiosError } from "axios";
+import axios, { AxiosError } from "axios";
 
 import { IThunkConfig } from "@app/storeProvider";
+
 import { IFavorite } from "../../types/favoretes";
 
 export const fetchFavoritesData = createAsyncThunk<
@@ -9,9 +10,9 @@ export const fetchFavoritesData = createAsyncThunk<
   void,
   IThunkConfig<string>
 >("startClass/fetchFavoritesData", async (_, thunkAPI) => {
-  const { extra, rejectWithValue } = thunkAPI;
+  const { rejectWithValue } = thunkAPI;
   try {
-    const response = await extra.api.get<IFavorite[]>("/favorites");
+    const response = await axios.get<IFavorite[]>("/favorites");
     if (!response.data) {
       throw new Error("Thunk error");
     }

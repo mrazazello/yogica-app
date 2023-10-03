@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { AxiosError } from "axios";
+import axios, { AxiosError } from "axios";
 
 import { IThunkConfig } from "@app/storeProvider";
 
@@ -12,10 +12,10 @@ export const getRandomClass = createAsyncThunk<
   IClassProps,
   IThunkConfig<string>
 >("startClass/getRandomClass", async (params, thunkAPI) => {
-  const { extra, rejectWithValue } = thunkAPI;
+  const { rejectWithValue } = thunkAPI;
 
   try {
-    const response = await extra.api.get<IRandomClass>("/randomClass", {
+    const response = await axios.get<IRandomClass>("/randomClass", {
       params
     });
 
