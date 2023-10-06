@@ -48,6 +48,70 @@
           "url": "/temp/exercisePreview.jpg"
         }
       ]
+    },
+    {
+      "id": "2",
+      "duration": "30",
+      "level": "Begginer level",
+      "videoPreview": "/temp/videoScreen.jpg",
+      "exercises": [
+        {
+          "id": "1",
+          "name": "Tadasana",
+          "duration": "30",
+          "url": "/temp/exercisePreview.jpg"
+        },
+        {
+          "id": "2",
+          "name": "Mayurasana",
+          "duration": "35",
+          "url": "/temp/exercisePreview.jpg"
+        },
+        {
+          "id": "3",
+          "name": "Malasana",
+          "duration": "30",
+          "url": "/temp/exercisePreview.jpg"
+        },
+        {
+          "id": "4",
+          "name": "Shavasana",
+          "duration": "60",
+          "url": "/temp/exercisePreview.jpg"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "duration": "10",
+      "level": "Middle level",
+      "videoPreview": "/temp/videoScreen.jpg",
+      "exercises": [
+        {
+          "id": "1",
+          "name": "Tadasana",
+          "duration": "30",
+          "url": "/temp/exercisePreview.jpg"
+        },
+        {
+          "id": "2",
+          "name": "Mayurasana",
+          "duration": "35",
+          "url": "/temp/exercisePreview.jpg"
+        },
+        {
+          "id": "3",
+          "name": "Malasana",
+          "duration": "30",
+          "url": "/temp/exercisePreview.jpg"
+        },
+        {
+          "id": "4",
+          "name": "Shavasana",
+          "duration": "60",
+          "url": "/temp/exercisePreview.jpg"
+        }
+      ]
     }
   ],
   "favorites": [
@@ -74,6 +138,29 @@
       "duration": "20",
       "level": "Zero level",
       "videoPreview": "/temp/videoScreen.jpg"
+    }
+  ],
+  "classesHistory": [
+    {
+      "id": "1",
+      "duration": "20",
+      "level": "Zero level",
+      "videoPreview": "/temp/videoScreen.jpg",
+      "date": "2023-10-06T09:46:16Z"
+    },
+    {
+      "id": "2",
+      "duration": "20",
+      "level": "Zero level",
+      "videoPreview": "/temp/videoScreen.jpg",
+      "date": "2023-10-06T09:46:16Z"
+    },
+    {
+      "id": "3",
+      "duration": "20",
+      "level": "Zero level",
+      "videoPreview": "/temp/videoScreen.jpg",
+      "date": "2023-10-06T09:46:16Z"
     }
   ]
 }

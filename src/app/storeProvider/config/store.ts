@@ -8,6 +8,7 @@ import { userReducer } from "@entities/user";
 import { loginReducer } from "@features/authByLogin";
 import { startClassReducer } from "@features/startClass";
 
+import { classesHistoryReducer } from "@entities/classesHistory";
 import { IStateSchema } from "./stateSchema";
 
 export function createReduxStore(initialState?: IStateSchema) {
@@ -17,7 +18,8 @@ export function createReduxStore(initialState?: IStateSchema) {
     startClass: startClassReducer,
     profile: profileReducer,
     classDetail: classDetailReducer,
-    favorites: favoritesReducer
+    favorites: favoritesReducer,
+    classesHistory: classesHistoryReducer
   };
 
   //   const reducerManager = createReducerManager(rootReducers);

@@ -6,7 +6,6 @@ import { getFavoritesData } from "./getFavoritesData";
 const testData: IFavorite[] = [
   {
     id: "",
-    url: "string",
     duration: "string",
     level: "string",
     videoPreview: "string"

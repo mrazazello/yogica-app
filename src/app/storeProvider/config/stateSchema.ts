@@ -1,6 +1,7 @@
 import { AxiosInstance } from "axios";
 
 import { IClassDetailSchema } from "@entities/classDetail";
+import { IClassesHistorySchema } from "@entities/classesHistory/model/types/classesHistory";
 import { IFavoritesSchema } from "@entities/favorites";
 import { IProfileSchema } from "@entities/profile";
 import { IUserSchema } from "@entities/user";
@@ -14,6 +15,7 @@ export interface IStateSchema {
   profile: IProfileSchema;
   classDetail: IClassDetailSchema;
   favorites: IFavoritesSchema;
+  classesHistory: IClassesHistorySchema;
 }
 
 export interface IThunkExtraArg {

@@ -1,12 +1,13 @@
-export interface IFavorite {
+export interface IClassesHistory {
   id: string;
   duration: string;
   level: string;
   videoPreview: string;
+  date: string;
 }
 
-export interface IFavoritesSchema {
-  data?: IFavorite[];
+export interface IClassesHistorySchema {
+  data?: IClassesHistory[];
   isLoading: boolean;
   error?: string;
 }
