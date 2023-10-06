@@ -3,48 +3,31 @@ import { Link } from "react-router-dom";
 import { routePaths } from "@shared/config/router/routes";
 import { Alert } from "@shared/ui/alert/Alert";
 import { Button } from "@shared/ui/button/Button";
-import { Price } from "@shared/ui/price/Price";
-import { RadioBordered } from "@shared/ui/radioBordered/RadioBordered";
-import { TextLine } from "@shared/ui/text/TextLine";
+import { IRadioOptions, RadioSelect } from "@shared/ui/radioSelect/RadioSelect";
+import { SubscriptionItem } from "./SubscriptionItem";
 
-const El1 = (
-  <div className="w-full flex justify-between">
-    <div>
-      <Price sum="120.00" />
-      <TextLine>12 Month Membership</TextLine>
-    </div>
-    <div>
-      <Price sum="10.00" />
-      <TextLine>/ Day</TextLine>
-    </div>
-  </div>
-);
-
-const El2 = (
-  <div className="w-full flex justify-between">
-    <div>
-      <Price sum="20.00" />
-      <TextLine>12 Month Membership</TextLine>
-    </div>
-    <div>
-      <Price sum="0.67" />
-      <TextLine>/ Day</TextLine>
-    </div>
-  </div>
-);
-
-const options = [
+const options: IRadioOptions[] = [
   {
-    label: El1,
+    label: (
+      <SubscriptionItem
+        summ="120.00"
+        membership="12 Month Membership"
+        perDay="10.00"
+        period="Month"
+      />
+    ),
     value: "1"
   },
   {
-    label: El2,
+    label: (
+      <SubscriptionItem
+        summ="20.00"
+        membership="1 Month Membership"
+        perDay="0.67"
+        period="Day"
+      />
+    ),
     value: "2"
-  },
-  {
-    label: "sadasdas",
-    value: "3"
   }
 ];
 
@@ -56,9 +39,7 @@ export const OrderSubscription = () => {
         title="Your trial period is activated"
         description="It will end on 14.09.2023 12:35 UTC. You can renew our service by clicking on 'Subscribe' button"
       />
-
-      <RadioBordered data={options} name="tariff" selected="1" />
-
+      <RadioSelect data={options} selected="1" />
       <Button>Start</Button>
       <Link to={routePaths.history.URL()} className="text-center">
         History of the payments
