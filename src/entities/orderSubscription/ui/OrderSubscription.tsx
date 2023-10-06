@@ -40,7 +40,7 @@ export const OrderSubscription = () => {
         description="It will end on 14.09.2023 12:35 UTC. You can renew our service by clicking on 'Subscribe' button"
       />
       <RadioSelect data={options} selected="1" />
-      <Button>Start</Button>
+      <Button>Purchase</Button>
       <Link to={routePaths.history.URL()} className="text-center">
         History of the payments
       </Link>

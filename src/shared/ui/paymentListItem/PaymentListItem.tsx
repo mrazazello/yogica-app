@@ -4,22 +4,26 @@ import { FC } from "react";
 
 interface IProps {
   item: {
+    id: string;
     date: string;
-    summ: string;
-    plan: string;
-    period: string;
+    sum: string;
+    membership: string;
+    periodFrom: string;
+    periodTo: string;
   };
 }
 
 export const PaymentListItem: FC<IProps> = (props) => {
-  const { date, summ, plan, period } = props.item;
+  const { date, sum, membership, periodFrom, periodTo } = props.item;
   return (
     <div className="grid grid-cols-dateList gap-x-4 mb-4">
       <TextLine align="right">{date}</TextLine>
       <div>
-        <Price sum={summ} />
-        <TextLine inline> / {plan}</TextLine>
-        <TextLine>{period}</TextLine>
+        <Price sum={sum} />
+        <TextLine inline> / {membership}</TextLine>
+        <TextLine>
+          {periodFrom} - {periodTo}
+        </TextLine>
       </div>
     </div>
   );

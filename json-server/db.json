@@ -7,7 +7,7 @@
     }
   ],
   "profile": {
-    "firstName": "Konstantin2",
+    "firstName": "Konstantin",
     "lastName": "Volkov",
     "username": "aza"
   },
@@ -161,6 +161,48 @@
       "level": "Zero level",
       "videoPreview": "/temp/videoScreen.jpg",
       "date": "2023-10-06T09:46:16Z"
+    }
+  ],
+  "payments": [
+    {
+      "id": "1",
+      "date": "2023-10-06T09:46:16Z",
+      "sum": "10.00",
+      "membership": "Monthly membership",
+      "periodFrom": "2023-10-06T09:46:16Z",
+      "periodTo": "2023-10-06T09:46:16Z"
+    },
+    {
+      "id": "2",
+      "date": "2023-10-06T09:46:16Z",
+      "sum": "10.00",
+      "membership": "Monthly membership",
+      "periodFrom": "2023-10-06T09:46:16Z",
+      "periodTo": "2023-10-06T09:46:16Z"
+    },
+    {
+      "id": "3",
+      "date": "2023-10-06T09:46:16Z",
+      "sum": "10.00",
+      "membership": "Monthly membership",
+      "periodFrom": "2023-10-06T09:46:16Z",
+      "periodTo": "2023-10-06T09:46:16Z"
+    },
+    {
+      "id": "4",
+      "date": "2023-10-06T09:46:16Z",
+      "sum": "10.00",
+      "membership": "Monthly membership",
+      "periodFrom": "2023-10-06T09:46:16Z",
+      "periodTo": "2023-10-06T09:46:16Z"
+    },
+    {
+      "id": "5",
+      "date": "2023-10-06T09:46:16Z",
+      "sum": "10.00",
+      "membership": "Monthly membership",
+      "periodFrom": "2023-10-06T09:46:16Z",
+      "periodTo": "2023-10-06T09:46:16Z"
     }
   ]
 }

@@ -2,13 +2,14 @@ import { ReducersMapObject, configureStore } from "@reduxjs/toolkit";
 
 // import { createReducerManager } from "./reducerManager";
 import { classDetailReducer } from "@entities/classDetail";
+import { classesHistoryReducer } from "@entities/classesHistory";
 import { favoritesReducer } from "@entities/favorites";
+import { paymentsReducer } from "@entities/payments";
 import { profileReducer } from "@entities/profile";
 import { userReducer } from "@entities/user";
 import { loginReducer } from "@features/authByLogin";
 import { startClassReducer } from "@features/startClass";
 
-import { classesHistoryReducer } from "@entities/classesHistory";
 import { IStateSchema } from "./stateSchema";
 
 export function createReduxStore(initialState?: IStateSchema) {
@@ -19,7 +20,8 @@ export function createReduxStore(initialState?: IStateSchema) {
     profile: profileReducer,
     classDetail: classDetailReducer,
     favorites: favoritesReducer,
-    classesHistory: classesHistoryReducer
+    classesHistory: classesHistoryReducer,
+    payments: paymentsReducer
   };
 
   //   const reducerManager = createReducerManager(rootReducers);

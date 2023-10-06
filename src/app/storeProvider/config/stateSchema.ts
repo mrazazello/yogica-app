@@ -3,6 +3,7 @@ import { AxiosInstance } from "axios";
 import { IClassDetailSchema } from "@entities/classDetail";
 import { IClassesHistorySchema } from "@entities/classesHistory/model/types/classesHistory";
 import { IFavoritesSchema } from "@entities/favorites";
+import { IPaymentsSchema } from "@entities/payments/model/types/payments";
 import { IProfileSchema } from "@entities/profile";
 import { IUserSchema } from "@entities/user";
 import { ILoginSchema } from "@features/authByLogin";
@@ -16,6 +17,7 @@ export interface IStateSchema {
   classDetail: IClassDetailSchema;
   favorites: IFavoritesSchema;
   classesHistory: IClassesHistorySchema;
+  payments: IPaymentsSchema;
 }
 
 export interface IThunkExtraArg {

@@ -1,42 +1,28 @@
+import { FC } from "react";
+
+import { Alert } from "@shared/ui/alert/Alert";
 import { PaymentListItem } from "@shared/ui/paymentListItem/PaymentListItem";
+import { Preloader } from "@shared/ui/preloader/Preloader";
+import { IPayments } from "../model/types/payments";
 
-const orders = [
-  {
-    id: "1",
-    date: "14.05.2023",
-    summ: "10.00",
-    plan: "Monthly Membership",
-    period: "14.05.2023 — 21.05.2023"
-  },
-  {
-    id: "2",
-    date: "14.05.2023",
-    summ: "10.00",
-    plan: "Monthly Membership",
-    period: "14.05.2023 — 21.05.2023"
-  },
-  {
-    id: "3",
-    date: "14.05.2023",
-    summ: "10.00",
-    plan: "Monthly Membership",
-    period: "14.05.2023 — 21.05.2023"
-  },
-  {
-    id: "4",
-    date: "14.05.2023",
-    summ: "10.00",
-    plan: "Monthly Membership",
-    period: "14.05.2023 — 21.05.2023"
+interface IProps {
+  data?: IPayments[];
+  error?: string;
+  isLoading?: boolean;
+}
+
+export const PaymentsList: FC<IProps> = (props) => {
+  const { data, error, isLoading } = props;
+
+  if (isLoading) {
+    return <Preloader text="Loading payments data" />;
   }
-];
 
-export const PaymentsList = () => {
   return (
     <>
-      {orders.map((item) => (
-        <PaymentListItem key={item.id} item={item} />
-      ))}
+      {error && <Alert title={error} />}
+      {data &&
+        data.map((item) => <PaymentListItem key={item.id} item={item} />)}
     </>
   );
 };
