@@ -5,13 +5,13 @@ import { BrowserRouter } from "react-router-dom";
 import App from "@app/App";
 import { StoreProvider } from "@app/storeProvider";
 
-import "./index.css";
 import { setupAxios } from "@shared/api/api";
+import "./index.css";
 
 setupAxios();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <div className="w-screen h-screen">
+  <div className="w-[100dvw] h-[100dvh]">
     <React.StrictMode>
       <BrowserRouter>
         <StoreProvider>
