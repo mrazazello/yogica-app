@@ -18,7 +18,7 @@ export const Button: FC<IProps> = (props) => {
   return (
     <button
       className={cn(
-        "py-2 px-4 font-Nunito font-bold border-b-4 rounded-lg disabled:bg-gray-500 disabled:border-gray-700 disabled:text-gray-600",
+        "py-2 px-4 font-Nunito font-bold text-xl border-b-4 rounded-lg disabled:bg-gray-500 disabled:border-gray-700 disabled:text-gray-600",
         {
           "w-full": wFull,
           "bg-green-100 text-green-300 border-green-200": theme === "primary",
