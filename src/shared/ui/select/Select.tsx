@@ -58,7 +58,7 @@ export const Select: FC<IProps> = (props) => {
           >
             <Listbox.Options
               style={{ zIndex: 1000 }}
-              className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base ring-1 ring-black ring-opacity-5 focus:outline-none"
+              className="absolute mt-1 py-1 max-h-60 w-full overflow-auto rounded-md bg-white text-base border-2 border-blue-200 focus:outline-none"
             >
               {data.map((item) => (
                 <Listbox.Option
