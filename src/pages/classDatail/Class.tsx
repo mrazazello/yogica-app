@@ -25,7 +25,10 @@ const Class = () => {
   const loading = useSelector(getClassDetailLoading);
 
   return (
-    <AppLayout title={`Class # ${classDetail?.id}`} noPadding={true}>
+    <AppLayout
+      title={classDetail?.id && `Class # ${classDetail?.id}`}
+      noPadding={true}
+    >
       <ClassDetail
         classDetail={classDetail}
         isLoading={loading}

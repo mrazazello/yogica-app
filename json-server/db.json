@@ -22,6 +22,7 @@
       "duration": "20",
       "level": "Zero level",
       "videoPreview": "/temp/videoScreen.jpg",
+      "streamUrl": "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8",
       "exercises": [
         {
           "id": "1",
@@ -54,6 +55,7 @@
       "duration": "30",
       "level": "Begginer level",
       "videoPreview": "/temp/videoScreen.jpg",
+      "streamUrl": "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8",
       "exercises": [
         {
           "id": "1",
@@ -86,6 +88,7 @@
       "duration": "10",
       "level": "Middle level",
       "videoPreview": "/temp/videoScreen.jpg",
+      "streamUrl": "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8",
       "exercises": [
         {
           "id": "1",

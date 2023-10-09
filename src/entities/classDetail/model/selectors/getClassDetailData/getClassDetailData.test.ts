@@ -3,10 +3,11 @@ import { DeepPartial } from "@reduxjs/toolkit";
 import { getClassDetailData } from "./getClassDetailData";
 
 const testData = {
-  id: "",
-  videoPreview: "",
-  duration: "",
-  level: "",
+  id: "1",
+  videoPreview: "some preview",
+  streamUrl: "some stream",
+  duration: "20",
+  level: "zero",
   exercises: []
 };
 
