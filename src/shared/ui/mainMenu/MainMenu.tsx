@@ -21,7 +21,7 @@ const mainMenuItems: MenuItemType[] = [
   {
     title: "Start",
     icon: StartIcon,
-    url: routePaths.start.URL()
+    url: routePaths.main.URL()
   },
   {
     title: "Favorite",
@@ -49,7 +49,7 @@ export const MainMenu: FC<IProps> = () => {
   const location = window.location.pathname;
 
   return (
-    <div className="w-full h-16 p-10px flex justify-between bg-blue-400 text-white">
+    <div className="w-full h-16 p-10px flex justify-between bg-blue-400 font-Nunito text-white">
       {mainMenuItems.map((item) => (
         <MainMenuItem
           key={item.title}

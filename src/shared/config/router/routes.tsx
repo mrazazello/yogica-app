@@ -1,4 +1,4 @@
-import { RouteObject, createBrowserRouter } from "react-router-dom";
+import { RouteObject } from "react-router-dom";
 
 import { ClassAsync } from "@pages/classDatail/ClassAsync";
 import { FavoritesAsync } from "@pages/favorites/FavoritesAsync";
@@ -13,11 +13,11 @@ import { RegistrationAsync } from "@pages/registration/RegistrationAsync";
 import { StartClassAsync } from "@pages/startClass/StartClassAsync";
 
 enum AppRoutesEnum {
-  MAIN = "main",
+  LOGIN = "login",
   REGISTRATION = "registration",
   NOT_FOUND = "not_found",
 
-  START = "start",
+  MAIN = "main",
   FAVORITES = "favorites",
   PROGRESS = "progress",
   ORDERS = "orders",
@@ -48,9 +48,9 @@ export const routePaths: Record<AppRoutesEnum, IRoutePath> = {
     URL: () => "*"
   },
   // private paths
-  [AppRoutesEnum.START]: {
-    path: "/start",
-    URL: () => "/start"
+  [AppRoutesEnum.LOGIN]: {
+    path: "/login",
+    URL: () => "/login"
   },
   [AppRoutesEnum.FAVORITES]: {
     path: "/favorites",
@@ -83,25 +83,28 @@ export const routePaths: Record<AppRoutesEnum, IRoutePath> = {
 };
 
 type AppRouteProps = RouteObject & {
-  authOnly?: boolean;
+  authOnly: boolean;
 };
 
 export const routeConfig: Record<AppRoutesEnum, AppRouteProps> = {
-  [AppRoutesEnum.MAIN]: {
-    path: routePaths.main.path,
-    element: <LoginAsync />
+  [AppRoutesEnum.LOGIN]: {
+    path: routePaths.login.path,
+    element: <LoginAsync />,
+    authOnly: false
   },
   [AppRoutesEnum.REGISTRATION]: {
     path: routePaths.registration.path,
-    element: <RegistrationAsync />
+    element: <RegistrationAsync />,
+    authOnly: false
   },
   [AppRoutesEnum.NOT_FOUND]: {
     path: routePaths.not_found.path,
-    element: <NotFoundAsync />
+    element: <NotFoundAsync />,
+    authOnly: false
   },
   // protected routes
-  [AppRoutesEnum.START]: {
-    path: routePaths.start.path,
+  [AppRoutesEnum.MAIN]: {
+    path: routePaths.main.path,
     element: <StartClassAsync />,
     authOnly: true
   },
@@ -142,4 +145,4 @@ export const routeConfig: Record<AppRoutesEnum, AppRouteProps> = {
   }
 };
 
-export const router = createBrowserRouter(Object.values(routeConfig));
+// export const router = createBrowserRouter(Object.values(routeConfig));

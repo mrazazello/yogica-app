@@ -37,7 +37,7 @@ export const Select: FC<IProps> = (props) => {
         </Listbox.Label>
         <div className="relative mt-1">
           <Listbox.Button
-            className={`relative w-full cursor-default rounded-md bg-white border border-blue-200 py-2.5 pl-3 pr-10 text-black text-left text-xl ${FOCUS_STYLES}`}
+            className={`relative w-full cursor-default rounded-md bg-white border border-blue-200 py-2.5 pl-3 pr-10 font-Nunito text-black text-left text-xl ${FOCUS_STYLES}`}
           >
             <span className="block truncate">{current?.label}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
@@ -72,7 +72,7 @@ export const Select: FC<IProps> = (props) => {
                 >
                   {({ selected }) => (
                     <span
-                      className={`block truncate ${
+                      className={`block truncate font-Nunito ${
                         selected ? "font-medium" : "font-normal"
                       }`}
                     >

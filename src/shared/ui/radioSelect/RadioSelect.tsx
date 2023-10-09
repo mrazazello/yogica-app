@@ -47,10 +47,10 @@ export const RadioSelect: FC<IProps> = (props) => {
               {({ checked }) => (
                 <>
                   <div className="w-full flex items-center justify-between">
-                    <div className="w-full flex items-center text-md mr-4">
+                    <div className="w-full flex items-center mr-4">
                       <RadioGroup.Label
                         as="div"
-                        className={`w-full font-medium ${
+                        className={`w-full text-md font-Nunito font-medium ${
                           checked ? "[&_*]:text-white" : "[&_*]:text-black"
                         }`}
                       >

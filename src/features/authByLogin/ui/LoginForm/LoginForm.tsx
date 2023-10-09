@@ -30,7 +30,6 @@ export const LoginForm: FC = () => {
   const password = useSelector(getLoginPassword);
   const isLoading = useSelector(getLoginIsLoading);
   const errors = useSelector(getLoginError);
-  // console.log("errors: ", errors);
 
   const loginHandler = useCallback(
     (value: string) => {
@@ -49,7 +48,7 @@ export const LoginForm: FC = () => {
   const submitHandler = useCallback(async () => {
     const res = await dispatch(loginUserByName({ username, password }));
     if (res.meta.requestStatus === "fulfilled") {
-      navigate(routePaths.start.URL());
+      navigate(routePaths.main.URL());
     }
   }, [dispatch, navigate, username, password]);
 

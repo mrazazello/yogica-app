@@ -31,7 +31,7 @@ export const RegistrationForm = () => {
       <VSpace />
       <TextLine align="center">
         Already registered?{" "}
-        <Link to={routePaths.main.URL()}>Login is here</Link>
+        <Link to={routePaths.login.URL()}>Login is here</Link>
       </TextLine>
       <VSpace />
       <Button disabled>Continue</Button>

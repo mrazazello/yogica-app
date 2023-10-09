@@ -19,7 +19,6 @@ export const loginUserByName = createAsyncThunk<
   const { dispatch, rejectWithValue } = thunkAPI;
 
   const err = validateLoginData(authData);
-  console.log("err: ", err);
   if (err.length) {
     return rejectWithValue(err);
   }
