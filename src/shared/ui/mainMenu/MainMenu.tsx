@@ -24,7 +24,7 @@ const mainMenuItems: MenuItemType[] = [
     url: routePaths.main.URL()
   },
   {
-    title: "Favorite",
+    title: "Favourite",
     icon: FavoriteIcon,
     url: routePaths.favorites.URL()
   },

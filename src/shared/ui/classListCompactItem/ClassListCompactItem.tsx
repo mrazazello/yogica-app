@@ -3,6 +3,8 @@ import { TextLine } from "@shared/ui/text/TextLine";
 import { FC } from "react";
 
 import { routePaths } from "@shared/config/router/routes";
+import { DATE_FULL } from "@shared/const/dates";
+import dayjs from "dayjs";
 import { Link } from "react-router-dom";
 import VideoIcon from "./videoIcon.svg";
 
@@ -20,7 +22,7 @@ export const ClassListCompactItem: FC<IProps> = (props) => {
   return (
     <div className="grid grid-cols-dateList gap-4 mb-20px">
       <TextLine align="right" size="base">
-        {date}
+        {dayjs(date).format(DATE_FULL)}
       </TextLine>
       <div>
         <div className="flex">
