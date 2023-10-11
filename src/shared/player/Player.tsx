@@ -1,5 +1,6 @@
-import { FC, VideoHTMLAttributes, useRef } from "react";
-import ReactHlsPlayer from "react-hls-player/dist";
+import { FC, VideoHTMLAttributes, lazy, useRef } from "react";
+// import ReactHlsPlayer from "react-hls-player/dist";
+const ReactHlsPlayer = lazy(() => import("react-hls-player/dist"));
 
 interface IProps extends VideoHTMLAttributes<HTMLVideoElement> {
   stream: string;
