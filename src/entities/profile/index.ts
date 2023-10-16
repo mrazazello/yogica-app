@@ -1,3 +1,4 @@
+import { getProfileData } from "./model/selectors/getProfileData/getProfileData";
 import { getProfileError } from "./model/selectors/getProfileError/getProfileError";
 import { getProfileForm } from "./model/selectors/getProfileForm/getProfileForm";
 import { getProfileIsLoading } from "./model/selectors/getProfileIsLoading/getProfileIsLoading";
@@ -11,6 +12,7 @@ import { ProfileCard } from "./ui/ProfileCard";
 export {
   ProfileCard,
   fetchProfileData,
+  getProfileData,
   getProfileError,
   getProfileForm,
   getProfileIsLoading,

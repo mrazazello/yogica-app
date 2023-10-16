@@ -1,5 +1,5 @@
 import { RadioGroup } from "@headlessui/react";
-import { FC, ReactElement, useCallback, useState } from "react";
+import { FC, ReactElement, useEffect, useState } from "react";
 
 export interface IRadioOptions {
   label: string | ReactElement;
@@ -7,28 +7,29 @@ export interface IRadioOptions {
 }
 
 interface IProps {
-  name?: string;
-  selected?: string;
+  selectedValue?: string;
   data: IRadioOptions[];
   onChange?: (value: string) => void;
 }
 
 export const RadioSelect: FC<IProps> = (props) => {
-  const { data, selected, name, onChange } = props;
+  const { data, selectedValue, onChange } = props;
+  const selectedItem =
+    data.find((item) => item.value === selectedValue) || data[0];
+  const [current, setCurrent] = useState<string>(selectedItem.value);
 
-  const [current, setCurrent] = useState<string | undefined>(selected);
+  useEffect(() => {
+    setCurrent(selectedItem?.value);
+  }, [selectedItem]);
 
-  const handleChange = useCallback(
-    (value: string) => {
-      setCurrent(value);
-      onChange?.(value);
-    },
-    [onChange]
-  );
+  const handleChange = (value: string) => {
+    setCurrent(value);
+    onChange?.(value);
+  };
 
   return (
     <div className="w-full">
-      <RadioGroup value={current} onChange={handleChange} name={name}>
+      <RadioGroup value={current} onChange={handleChange}>
         <div className="space-y-2">
           {data.map((item) => (
             <RadioGroup.Option

@@ -12,7 +12,6 @@ interface IProps {
   data: ISelectOption[];
   placeholder: string;
   name?: string;
-  value?: string | number;
   selectedValue?: string;
   onChange?: (value: string) => void;
   required?: boolean;
@@ -20,7 +19,8 @@ interface IProps {
 
 export const Select: FC<IProps> = (props) => {
   const { data, placeholder, required, selectedValue, onChange } = props;
-  const selectedItem = data.find((item) => item.value === selectedValue);
+  const selectedItem =
+    data.find((item) => item.value === selectedValue) || data[0];
   const [current, setCurrent] = useState(selectedItem);
 
   const changeHandler = (option: ISelectOption) => {

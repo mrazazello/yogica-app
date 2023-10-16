@@ -4,10 +4,28 @@ export enum LevelsEnum {
   MIDDLE = "middle"
 }
 
-type ILevels = Record<LevelsEnum, string>;
+export interface ILevels {
+  title: string;
+  description: string;
+}
 
-export const LevelsEnumValues: ILevels = {
-  [LevelsEnum.ZERO]: "Zero",
-  [LevelsEnum.BEGINNER]: "Beginner",
-  [LevelsEnum.MIDDLE]: "Middle"
+export const LevelsEnumValues: Record<LevelsEnum, ILevels> = {
+  [LevelsEnum.ZERO]: {
+    title: "Zero",
+    description: "This is my first yoga lecture in my life"
+  },
+  [LevelsEnum.BEGINNER]: {
+    title: "Beginner",
+    description: "I have exprience in several classes"
+  },
+  [LevelsEnum.MIDDLE]: {
+    title: "Middle",
+    description: "I am confident in the class"
+  }
 };
+
+export interface ILevelsSchema {
+  level?: string;
+  isLoading: boolean;
+  error?: string;
+}

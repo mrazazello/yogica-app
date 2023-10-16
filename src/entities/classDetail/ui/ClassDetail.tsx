@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Player } from "@shared/player/Player";
+import { Player } from "@shared/ui/player/Player";
 import { Alert } from "@shared/ui/alert/Alert";
 import { Button } from "@shared/ui/button/Button";
 import { ExerciseListItem } from "@shared/ui/exerciseListItem/ExerciseListItem";

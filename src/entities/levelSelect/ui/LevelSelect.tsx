@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { Select } from "@shared/ui/select/Select";
 
-import { LevelsEnum } from "../model/types/levels";
+import { LevelsEnum, LevelsEnumValues } from "../model/types/levels";
 
 interface ISelectItem {
   label: string;
@@ -10,9 +10,9 @@ interface ISelectItem {
 }
 
 const levels: ISelectItem[] = [
-  { label: "Zero", value: LevelsEnum.ZERO },
-  { label: "Beginner", value: LevelsEnum.BEGINNER },
-  { label: "Middle", value: LevelsEnum.MIDDLE }
+  { label: LevelsEnumValues.zero.title, value: LevelsEnum.ZERO },
+  { label: LevelsEnumValues.beginner.title, value: LevelsEnum.BEGINNER },
+  { label: LevelsEnumValues.middle.title, value: LevelsEnum.MIDDLE }
 ];
 
 interface IProps {

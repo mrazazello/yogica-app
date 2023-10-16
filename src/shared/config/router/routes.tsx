@@ -11,6 +11,7 @@ import { ProfileAsync } from "@pages/profile/ProfileAsync";
 import { ProgressAsync } from "@pages/progress/ProgressAsync";
 import { RegistrationAsync } from "@pages/registration/RegistrationAsync";
 import { StartClassAsync } from "@pages/startClass/StartClassAsync";
+import { ParamsLevelAsync } from "@pages/paramsLevel/ParamsLevelAsync";
 
 enum AppRoutesEnum {
   LOGIN = "login",
@@ -24,7 +25,11 @@ enum AppRoutesEnum {
   HISTORY = "history",
   MORE = "more",
   CLASS_DETAIL = "classDetail",
-  PROFILE = "profile"
+  PROFILE = "profile",
+  PARAMS_STEP1 = "params-step1",
+  PARAMS_STEP2 = "params-step2",
+  PARAMS_STEP3 = "params-step3",
+  PARAMS_STEP4 = "params-step4"
 }
 
 type URLFuncType = (() => string) | ((id?: string) => string);
@@ -79,6 +84,22 @@ export const routePaths: Record<AppRoutesEnum, IRoutePath> = {
   [AppRoutesEnum.PROFILE]: {
     path: "/profile",
     URL: () => "/profile"
+  },
+  [AppRoutesEnum.PARAMS_STEP1]: {
+    path: "/params-step1",
+    URL: () => "/params-step1"
+  },
+  [AppRoutesEnum.PARAMS_STEP2]: {
+    path: "/params-step2",
+    URL: () => "/params-step2"
+  },
+  [AppRoutesEnum.PARAMS_STEP3]: {
+    path: "/params-step3",
+    URL: () => "/params-step3"
+  },
+  [AppRoutesEnum.PARAMS_STEP4]: {
+    path: "/params-step4",
+    URL: () => "/params-step4"
   }
 };
 
@@ -142,7 +163,25 @@ export const routeConfig: Record<AppRoutesEnum, AppRouteProps> = {
     path: routePaths.profile.path,
     element: <ProfileAsync />,
     authOnly: true
+  },
+  [AppRoutesEnum.PARAMS_STEP1]: {
+    path: routePaths["params-step1"].path,
+    element: <ParamsLevelAsync />,
+    authOnly: true
+  },
+  [AppRoutesEnum.PARAMS_STEP2]: {
+    path: routePaths["params-step2"].path,
+    element: <ParamsLevelAsync />,
+    authOnly: true
+  },
+  [AppRoutesEnum.PARAMS_STEP3]: {
+    path: routePaths["params-step3"].path,
+    element: <ParamsLevelAsync />,
+    authOnly: true
+  },
+  [AppRoutesEnum.PARAMS_STEP4]: {
+    path: routePaths["params-step4"].path,
+    element: <ParamsLevelAsync />,
+    authOnly: true
   }
 };
-
-// export const router = createBrowserRouter(Object.values(routeConfig));

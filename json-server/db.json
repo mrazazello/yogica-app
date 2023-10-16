@@ -9,7 +9,13 @@
   "profile": {
     "firstName": "Konstantin",
     "lastName": "Volkov",
-    "username": "aza"
+    "params": {
+      "level": "zero",
+      "exercise": "10",
+      "chanting": "3",
+      "breathing": "3",
+      "relaxation": "10"
+    }
   },
   "randomClass": {
     "id": "1",

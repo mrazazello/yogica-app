@@ -13,7 +13,7 @@ export const TextLine: FC<IProps> = (props) => {
   return (
     <div
       className={cn(
-        "text-blue-400",
+        "text-blue-400 font-Raleway",
         {
           "text-center": align === "center",
           "text-right": align === "right",

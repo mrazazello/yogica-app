@@ -1,6 +1,13 @@
 export interface IProfile {
   firstName?: string;
   lastName?: string;
+  params?: {
+    level: string;
+    exercise: string;
+    chanting: string;
+    breathing: string;
+    relaxation: string;
+  };
 }
 
 export interface IProfileSchema {
