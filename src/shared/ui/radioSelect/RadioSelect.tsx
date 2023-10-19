@@ -10,10 +10,11 @@ interface IProps {
   selectedValue?: string;
   data: IRadioOptions[];
   onChange?: (value: string) => void;
+  width?: string;
 }
 
 export const RadioSelect: FC<IProps> = (props) => {
-  const { data, selectedValue, onChange } = props;
+  const { data, selectedValue, onChange, width } = props;
   const selectedItem =
     data.find((item) => item.value === selectedValue) || data[0];
   const [current, setCurrent] = useState<string>(selectedItem.value);
@@ -28,9 +29,9 @@ export const RadioSelect: FC<IProps> = (props) => {
   };
 
   return (
-    <div className="w-full">
+    <div className={width ? `w-[${width}]` : "w-full"}>
       <RadioGroup value={current} onChange={handleChange}>
-        <div className="space-y-2">
+        <div className="flex flex-col space-y-2">
           {data.map((item) => (
             <RadioGroup.Option
               key={item.value}

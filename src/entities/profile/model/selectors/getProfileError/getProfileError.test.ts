@@ -8,7 +8,7 @@ describe("getProfileError test", () => {
   test("selector shoud return data", () => {
     const state: DeepPartial<IStateSchema> = {
       profile: {
-        error: testError
+        errors: testError
       }
     };
     expect(getProfileError(state as IStateSchema)).toEqual(testError);

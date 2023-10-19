@@ -5,3 +5,5 @@ export enum ExerciseDurationEnum {
   "45MIN" = "45",
   "60MIN" = "60"
 }
+
+export const ExerciseDurationValues = Object.values(ExerciseDurationEnum);

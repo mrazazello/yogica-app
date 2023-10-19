@@ -7,7 +7,7 @@ import { IProfile, IProfileSchema } from "../types/profile";
 const initialState: IProfileSchema = {
   isLoading: false,
   readonly: true,
-  error: undefined,
+  errors: undefined,
   data: undefined,
   form: undefined
 };
@@ -28,13 +28,13 @@ export const profileSlice = createSlice({
     cancelEditProfile: (state) => {
       state.readonly = true;
       state.form = state.data;
-      state.validateErrors = undefined;
+      state.errors = undefined;
     }
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProfileData.pending, (state) => {
-        state.error = undefined;
+        state.errors = undefined;
         state.isLoading = true;
       })
       .addCase(fetchProfileData.fulfilled, (state, action) => {
@@ -44,21 +44,21 @@ export const profileSlice = createSlice({
       })
       .addCase(fetchProfileData.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload;
+        state.errors = action.payload;
       })
       .addCase(updateProfileData.pending, (state) => {
-        state.validateErrors = undefined;
+        state.errors = undefined;
         state.isLoading = true;
       })
       .addCase(updateProfileData.fulfilled, (state, action) => {
         state.isLoading = false;
         state.data = action.payload;
         state.form = action.payload;
-        state.validateErrors = undefined;
+        state.errors = undefined;
       })
       .addCase(updateProfileData.rejected, (state, action) => {
         state.isLoading = false;
-        state.validateErrors = action.payload;
+        state.errors = action.payload;
       });
   }
 });

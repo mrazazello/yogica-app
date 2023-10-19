@@ -10,11 +10,11 @@
     "firstName": "Konstantin",
     "lastName": "Volkov",
     "params": {
-      "level": "zero",
-      "exercise": "10",
-      "chanting": "3",
-      "breathing": "3",
-      "relaxation": "10"
+      "level": "middle",
+      "exercise": "60",
+      "chanting": "0",
+      "breathing": "10",
+      "relaxation": "yes"
     }
   },
   "randomClass": {

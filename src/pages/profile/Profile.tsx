@@ -45,7 +45,7 @@ const Profile = () => {
       <ProfileCard
         data={formData}
         isLoading={isLoading}
-        error={error}
+        error={error?.toString()}
         readonly={readonly}
         onChangeFirstName={onChangeFirstName}
         onChangeLastName={onChangeLastName}

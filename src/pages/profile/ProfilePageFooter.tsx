@@ -2,6 +2,7 @@ import { FC, useCallback } from "react";
 import { useSelector } from "react-redux";
 
 import {
+  getProfileForm,
   getProfileReadonly,
   profileActions,
   updateProfileData
@@ -19,6 +20,7 @@ export const ProfilePageFooter: FC<IProps> = (props) => {
   const dispatch = useAppDispatch();
 
   const readonly = useSelector(getProfileReadonly);
+  const profile = useSelector(getProfileForm);
 
   const onEdit = useCallback(() => {
     dispatch(profileActions.setReadonly(false));
@@ -29,8 +31,8 @@ export const ProfilePageFooter: FC<IProps> = (props) => {
   }, [dispatch]);
 
   const onSave = useCallback(() => {
-    dispatch(updateProfileData());
-  }, [dispatch]);
+    profile && dispatch(updateProfileData(profile));
+  }, [dispatch, profile]);
 
   return (
     <div className={cn("", {}, [className])}>

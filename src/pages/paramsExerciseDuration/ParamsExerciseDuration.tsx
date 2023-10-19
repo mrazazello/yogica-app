@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 
 import { AppLayout } from "@app/AppLayout";
-import { LevelRadio } from "@entities/levelSelect";
+import { ExerciseDurationRadio } from "@entities/exerciseDurationSelect";
 import {
   fetchProfileData,
   getProfileData,
@@ -19,17 +18,18 @@ import { H123 } from "@shared/ui/h123/H123";
 import { Preloader } from "@shared/ui/preloader/Preloader";
 import { TextLine } from "@shared/ui/text/TextLine";
 import { VSpace } from "@shared/ui/vSpace/VSpace";
+import { useNavigate } from "react-router-dom";
 
-const ParamsLevel = () => {
+const ParamsExerciseDuration = () => {
   const dispatch = useAppDispatch();
-  const [currentParam, setCurrentParam] = useState<string | undefined>();
   const navigate = useNavigate();
+  const [currentParam, setCurrentParam] = useState<string | undefined>();
 
   useEffect(() => {
     dispatch(fetchProfileData())
       .unwrap()
       .then((res) => {
-        setCurrentParam(res.params?.level);
+        setCurrentParam(res.params?.exercise);
       });
   }, [dispatch]);
 
@@ -37,18 +37,18 @@ const ParamsLevel = () => {
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
 
-  const levelHandler = useCallback((value: string) => {
+  const durationHandler = useCallback((value: string) => {
     setCurrentParam(value);
   }, []);
 
   const submitHandler = useCallback(() => {
     const newParams = { ...profile?.params };
     if (newParams && currentParam) {
-      newParams.level = currentParam;
+      newParams.exercise = currentParam;
       dispatch(updateProfileData({ ...profile, params: newParams }))
         .unwrap()
         .then(() => {
-          navigate(routePaths["params-step2"].URL());
+          navigate(routePaths["params-step3"].URL());
         });
     }
   }, [profile, currentParam, dispatch, navigate]);
@@ -59,17 +59,23 @@ const ParamsLevel = () => {
 
   return (
     <AppLayout valign="center">
-      <H123 title="Let's choose your yoga level" align="center" />
-      <TextLine align="center">
-        Knowing your goal helps us tailor your experience
-      </TextLine>
+      <H123
+        title="How long should be your comfortable physical exercise session?"
+        align="center"
+      />
+      <TextLine align="center">Choose comfortable duration.</TextLine>
       <VSpace />
-      {error && <Alert title={error.toString()} className="mb-2" />}
-      <LevelRadio selected={profile?.params?.level} onChange={levelHandler} />
+      {error && (
+        <Alert title={error.toString()} type="error" className="m-10px" />
+      )}
+      <ExerciseDurationRadio
+        selected={profile?.params?.exercise}
+        onChange={durationHandler}
+      />
       <VSpace />
       <Button onClick={submitHandler}>Continue</Button>
     </AppLayout>
   );
 };
 
-export default ParamsLevel;
+export default ParamsExerciseDuration;

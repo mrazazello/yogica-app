@@ -3,20 +3,20 @@ import axios, { AxiosError } from "axios";
 
 import { IThunkConfig } from "@app/storeProvider";
 
-import { getProfileForm } from "../../selectors/getProfileForm/getProfileForm";
+// import { getProfileForm } from "../../selectors/getProfileForm/getProfileForm";
 import { IProfile, ProfileErrorsEnum } from "../../types/profile";
 
 export const updateProfileData = createAsyncThunk<
   IProfile,
-  void,
+  IProfile,
   IThunkConfig<ProfileErrorsEnum[] | string>
->("profile/updateProfileData", async (_params, thunkAPI) => {
-  const { rejectWithValue, getState } = thunkAPI;
+>("profile/updateProfileData", async (params, thunkAPI) => {
+  const { rejectWithValue } = thunkAPI;
 
-  const formData = getProfileForm(getState());
+  // const formData = getProfileForm(getState());
 
   try {
-    const response = await axios.put<IProfile>("/profile", formData);
+    const response = await axios.put<IProfile>("/profile", params);
 
     if (!response.data) {
       throw new Error("Thunk error");

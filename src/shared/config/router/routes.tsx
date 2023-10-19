@@ -6,12 +6,16 @@ import { LoginAsync } from "@pages/login/LoginAsync";
 import { MoreAsync } from "@pages/more/MoreAsync";
 import { NotFoundAsync } from "@pages/notFound/NotFoundAsync";
 import { OrderAsyns } from "@pages/orders/OrderAsyns";
+import { ParamsChantingDurationAsync } from "@pages/paramsChantingDuration/ParamsChantingDurationAsync";
+import { ParamsExerciseDurationAsync } from "@pages/paramsExerciseDuration/ParamsExerciseDurationAsync";
+import { ParamsLevelAsync } from "@pages/paramsLevel/ParamsLevelAsync";
+import { ParamsPranoyamaAsync } from "@pages/paramsPranoyama/ParamsPranoyamaAsync";
+import { ParamsShavasanaAsync } from "@pages/paramsShavasana/ParamsShavasanaAsync";
 import { PaymentsAsyns } from "@pages/payments/PaymentsAsyns";
 import { ProfileAsync } from "@pages/profile/ProfileAsync";
 import { ProgressAsync } from "@pages/progress/ProgressAsync";
 import { RegistrationAsync } from "@pages/registration/RegistrationAsync";
 import { StartClassAsync } from "@pages/startClass/StartClassAsync";
-import { ParamsLevelAsync } from "@pages/paramsLevel/ParamsLevelAsync";
 
 enum AppRoutesEnum {
   LOGIN = "login",
@@ -29,7 +33,8 @@ enum AppRoutesEnum {
   PARAMS_STEP1 = "params-step1",
   PARAMS_STEP2 = "params-step2",
   PARAMS_STEP3 = "params-step3",
-  PARAMS_STEP4 = "params-step4"
+  PARAMS_STEP4 = "params-step4",
+  PARAMS_STEP5 = "params-step5"
 }
 
 type URLFuncType = (() => string) | ((id?: string) => string);
@@ -100,6 +105,10 @@ export const routePaths: Record<AppRoutesEnum, IRoutePath> = {
   [AppRoutesEnum.PARAMS_STEP4]: {
     path: "/params-step4",
     URL: () => "/params-step4"
+  },
+  [AppRoutesEnum.PARAMS_STEP5]: {
+    path: "/params-step5",
+    URL: () => "/params-step5"
   }
 };
 
@@ -171,17 +180,22 @@ export const routeConfig: Record<AppRoutesEnum, AppRouteProps> = {
   },
   [AppRoutesEnum.PARAMS_STEP2]: {
     path: routePaths["params-step2"].path,
-    element: <ParamsLevelAsync />,
+    element: <ParamsExerciseDurationAsync />,
     authOnly: true
   },
   [AppRoutesEnum.PARAMS_STEP3]: {
     path: routePaths["params-step3"].path,
-    element: <ParamsLevelAsync />,
+    element: <ParamsChantingDurationAsync />,
     authOnly: true
   },
   [AppRoutesEnum.PARAMS_STEP4]: {
     path: routePaths["params-step4"].path,
-    element: <ParamsLevelAsync />,
+    element: <ParamsPranoyamaAsync />,
+    authOnly: true
+  },
+  [AppRoutesEnum.PARAMS_STEP5]: {
+    path: routePaths["params-step5"].path,
+    element: <ParamsShavasanaAsync />,
     authOnly: true
   }
 };

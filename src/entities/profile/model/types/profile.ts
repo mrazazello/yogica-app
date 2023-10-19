@@ -2,11 +2,11 @@ export interface IProfile {
   firstName?: string;
   lastName?: string;
   params?: {
-    level: string;
-    exercise: string;
-    chanting: string;
-    breathing: string;
-    relaxation: string;
+    level?: string;
+    exercise?: string;
+    chanting?: string;
+    breathing?: string;
+    relaxation?: string;
   };
 }
 
@@ -14,8 +14,7 @@ export interface IProfileSchema {
   data?: IProfile;
   form?: IProfile;
   isLoading: boolean;
-  error?: string;
-  validateErrors?: ProfileErrorsEnum[] | string;
+  errors?: ProfileErrorsEnum[] | string;
   readonly: boolean;
 }
 

@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 
 import { AppLayout } from "@app/AppLayout";
-import { LevelRadio } from "@entities/levelSelect";
+import { ChantingRadio } from "@entities/chantingSelect";
 import {
   fetchProfileData,
   getProfileData,
@@ -19,17 +18,18 @@ import { H123 } from "@shared/ui/h123/H123";
 import { Preloader } from "@shared/ui/preloader/Preloader";
 import { TextLine } from "@shared/ui/text/TextLine";
 import { VSpace } from "@shared/ui/vSpace/VSpace";
+import { useNavigate } from "react-router-dom";
 
-const ParamsLevel = () => {
+const ParamsChantingDuration = () => {
   const dispatch = useAppDispatch();
-  const [currentParam, setCurrentParam] = useState<string | undefined>();
   const navigate = useNavigate();
+  const [currentParam, setCurrentParam] = useState<string | undefined>();
 
   useEffect(() => {
     dispatch(fetchProfileData())
       .unwrap()
       .then((res) => {
-        setCurrentParam(res.params?.level);
+        setCurrentParam(res.params?.chanting);
       });
   }, [dispatch]);
 
@@ -37,21 +37,21 @@ const ParamsLevel = () => {
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
 
-  const levelHandler = useCallback((value: string) => {
+  const durationHandler = useCallback((value: string) => {
     setCurrentParam(value);
   }, []);
 
   const submitHandler = useCallback(() => {
     const newParams = { ...profile?.params };
     if (newParams && currentParam) {
-      newParams.level = currentParam;
+      newParams.chanting = currentParam;
       dispatch(updateProfileData({ ...profile, params: newParams }))
         .unwrap()
         .then(() => {
-          navigate(routePaths["params-step2"].URL());
+          navigate(routePaths["params-step4"].URL());
         });
     }
-  }, [profile, currentParam, dispatch, navigate]);
+  }, [currentParam, profile, dispatch, navigate]);
 
   if (isLoading) {
     return <Preloader text="Loading profile data" />;
@@ -59,17 +59,24 @@ const ParamsLevel = () => {
 
   return (
     <AppLayout valign="center">
-      <H123 title="Let's choose your yoga level" align="center" />
+      <H123 title="Add mantra chanting to your practice?" align="center" />
       <TextLine align="center">
-        Knowing your goal helps us tailor your experience
+        Mantras are spiritual texts, statements or affirmations repeated
+        frequently together with a repeating set of sounds, that brings you
+        concentartion and raises your vibration..
       </TextLine>
       <VSpace />
-      {error && <Alert title={error.toString()} className="mb-2" />}
-      <LevelRadio selected={profile?.params?.level} onChange={levelHandler} />
+      {error && (
+        <Alert title={error.toString()} type="error" className="m-10px" />
+      )}
+      <ChantingRadio
+        selected={profile?.params?.chanting}
+        onChange={durationHandler}
+      />
       <VSpace />
       <Button onClick={submitHandler}>Continue</Button>
     </AppLayout>
   );
 };
 
-export default ParamsLevel;
+export default ParamsChantingDuration;

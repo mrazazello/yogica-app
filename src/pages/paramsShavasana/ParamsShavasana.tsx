@@ -1,9 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 
 import { AppLayout } from "@app/AppLayout";
-import { LevelRadio } from "@entities/levelSelect";
 import {
   fetchProfileData,
   getProfileData,
@@ -11,6 +9,7 @@ import {
   getProfileIsLoading,
   updateProfileData
 } from "@entities/profile";
+import { ShavasanaRadio } from "@entities/shavasanaSelect";
 import { routePaths } from "@shared/config/router/routes";
 import { useAppDispatch } from "@shared/lib/storeHooks/storeHooks";
 import { Alert } from "@shared/ui/alert/Alert";
@@ -19,17 +18,18 @@ import { H123 } from "@shared/ui/h123/H123";
 import { Preloader } from "@shared/ui/preloader/Preloader";
 import { TextLine } from "@shared/ui/text/TextLine";
 import { VSpace } from "@shared/ui/vSpace/VSpace";
+import { useNavigate } from "react-router-dom";
 
-const ParamsLevel = () => {
+const ParamsShavasana = () => {
   const dispatch = useAppDispatch();
-  const [currentParam, setCurrentParam] = useState<string | undefined>();
   const navigate = useNavigate();
+  const [currentParam, setCurrentParam] = useState<string | undefined>();
 
   useEffect(() => {
     dispatch(fetchProfileData())
       .unwrap()
       .then((res) => {
-        setCurrentParam(res.params?.level);
+        setCurrentParam(res.params?.relaxation);
       });
   }, [dispatch]);
 
@@ -37,18 +37,18 @@ const ParamsLevel = () => {
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
 
-  const levelHandler = useCallback((value: string) => {
+  const durationHandler = useCallback((value: string) => {
     setCurrentParam(value);
   }, []);
 
   const submitHandler = useCallback(() => {
     const newParams = { ...profile?.params };
     if (newParams && currentParam) {
-      newParams.level = currentParam;
+      newParams.relaxation = currentParam;
       dispatch(updateProfileData({ ...profile, params: newParams }))
         .unwrap()
         .then(() => {
-          navigate(routePaths["params-step2"].URL());
+          navigate(routePaths.main.URL());
         });
     }
   }, [profile, currentParam, dispatch, navigate]);
@@ -59,17 +59,26 @@ const ParamsLevel = () => {
 
   return (
     <AppLayout valign="center">
-      <H123 title="Let's choose your yoga level" align="center" />
+      <H123
+        title="Add a relaxing guided meditations and healing with the sound?"
+        align="center"
+      />
       <TextLine align="center">
-        Knowing your goal helps us tailor your experience
+        Musical Savasana, Yoga Nidra (yogic sleep), sound therapy and Sound Bath
+        ,using numerous soundhealing music instruments and vocal.
       </TextLine>
       <VSpace />
-      {error && <Alert title={error.toString()} className="mb-2" />}
-      <LevelRadio selected={profile?.params?.level} onChange={levelHandler} />
+      {error && (
+        <Alert title={error.toString()} type="error" className="m-10px" />
+      )}
+      <ShavasanaRadio
+        selected={profile?.params?.relaxation}
+        onChange={durationHandler}
+      />
       <VSpace />
       <Button onClick={submitHandler}>Continue</Button>
     </AppLayout>
   );
 };
 
-export default ParamsLevel;
+export default ParamsShavasana;
