@@ -1,8 +1,5 @@
-import {
-  IStartClassForm,
-  IStartClassSchema
-} from "@features/startClass/model/types/startClass";
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { IStartClassSchema } from "@features/startClass/model/types/startClass";
+import { createSlice } from "@reduxjs/toolkit";
 import { getRandomClass } from "../services/getRandomClass/getRandomClass";
 
 const initialState: IStartClassSchema = {
@@ -13,12 +10,12 @@ export const startClassSlice = createSlice({
   name: "startClass",
   initialState,
   reducers: {
-    updateFormData: (state, action: PayloadAction<IStartClassForm>) => {
-      state.form = {
-        ...state.form,
-        ...action.payload
-      };
-    }
+    // updateFormData: (state, action: PayloadAction<IStartClassForm>) => {
+    //   state.form = {
+    //     ...state.form,
+    //     ...action.payload
+    //   };
+    // }
   },
   extraReducers: (builder) => {
     builder

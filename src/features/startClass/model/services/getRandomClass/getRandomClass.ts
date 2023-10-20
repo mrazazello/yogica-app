@@ -3,13 +3,11 @@ import axios, { AxiosError } from "axios";
 
 import { IThunkConfig } from "@app/storeProvider";
 
-import { IRandomClass, IStartClassForm } from "../../types/startClass";
-
-export interface IClassProps extends IStartClassForm {}
+import { IRandomClass, IRequestClassParams } from "../../types/startClass";
 
 export const getRandomClass = createAsyncThunk<
   IRandomClass,
-  IClassProps,
+  IRequestClassParams,
   IThunkConfig<string>
 >("startClass/getRandomClass", async (params, thunkAPI) => {
   const { rejectWithValue } = thunkAPI;

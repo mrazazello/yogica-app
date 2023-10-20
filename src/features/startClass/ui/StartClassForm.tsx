@@ -13,71 +13,90 @@ import { Alert } from "@shared/ui/alert/Alert";
 import { Button } from "@shared/ui/button/Button";
 import { VSpace } from "@shared/ui/vSpace/VSpace";
 
-import { getStartClassError } from "../model/selectors/getStartClassError/getStartClassError";
-import { getStartClassFormData } from "../model/selectors/getStartClassFormData/getStartClassFormData";
-import { getStartClassLoading } from "../model/selectors/getStartClassLoading/getStartClassLoading";
+import {
+  fetchProfileData,
+  getProfileData,
+  getProfileError,
+  getProfileIsLoading,
+  profileActions
+} from "@entities/profile";
 import { getRandomClass } from "../model/services/getRandomClass/getRandomClass";
-import { startClassActions } from "../model/slice/startClassSlice";
-import { IStartClassForm } from "../model/types/startClass";
-
-const initialParams: IStartClassForm = {
-  exercisesDuration: "15",
-  level: "beginner",
-  pranoyamaDuration: "0",
-  chantingDuration: "0",
-  shavasanaDuration: "yes"
-};
 
 export const StartClassForm = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const formData = useSelector(getStartClassFormData);
-  const error = useSelector(getStartClassError);
-  const loading = useSelector(getStartClassLoading);
+  const profile = useSelector(getProfileData);
+  const error = useSelector(getProfileError);
+  const loading = useSelector(getProfileIsLoading);
 
   useEffect(() => {
-    dispatch(startClassActions.updateFormData(initialParams));
+    dispatch(fetchProfileData());
   }, [dispatch]);
 
   const changeDurationHandler = useCallback(
     (value: string) => {
-      dispatch(startClassActions.updateFormData({ exercisesDuration: value }));
+      dispatch(
+        profileActions.updateProfileData({
+          ...profile,
+          params: { ...profile?.params, exercise: value }
+        })
+      );
     },
-    [dispatch]
+    [dispatch, profile]
   );
 
   const changeLevelHandler = useCallback(
     (value: string) => {
-      dispatch(startClassActions.updateFormData({ level: value }));
+      dispatch(
+        profileActions.updateProfileData({
+          ...profile,
+          params: { ...profile?.params, level: value }
+        })
+      );
     },
-    [dispatch]
+    [dispatch, profile]
   );
 
   const changePranoyamaHandler = useCallback(
     (value: string) => {
-      dispatch(startClassActions.updateFormData({ pranoyamaDuration: value }));
+      dispatch(
+        profileActions.updateProfileData({
+          ...profile,
+          params: { ...profile?.params, breathing: value }
+        })
+      );
     },
-    [dispatch]
+    [dispatch, profile]
   );
 
   const changeChantingHandler = useCallback(
     (value: string) => {
-      dispatch(startClassActions.updateFormData({ chantingDuration: value }));
+      dispatch(
+        profileActions.updateProfileData({
+          ...profile,
+          params: { ...profile?.params, chanting: value }
+        })
+      );
     },
-    [dispatch]
+    [dispatch, profile]
   );
 
   const changeShavasanaHandler = useCallback(
     (value: string) => {
-      dispatch(startClassActions.updateFormData({ shavasanaDuration: value }));
+      dispatch(
+        profileActions.updateProfileData({
+          ...profile,
+          params: { ...profile?.params, relaxation: value }
+        })
+      );
     },
-    [dispatch]
+    [dispatch, profile]
   );
 
   const submitHandler = useCallback(async () => {
-    if (formData) {
-      const res = await dispatch(getRandomClass(formData));
+    if (profile?.params) {
+      const res = await dispatch(getRandomClass(profile?.params));
       if (
         res.meta.requestStatus === "fulfilled" &&
         typeof res.payload === "object"
@@ -85,28 +104,31 @@ export const StartClassForm = () => {
         navigate(routePaths.classDetail.URL(res.payload.id));
       }
     }
-  }, [formData, dispatch, navigate]);
+  }, [profile, dispatch, navigate]);
 
   return (
-    formData && (
+    profile && (
       <>
-        {error && <Alert title={error} className="mb-20px" />}
+        {error && <Alert title={error.toString()} className="mb-20px" />}
         <ExerciseDurationSelect
           onChange={changeDurationHandler}
-          selected={formData.exercisesDuration}
+          selected={profile?.params?.exercise}
         />
-        <LevelSelect onChange={changeLevelHandler} selected={formData.level} />
+        <LevelSelect
+          onChange={changeLevelHandler}
+          selected={profile.params?.level}
+        />
         <PranoyamaSelect
           onChange={changePranoyamaHandler}
-          selected={formData.pranoyamaDuration}
+          selected={profile?.params?.breathing}
         />
         <ChantingSelect
           onChange={changeChantingHandler}
-          selected={formData.chantingDuration}
+          selected={profile?.params?.chanting}
         />
         <ShavasanaSelect
           onChange={changeShavasanaHandler}
-          selected={formData.shavasanaDuration}
+          selected={profile?.params?.relaxation}
         />
         <VSpace />
         <Button onClick={submitHandler} disabled={loading}>

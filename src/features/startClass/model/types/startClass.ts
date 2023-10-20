@@ -1,13 +1,20 @@
-export interface IStartClassForm {
-  exercisesDuration?: string;
+// export interface IStartClassForm {
+//   exercisesDuration?: string;
+//   level?: string;
+//   pranoyamaDuration?: string;
+//   chantingDuration?: string;
+//   shavasanaDuration?: string;
+// }
+
+export interface IRequestClassParams {
+  exercise?: string;
   level?: string;
-  pranoyamaDuration?: string;
-  chantingDuration?: string;
-  shavasanaDuration?: string;
+  breathing?: string;
+  chanting?: string;
+  relaxation?: string;
 }
 
 export interface IStartClassSchema {
-  form?: IStartClassForm;
   isLoading: boolean;
   error?: string;
 }
