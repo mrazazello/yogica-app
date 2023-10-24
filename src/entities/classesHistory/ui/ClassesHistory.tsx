@@ -1,6 +1,6 @@
 import { Alert } from "@shared/ui/alert/Alert";
 import { ClassListCompactItem } from "@shared/ui/classListCompactItem/ClassListCompactItem";
-import { Preloader } from "@shared/ui/preloader/Preloader";
+import { Skeleton } from "@shared/ui/skeleton/Skeleton";
 import { FC } from "react";
 import { IClassesHistory } from "../model/types/classesHistory";
 interface IProps {
@@ -13,7 +13,7 @@ export const ClassesHistory: FC<IProps> = (props) => {
   const { data, error, isLoading } = props;
 
   if (isLoading) {
-    return <Preloader text="Loading classes history data" />;
+    return <Skeleton title rows={2} />;
   }
 
   return (

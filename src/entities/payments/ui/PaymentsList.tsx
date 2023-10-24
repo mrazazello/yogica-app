@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { Alert } from "@shared/ui/alert/Alert";
 import { PaymentListItem } from "@shared/ui/paymentListItem/PaymentListItem";
-import { Preloader } from "@shared/ui/preloader/Preloader";
+import { Skeleton } from "@shared/ui/skeleton/Skeleton";
 import { IPayments } from "../model/types/payments";
 
 interface IProps {
@@ -15,7 +15,7 @@ export const PaymentsList: FC<IProps> = (props) => {
   const { data, error, isLoading } = props;
 
   if (isLoading) {
-    return <Preloader text="Loading payments data" />;
+    return <Skeleton title rows={2} />;
   }
 
   return (

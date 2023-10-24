@@ -1,6 +1,6 @@
 import { Alert } from "@shared/ui/alert/Alert";
 import { ClassListFullItem } from "@shared/ui/classListFullItem/ClassListFullItem";
-import { Preloader } from "@shared/ui/preloader/Preloader";
+import { Skeleton } from "@shared/ui/skeleton/Skeleton";
 import { FC } from "react";
 import { IFavorite } from "..";
 
@@ -14,7 +14,7 @@ export const FavoritesList: FC<IProps> = (props) => {
   const { data, error, isLoading } = props;
 
   if (isLoading) {
-    return <Preloader text="Loading favorites data" />;
+    return <Skeleton title preview />;
   }
 
   return (
