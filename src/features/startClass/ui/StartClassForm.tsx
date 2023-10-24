@@ -20,6 +20,7 @@ import {
   getProfileIsLoading,
   profileActions
 } from "@entities/profile";
+import { Preloader } from "@shared/ui/preloader/Preloader";
 import { getRandomClass } from "../model/services/getRandomClass/getRandomClass";
 
 export const StartClassForm = () => {
@@ -105,6 +106,10 @@ export const StartClassForm = () => {
       }
     }
   }, [profile, dispatch, navigate]);
+
+  if (loading) {
+    return <Preloader text="Loading settings..." />;
+  }
 
   return (
     profile && (

@@ -1,3 +1,4 @@
+import { cn } from "@shared/lib/classNames/classNames";
 import { CSSProperties, FC } from "react";
 
 interface ISkeleton {
@@ -25,10 +26,10 @@ const formStyles = (obj: boolean | ISkeleton): CSSProperties => {
 };
 
 export const Skeleton: FC<IProps> = (props) => {
-  const { rows, title, preview } = props;
+  const { className, rows, title, preview } = props;
 
   return (
-    <div className="animate-pulse">
+    <div className={cn("animate-pulse", {}, [className])}>
       {preview && (
         <div
           style={formStyles(preview)}
@@ -38,11 +39,11 @@ export const Skeleton: FC<IProps> = (props) => {
       {title && (
         <div
           style={formStyles(title)}
-          className={`w-[300px] h-4 mb-2 bg-gray-200 rounded`}
+          className={`w-[300px] h-7 mb-2 bg-gray-200 rounded`}
         />
       )}
       {[...Array(rows)].map((_el, index) => (
-        <div className={`w-full h-2 mb-2 bg-gray-200 rounded`} key={index} />
+        <div className={`w-full h-5 mb-2 bg-gray-200 rounded`} key={index} />
       ))}
     </div>
   );
