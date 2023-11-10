@@ -29,6 +29,7 @@
       "level": "Zero level",
       "videoPreview": "/temp/videoScreen.jpg",
       "streamUrl": "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8",
+      "favorite": false,
       "exercises": [
         {
           "id": "1",
@@ -62,6 +63,7 @@
       "level": "Begginer level",
       "videoPreview": "/temp/videoScreen.jpg",
       "streamUrl": "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8",
+      "favorite": false,
       "exercises": [
         {
           "id": "1",
@@ -95,6 +97,7 @@
       "level": "Middle level",
       "videoPreview": "/temp/videoScreen.jpg",
       "streamUrl": "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8",
+      "favorite": true,
       "exercises": [
         {
           "id": "1",
@@ -212,6 +215,20 @@
       "membership": "Monthly membership",
       "periodFrom": "2023-10-06T09:46:16Z",
       "periodTo": "2023-10-06T09:46:16Z"
+    }
+  ],
+  "tariffs": [
+    {
+      "id": "1",
+      "membership": "12 Month Membership",
+      "price": "120.00",
+      "period": "Month"
+    },
+    {
+      "id": "2",
+      "membership": "1 Month Membership",
+      "price": "20.00",
+      "period": "Day"
     }
   ]
 }

@@ -10,6 +10,7 @@ import { userReducer } from "@entities/user";
 import { loginReducer } from "@features/authByLogin";
 import { startClassReducer } from "@features/startClass";
 
+import { tariffsReducer } from "@entities/tariffs/model/slice/tarifSlice";
 import { IStateSchema } from "./stateSchema";
 
 export function createReduxStore(initialState?: IStateSchema) {
@@ -21,7 +22,8 @@ export function createReduxStore(initialState?: IStateSchema) {
     classDetail: classDetailReducer,
     favorites: favoritesReducer,
     classesHistory: classesHistoryReducer,
-    payments: paymentsReducer
+    payments: paymentsReducer,
+    tariffs: tariffsReducer
   };
 
   //   const reducerManager = createReducerManager(rootReducers);

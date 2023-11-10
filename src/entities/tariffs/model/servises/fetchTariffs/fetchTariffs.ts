@@ -3,16 +3,17 @@ import axios, { AxiosError } from "axios";
 
 import { IThunkConfig } from "@app/storeProvider";
 
-import { IFavoriteItem } from "../../types/favoretes";
+import { ITariff } from "../../types/tariff";
 
-export const fetchFavoritesData = createAsyncThunk<
-  IFavoriteItem[],
+export const fetchTariffs = createAsyncThunk<
+  ITariff[],
   void,
   IThunkConfig<string>
->("startClass/fetchFavoritesData", async (_, thunkAPI) => {
+>("tariffs/fetchTariffs", async (_, thunkAPI) => {
   const { rejectWithValue } = thunkAPI;
+
   try {
-    const response = await axios.get<IFavoriteItem[]>("/favorites");
+    const response = await axios.get<ITariff[]>(`/tariffs/`);
     if (!response.data) {
       throw new Error("Thunk error");
     }

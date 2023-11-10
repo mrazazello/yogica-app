@@ -1,6 +1,7 @@
 import { getClassDetailData } from "./model/selectors/getClassDetailData/getClassDetailData";
 import { getClassDetailError } from "./model/selectors/getClassDetailError/getClassDetailError";
 import { getClassDetailLoading } from "./model/selectors/getClassDetailLoading/getClassDetailLoading";
+import { changeClassFavorite } from "./model/services/changeClassFavorite/changeClassFavorite";
 import { fetchClassDetailData } from "./model/services/fetchClassDetailData/fetchClassDetailData";
 import {
   classDetailActions,
@@ -11,6 +12,7 @@ import { ClassDetail } from "./ui/ClassDetail";
 
 export {
   ClassDetail,
+  changeClassFavorite,
   classDetailActions,
   classDetailReducer,
   fetchClassDetailData,

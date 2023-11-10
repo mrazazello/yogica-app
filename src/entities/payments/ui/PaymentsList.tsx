@@ -1,18 +1,28 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
+import { useSelector } from "react-redux";
 
+import { useAppDispatch } from "@shared/lib/storeHooks/storeHooks";
 import { Alert } from "@shared/ui/alert/Alert";
 import { PaymentListItem } from "@shared/ui/paymentListItem/PaymentListItem";
 import { Skeleton } from "@shared/ui/skeleton/Skeleton";
-import { IPayments } from "../model/types/payments";
 
-interface IProps {
-  data?: IPayments[];
-  error?: string;
-  isLoading?: boolean;
-}
+import { getPaymentsData } from "../model/selectors/getPaymentsData/getPaymentsData";
+import { getPaymentsError } from "../model/selectors/getPaymentsError/getPaymentsError";
+import { getPaymentsLoading } from "../model/selectors/getPaymentsLoading/getPaymentsLoading";
+import { fetchPaymentsData } from "../model/services/fetchPaymentsData/fetchPaymentsData";
 
-export const PaymentsList: FC<IProps> = (props) => {
-  const { data, error, isLoading } = props;
+interface IProps {}
+
+export const PaymentsList: FC<IProps> = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchPaymentsData());
+  }, [dispatch]);
+
+  const payments = useSelector(getPaymentsData);
+  const error = useSelector(getPaymentsError);
+  const isLoading = useSelector(getPaymentsLoading);
 
   if (isLoading) {
     return <Skeleton title rows={2} />;
@@ -21,8 +31,8 @@ export const PaymentsList: FC<IProps> = (props) => {
   return (
     <>
       {error && <Alert title={error} />}
-      {data &&
-        data.map((item) => <PaymentListItem key={item.id} item={item} />)}
+      {payments &&
+        payments.map((item) => <PaymentListItem key={item.id} item={item} />)}
     </>
   );
 };

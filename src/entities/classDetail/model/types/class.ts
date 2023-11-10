@@ -6,6 +6,7 @@ export interface IClassDetail {
   streamUrl: string;
   duration: string;
   level: string;
+  favorite: boolean;
   exercises: IExerciseListItem[];
 }
 

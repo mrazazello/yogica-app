@@ -1,9 +1,9 @@
 import { IStateSchema } from "@app/storeProvider";
 import { DeepPartial } from "@reduxjs/toolkit";
-import { IFavorite } from "../../types/favoretes";
+import { IFavoriteItem } from "../../types/favoretes";
 import { getFavoritesData } from "./getFavoritesData";
 
-const testData: IFavorite[] = [
+const testData: IFavoriteItem[] = [
   {
     id: "",
     duration: "string",

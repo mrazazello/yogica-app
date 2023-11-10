@@ -14,6 +14,7 @@ interface IProps {
   rows?: number;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function instanceOfSkeleton(object: any): object is ISkeleton {
   return "width" in object || "height" in object || "round" in object;
 }

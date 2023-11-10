@@ -2,6 +2,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 import { fetchClassDetailData } from "../services/fetchClassDetailData/fetchClassDetailData";
 import { IClassDetail, IClassDetailSchema } from "../types/class";
+import { changeClassFavorite } from "../services/changeClassFavorite/changeClassFavorite";
 
 const initialState: IClassDetailSchema = {
   isLoading: false,
@@ -28,6 +29,18 @@ export const classDetailSlice = createSlice({
       )
       .addCase(fetchClassDetailData.rejected, (state, action) => {
         state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(changeClassFavorite.pending, (state) => {
+        state.error = undefined;
+      })
+      .addCase(
+        changeClassFavorite.fulfilled,
+        (state, action: PayloadAction<IClassDetail>) => {
+          state.data = action.payload;
+        }
+      )
+      .addCase(changeClassFavorite.rejected, (state, action) => {
         state.error = action.payload;
       });
   }

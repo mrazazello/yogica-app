@@ -1,25 +1,38 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
+import { useSelector } from "react-redux";
 
+import { AddFavorite } from "@features/addFavorite";
+import { useAppDispatch } from "@shared/lib/storeHooks/storeHooks";
 import { Alert } from "@shared/ui/alert/Alert";
 import { Button } from "@shared/ui/button/Button";
 import { ExerciseListItem } from "@shared/ui/exerciseListItem/ExerciseListItem";
 import { Player } from "@shared/ui/player/Player";
-
 import { Skeleton } from "@shared/ui/skeleton/Skeleton";
 import { TextLine } from "@shared/ui/text/TextLine";
-import { IClassDetail } from "../model/types/class";
-import FavoriteIcon from "./favorite.svg";
+
+import { getClassDetailData } from "../model/selectors/getClassDetailData/getClassDetailData";
+import { getClassDetailError } from "../model/selectors/getClassDetailError/getClassDetailError";
+import { getClassDetailLoading } from "../model/selectors/getClassDetailLoading/getClassDetailLoading";
+import { fetchClassDetailData } from "../model/services/fetchClassDetailData/fetchClassDetailData";
 
 interface IProps {
-  classDetail?: IClassDetail;
-  isLoading?: boolean;
-  error?: string;
+  id: string;
 }
 
 export const ClassDetail: FC<IProps> = (props) => {
-  const { classDetail, isLoading, error } = props;
+  const { id } = props;
 
-  if (isLoading) {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    id && dispatch(fetchClassDetailData(id));
+  }, [dispatch, id]);
+
+  const classDetail = useSelector(getClassDetailData);
+  const error = useSelector(getClassDetailError);
+  const loading = useSelector(getClassDetailLoading);
+
+  if (loading) {
     return <Skeleton title preview rows={8} className="m-10px" />;
   }
 
@@ -42,12 +55,7 @@ export const ClassDetail: FC<IProps> = (props) => {
             <TextLine>
               {classDetail.duration} min duration, {classDetail.level} level
             </TextLine>
-            <img
-              src={FavoriteIcon}
-              width={24}
-              height={24}
-              alt="Add to favorite"
-            />
+            <AddFavorite id={classDetail.id} status={classDetail.favorite} />
           </div>
         </div>
         <div className="h-full p-10px flex flex-col gap-20px overflow-y-auto">

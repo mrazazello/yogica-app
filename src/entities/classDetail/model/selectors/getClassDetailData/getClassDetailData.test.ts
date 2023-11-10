@@ -1,13 +1,15 @@
 import { IStateSchema } from "@app/storeProvider";
 import { DeepPartial } from "@reduxjs/toolkit";
+import { IClassDetail } from "../../types/class";
 import { getClassDetailData } from "./getClassDetailData";
 
-const testData = {
+const testData: IClassDetail = {
   id: "1",
   videoPreview: "some preview",
   streamUrl: "some stream",
   duration: "20",
   level: "zero",
+  favorite: true,
   exercises: []
 };
 
