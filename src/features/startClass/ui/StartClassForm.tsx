@@ -2,102 +2,110 @@ import { useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { ChantingSelect } from "@entities/chantingSelect";
-import { ExerciseDurationSelect } from "@entities/exerciseDurationSelect";
-import { LevelSelect } from "@entities/levelSelect";
-import { PranoyamaSelect } from "@entities/pranoyamaSelect";
+import { ChantingSelect } from "@entities/chantingDurations";
+import { ExerciseDurationSelect } from "@entities/exerciseDurations";
+import { LevelSelect } from "@entities/levels";
+import {
+  fetchPracticeSettingsData,
+  getPracticeSettingsData,
+  getPracticeSettingsError,
+  getPracticeSettingsIsLoading,
+  practiceSettingsActions
+} from "@entities/practiceSettings";
+import { PranoyamaSelect } from "@entities/pranoyamaDurations";
 import { ShavasanaSelect } from "@entities/shavasanaSelect";
 import { routePaths } from "@shared/config/router/routes";
 import { useAppDispatch } from "@shared/lib/storeHooks/storeHooks";
 import { Alert } from "@shared/ui/alert/Alert";
 import { Button } from "@shared/ui/button/Button";
-import { VSpace } from "@shared/ui/vSpace/VSpace";
-
-import {
-  fetchProfileData,
-  getProfileData,
-  getProfileError,
-  getProfileIsLoading,
-  profileActions
-} from "@entities/profile";
 import { Preloader } from "@shared/ui/preloader/Preloader";
+import { VSpace } from "@shared/ui/vSpace/VSpace";
 import { getRandomClass } from "../model/services/getRandomClass/getRandomClass";
 
 export const StartClassForm = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const profile = useSelector(getProfileData);
-  const error = useSelector(getProfileError);
-  const loading = useSelector(getProfileIsLoading);
+  const settings = useSelector(getPracticeSettingsData);
+  const error = useSelector(getPracticeSettingsError);
+  const loading = useSelector(getPracticeSettingsIsLoading);
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    dispatch(fetchPracticeSettingsData());
   }, [dispatch]);
 
-  const changeDurationHandler = useCallback(
+  const changeAsanaDurationHandler = useCallback(
     (value: string) => {
       dispatch(
-        profileActions.updateProfileData({
-          ...profile,
-          params: { ...profile?.params, exercise: value }
+        practiceSettingsActions.updatePracticeSettings({
+          ...settings,
+          preferredDuration: {
+            ...settings?.preferredDuration,
+            asana: Number(value)
+          }
         })
       );
     },
-    [dispatch, profile]
+    [dispatch, settings]
   );
 
   const changeLevelHandler = useCallback(
     (value: string) => {
       dispatch(
-        profileActions.updateProfileData({
-          ...profile,
-          params: { ...profile?.params, level: value }
+        practiceSettingsActions.updatePracticeSettings({
+          ...settings,
+          difficultyLevel: value
         })
       );
     },
-    [dispatch, profile]
+    [dispatch, settings]
   );
 
   const changePranoyamaHandler = useCallback(
     (value: string) => {
       dispatch(
-        profileActions.updateProfileData({
-          ...profile,
-          params: { ...profile?.params, breathing: value }
+        practiceSettingsActions.updatePracticeSettings({
+          ...settings,
+          preferredDuration: {
+            ...settings?.preferredDuration,
+            pranayama: value
+          }
         })
       );
     },
-    [dispatch, profile]
+    [dispatch, settings]
   );
 
   const changeChantingHandler = useCallback(
     (value: string) => {
       dispatch(
-        profileActions.updateProfileData({
-          ...profile,
-          params: { ...profile?.params, chanting: value }
+        practiceSettingsActions.updatePracticeSettings({
+          ...settings,
+          preferredDuration: { ...settings?.preferredDuration, chanting: value }
         })
       );
     },
-    [dispatch, profile]
+    [dispatch, settings]
   );
 
   const changeShavasanaHandler = useCallback(
     (value: string) => {
       dispatch(
-        profileActions.updateProfileData({
-          ...profile,
-          params: { ...profile?.params, relaxation: value }
+        practiceSettingsActions.updatePracticeSettings({
+          ...settings,
+          preferredDuration: {
+            ...settings?.preferredDuration,
+            relaxation: value
+          }
         })
       );
     },
-    [dispatch, profile]
+    [dispatch, settings]
   );
 
   const submitHandler = useCallback(async () => {
-    if (profile?.params) {
-      const res = await dispatch(getRandomClass(profile?.params));
+    if (settings) {
+      const res = await dispatch(getRandomClass(settings?.preferredDuration));
       if (
         res.meta.requestStatus === "fulfilled" &&
         typeof res.payload === "object"
@@ -105,35 +113,35 @@ export const StartClassForm = () => {
         navigate(routePaths.classDetail.URL(res.payload.id));
       }
     }
-  }, [profile, dispatch, navigate]);
+  }, [settings, dispatch, navigate]);
 
   if (loading) {
     return <Preloader text="Loading settings..." />;
   }
 
   return (
-    profile && (
+    settings && (
       <>
         {error && <Alert title={error.toString()} className="mb-20px" />}
         <ExerciseDurationSelect
-          onChange={changeDurationHandler}
-          selected={profile?.params?.exercise}
+          onChange={changeAsanaDurationHandler}
+          selected={settings?.preferredDuration.asana.toString()}
         />
         <LevelSelect
           onChange={changeLevelHandler}
-          selected={profile.params?.level}
+          selected={settings.difficultyLevel}
         />
         <PranoyamaSelect
           onChange={changePranoyamaHandler}
-          selected={profile?.params?.breathing}
+          selected={settings?.preferredDuration.pranayama.toString()}
         />
         <ChantingSelect
           onChange={changeChantingHandler}
-          selected={profile?.params?.chanting}
+          selected={settings?.preferredDuration.chanting.toString()}
         />
         <ShavasanaSelect
           onChange={changeShavasanaHandler}
-          selected={profile?.params?.relaxation}
+          selected={settings?.preferredDuration.shavasana.toString()}
         />
         <VSpace />
         <Button onClick={submitHandler} disabled={loading}>

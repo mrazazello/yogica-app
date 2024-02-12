@@ -2,24 +2,23 @@ import { LanguagesEnum } from "@entities/languages";
 import { LevelsEnum } from "@entities/levels";
 import { WorkoutTargetEnum } from "@entities/workoutTarget";
 
-export interface IRequestClassParams {
+export interface IPracticeSettings {
   language: LanguagesEnum;
   difficultyLevel: LevelsEnum;
   workoutTarget: WorkoutTargetEnum;
   preferredDuration: {
     asana: number;
-    pranayama: number;
     chanting: number;
+    pranayama: number;
     meditation: number;
     shavasana: number;
   };
 }
 
-export interface IStartClassSchema {
+export interface IPracticeSettingsSchema {
+  data?: IPracticeSettings;
+  form?: IPracticeSettings;
   isLoading: boolean;
-  error?: string;
-}
-
-export interface IRandomClass {
-  id: string;
+  errors?: string;
+  readonly: boolean;
 }

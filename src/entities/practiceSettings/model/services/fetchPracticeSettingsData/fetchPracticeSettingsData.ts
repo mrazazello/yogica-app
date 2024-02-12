@@ -2,16 +2,18 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios, { AxiosError } from "axios";
 
 import { IThunkConfig } from "@app/storeProvider";
-import { IProfile } from "../../types/profile";
+import { IPracticeSettings } from "../../types/practiceSettings";
 
-export const fetchProfileData = createAsyncThunk<
-  IProfile,
+export const fetchPracticeSettingsData = createAsyncThunk<
+  IPracticeSettings,
   void,
   IThunkConfig<string>
->("profile/fetchProfileData", async (_params, thunkAPI) => {
+>("practiceSettings/fetchPracticeSettingsData", async (_params, thunkAPI) => {
   const { rejectWithValue } = thunkAPI;
   try {
-    const response = await axios.get<IProfile>("/my/practice-settings");
+    const response = await axios.get<IPracticeSettings>(
+      "/my/practice-settings"
+    );
 
     if (!response.data) {
       throw new Error("Thunk error");

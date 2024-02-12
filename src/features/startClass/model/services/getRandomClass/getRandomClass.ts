@@ -13,7 +13,7 @@ export const getRandomClass = createAsyncThunk<
   const { rejectWithValue } = thunkAPI;
 
   try {
-    const response = await axios.get<IRandomClass>("/randomClass", {
+    const response = await axios.put<IRandomClass>("/my/workouts", {
       params
     });
 

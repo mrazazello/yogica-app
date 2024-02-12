@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import { AppLayout } from "@app/AppLayout";
-import { PranoyamaRadio } from "@entities/pranoyamaSelect";
+import { PranoyamaRadio } from "@entities/pranoyamaDurations";
 import {
   fetchProfileData,
   getProfileData,

@@ -24,7 +24,7 @@ export const loginUserByName = createAsyncThunk<
   }
 
   try {
-    const response = await axios.post<IUser>("/login", authData);
+    const response = await axios.post<IUser>("/auth/email", authData);
     if (!response.data) {
       throw new Error("Thunk error");
     }

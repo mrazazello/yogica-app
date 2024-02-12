@@ -46,7 +46,9 @@ export const LoginForm: FC = () => {
   );
 
   const submitHandler = useCallback(async () => {
+    console.log("submit");
     const res = await dispatch(loginUserByName({ username, password }));
+    console.log("res: ", res);
     if (res.meta.requestStatus === "fulfilled") {
       navigate(routePaths.main.URL());
     }

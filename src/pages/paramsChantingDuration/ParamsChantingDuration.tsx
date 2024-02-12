@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import { AppLayout } from "@app/AppLayout";
-import { ChantingRadio } from "@entities/chantingSelect";
+import { ChantingRadio } from "@entities/chantingDurations";
 import {
   fetchProfileData,
   getProfileData,

@@ -12,6 +12,7 @@ import { startClassReducer } from "@features/startClass";
 
 import { tariffsReducer } from "@entities/tariffs/model/slice/tarifSlice";
 import { IStateSchema } from "./stateSchema";
+import { practiceSettingsReducer } from "@entities/practiceSettings";
 
 export function createReduxStore(initialState?: IStateSchema) {
   const rootReducers: ReducersMapObject<IStateSchema> = {
@@ -23,7 +24,8 @@ export function createReduxStore(initialState?: IStateSchema) {
     favorites: favoritesReducer,
     classesHistory: classesHistoryReducer,
     payments: paymentsReducer,
-    tariffs: tariffsReducer
+    tariffs: tariffsReducer,
+    settings: practiceSettingsReducer
   };
 
   //   const reducerManager = createReducerManager(rootReducers);

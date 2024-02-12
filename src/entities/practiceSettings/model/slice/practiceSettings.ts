@@ -1,11 +1,13 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-import { fetchProfileData } from "../services/fetchProfileData/fetchProfileData";
-import { updateProfileData } from "../services/updateProfileData/updateProfileData";
+import { fetchPracticeSettingsData } from "../services/fetchPracticeSettingsData/fetchPracticeSettingsData";
+import { updatePracticeSettingsData } from "../services/updatePracticeSettingsData/updatePracticeSettingsData";
+import {
+  IPracticeSettings,
+  IPracticeSettingsSchema
+} from "../types/practiceSettings";
 
-import { IProfile, IProfileSchema } from "../types/profile";
-
-const initialState: IProfileSchema = {
+const initialState: IPracticeSettingsSchema = {
   isLoading: false,
   readonly: true,
   errors: undefined,
@@ -13,14 +15,17 @@ const initialState: IProfileSchema = {
   form: undefined
 };
 
-export const profileSlice = createSlice({
-  name: "profile",
+export const practiceSettingsSlice = createSlice({
+  name: "practiceSettings",
   initialState,
   reducers: {
     setReadonly: (state, action: PayloadAction<boolean>) => {
       state.readonly = action.payload;
     },
-    updateProfileData: (state, action: PayloadAction<IProfile>) => {
+    updatePracticeSettings: (
+      state,
+      action: PayloadAction<IPracticeSettings>
+    ) => {
       state.form = {
         ...state.form,
         ...action.payload
@@ -34,35 +39,35 @@ export const profileSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchProfileData.pending, (state) => {
+      .addCase(fetchPracticeSettingsData.pending, (state) => {
         state.errors = undefined;
         state.isLoading = true;
       })
-      .addCase(fetchProfileData.fulfilled, (state, action) => {
+      .addCase(fetchPracticeSettingsData.fulfilled, (state, action) => {
         state.isLoading = false;
         state.data = action.payload;
         state.form = action.payload;
       })
-      .addCase(fetchProfileData.rejected, (state, action) => {
+      .addCase(fetchPracticeSettingsData.rejected, (state, action) => {
         state.isLoading = false;
         state.errors = action.payload;
       })
-      .addCase(updateProfileData.pending, (state) => {
+      .addCase(updatePracticeSettingsData.pending, (state) => {
         state.errors = undefined;
         state.isLoading = true;
       })
-      .addCase(updateProfileData.fulfilled, (state, action) => {
+      .addCase(updatePracticeSettingsData.fulfilled, (state, action) => {
         state.isLoading = false;
         state.data = action.payload;
         state.form = action.payload;
         state.errors = undefined;
       })
-      .addCase(updateProfileData.rejected, (state, action) => {
+      .addCase(updatePracticeSettingsData.rejected, (state, action) => {
         state.isLoading = false;
         state.errors = action.payload;
       });
   }
 });
 
-export const { actions: profileActions } = profileSlice;
-export const { reducer: profileReducer } = profileSlice;
+export const { actions: practiceSettingsActions } = practiceSettingsSlice;
+export const { reducer: practiceSettingsReducer } = practiceSettingsSlice;

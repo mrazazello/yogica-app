@@ -9,12 +9,14 @@ import { ITariffsSchema } from "@entities/tariffs/model/types/tariff";
 import { IUserSchema } from "@entities/user";
 import { ILoginSchema } from "@features/authByLogin";
 import { IStartClassSchema } from "@features/startClass";
+import { IPracticeSettingsSchema } from "@entities/practiceSettings";
 
 export interface IStateSchema {
   loginForm: ILoginSchema;
   user: IUserSchema;
-  startClass: IStartClassSchema;
+  settings: IPracticeSettingsSchema;
   profile: IProfileSchema;
+  startClass: IStartClassSchema;
   classDetail: IClassDetailSchema;
   favorites: IFavoritesSchema;
   classesHistory: IClassesHistorySchema;
