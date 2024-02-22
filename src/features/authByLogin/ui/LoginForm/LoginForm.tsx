@@ -18,10 +18,6 @@ import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLogi
 import { loginUserByName } from "../../model/services/loginByUsername/loginByUsername";
 import { loginActions } from "../../model/slice/loginSlice";
 
-import fb from "/facebook.svg";
-import gl from "/google.svg";
-import tg from "/telegram.svg";
-
 export const LoginForm: FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -63,10 +59,10 @@ export const LoginForm: FC = () => {
       <VSpace />
       {errors?.length &&
         errors.map((item, index) => (
-          <Alert key={index} title={item} className="mb-20px" />
+          <Alert key={index} title={item.message} className="mb-20px" />
         ))}
       <Input
-        placeholder="E-mail / Phone / Telegram"
+        placeholder="E-mail"
         name="email"
         required
         onChange={loginHandler}
@@ -81,11 +77,10 @@ export const LoginForm: FC = () => {
         value={password}
       />
       <VSpace />
-      <div className="flex justify-center gap-4">
+      {/* <div className="flex justify-center gap-4">
         <img src={tg} width={24} height={24} alt="Telegram" />
-        <img src={fb} width={24} height={24} alt="Facebook" />
         <img src={gl} width={24} height={24} alt="Google" />
-      </div>
+      </div> */}
       <VSpace />
       <TextLine align="center">
         Already registered?{" "}

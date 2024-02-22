@@ -1,19 +1,42 @@
+import {
+  Action,
+  AnyAction,
+  PayloadAction,
+  ThunkMiddleware
+} from "@reduxjs/toolkit";
+import { ToolkitStore } from "@reduxjs/toolkit/dist/configureStore";
 import axios, { AxiosError } from "axios";
 
-import { USER_LOCALSTORAGE_KEY } from "@shared/const/localStorage";
-import { PayloadAction } from "@reduxjs/toolkit";
-import { createReduxStore } from "@app/storeProvider/config/store";
+import { IStateSchema } from "@app/storeProvider";
 import { refreshToken } from "@entities/user";
+import { USER_LOCALSTORAGE_KEY } from "@shared/const/localStorage";
 
 // type guard function for unknow type from redux thunk Payload action
 const hasError = (obj: unknown): obj is PayloadAction<string> => {
   return typeof obj === "object" && obj !== null && "error" in obj;
 };
 
-const store = createReduxStore();
+const baseURL = import.meta.env.VITE_BACKEND_SERVER;
 
-export const setupAxios = () => {
-  axios.defaults.baseURL = import.meta.env.VITE_BACKEND_SERVER;
+export const axiosWithCredentials = axios.create({
+  baseURL: baseURL,
+  headers: { "Content-type": "application/json" },
+  withCredentials: true
+});
+
+export const unInterceptedAxios = axios.create({
+  baseURL: baseURL,
+  headers: { "Content-type": "application/json" }
+});
+
+export const setupAxios = (
+  store: ToolkitStore<
+    IStateSchema,
+    Action<any>,
+    [ThunkMiddleware<IStateSchema, AnyAction>]
+  >
+) => {
+  axios.defaults.baseURL = baseURL;
   axios.defaults.headers.common.Accept = "application/json";
 
   axios.interceptors.request.use((request) => {

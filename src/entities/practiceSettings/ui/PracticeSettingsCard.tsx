@@ -20,14 +20,7 @@ interface IProps {
 }
 
 export const PracticeSettingsCard: FC<IProps> = (props) => {
-  const {
-    data,
-    isLoading,
-    error,
-    readonly = false,
-    onChangeFirstName,
-    onChangeLastName
-  } = props;
+  const { data, isLoading, error } = props;
 
   if (error) {
     return <Alert title={error} type="error" />;

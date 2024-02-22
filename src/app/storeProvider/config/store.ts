@@ -10,13 +10,15 @@ import { userReducer } from "@entities/user";
 import { loginReducer } from "@features/authByLogin";
 import { startClassReducer } from "@features/startClass";
 
-import { tariffsReducer } from "@entities/tariffs/model/slice/tarifSlice";
-import { IStateSchema } from "./stateSchema";
 import { practiceSettingsReducer } from "@entities/practiceSettings";
+import { tariffsReducer } from "@entities/tariffs/model/slice/tarifSlice";
+import { registrationReducer } from "@features/registration";
+import { IStateSchema } from "./stateSchema";
 
 export function createReduxStore(initialState?: IStateSchema) {
   const rootReducers: ReducersMapObject<IStateSchema> = {
     loginForm: loginReducer,
+    regForm: registrationReducer,
     user: userReducer,
     startClass: startClassReducer,
     profile: profileReducer,

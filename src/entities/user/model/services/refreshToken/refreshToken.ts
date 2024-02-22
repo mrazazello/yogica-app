@@ -1,7 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios, { AxiosError } from "axios";
+import { AxiosError } from "axios";
 
 import { IThunkConfig } from "@app/storeProvider";
+import { axiosWithCredentials } from "@shared/api/api";
 import { USER_LOCALSTORAGE_KEY } from "@shared/const/localStorage";
 import { userActions } from "../../slice/userSlice";
 import { IUser } from "../../types/user";
@@ -11,7 +12,7 @@ export const refreshToken = createAsyncThunk<IUser, void, IThunkConfig<string>>(
   async (_, thunkAPI) => {
     const { dispatch, rejectWithValue } = thunkAPI;
     try {
-      const response = await axios.post<IUser>("/auth/refresh");
+      const response = await axiosWithCredentials.post<IUser>("/auth/refresh");
       if (!response.data) {
         throw new Error("Thunk error");
       }
