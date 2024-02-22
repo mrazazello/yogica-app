@@ -40,7 +40,6 @@ export const loginUserByName = createAsyncThunk<
 
     return response.data;
   } catch (err) {
-    console.log("catch err: ", err);
     if (err instanceof AxiosError) return rejectWithValue(err?.response?.data);
     throw err;
   }

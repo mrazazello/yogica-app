@@ -6,6 +6,10 @@ import {
   classesHistoryActions,
   classesHistoryReducer
 } from "./model/slice/classesHistorySlice";
+import {
+  IClassesHistory,
+  IClassesHistorySchema
+} from "./model/types/classesHistory";
 import { ClassesHistory } from "./ui/ClassesHistory";
 
 export {
@@ -17,3 +21,4 @@ export {
   getClassesHistoryError,
   getClassesHistoryLoading
 };
+export type { IClassesHistory, IClassesHistorySchema };
