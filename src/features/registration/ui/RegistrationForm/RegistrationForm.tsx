@@ -8,10 +8,8 @@ import { TextLine } from "@shared/ui/text/TextLine";
 import { VSpace } from "@shared/ui/vSpace/VSpace";
 
 import { registrationActions } from "@features/registration";
-import { getRegistrationError } from "@features/registration/model/selectors/getRegistrationError/getRegistrationError";
 import { registrationByEmail } from "@features/registration/model/services/registrationByEmail/registrationByEmail";
 import { useAppDispatch } from "@shared/lib/storeHooks/storeHooks";
-import { Alert } from "@shared/ui/alert/Alert";
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import {
@@ -20,6 +18,7 @@ import {
   getRegistrationLastName,
   getRegistrationPassword
 } from "../../model/selectors/getRegistrationData/getRegistrationData";
+import { ShowErrors } from "@entities/error";
 
 export const RegistrationForm = () => {
   const navigate = useNavigate();
@@ -29,7 +28,6 @@ export const RegistrationForm = () => {
   const password = useSelector(getRegistrationPassword);
   const firstName = useSelector(getRegistrationFirstName);
   const lastName = useSelector(getRegistrationLastName);
-  const errors = useSelector(getRegistrationError);
 
   const emailHandler = useCallback(
     (value: string) => {
@@ -74,10 +72,7 @@ export const RegistrationForm = () => {
         Sign up any way you like to start working out
       </TextLine>
       <VSpace />
-      {errors?.length &&
-        errors.map((item, index) => (
-          <Alert key={index} title={item.message} className="mb-20px" />
-        ))}
+      <ShowErrors />
       <Input
         placeholder="E-mail"
         name="email"
