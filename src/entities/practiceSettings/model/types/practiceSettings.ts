@@ -19,6 +19,5 @@ export interface IPracticeSettingsSchema {
   data?: IPracticeSettings;
   form?: IPracticeSettings;
   isLoading: boolean;
-  errors?: string;
   readonly: boolean;
 }

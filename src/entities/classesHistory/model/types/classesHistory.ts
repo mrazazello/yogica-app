@@ -9,5 +9,4 @@ export interface IClassesHistory {
 export interface IClassesHistorySchema {
   data?: IClassesHistory[];
   isLoading: boolean;
-  error?: string;
 }

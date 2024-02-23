@@ -17,7 +17,6 @@ export interface IRequestClassParams {
 
 export interface IStartClassSchema {
   isLoading: boolean;
-  error?: string;
 }
 
 export interface IRandomClass {

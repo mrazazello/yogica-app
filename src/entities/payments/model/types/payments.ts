@@ -10,5 +10,4 @@ export interface IPayments {
 export interface IPaymentsSchema {
   data?: IPayments[];
   isLoading: boolean;
-  error?: string;
 }

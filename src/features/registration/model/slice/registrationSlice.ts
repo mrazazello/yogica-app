@@ -32,17 +32,13 @@ export const registrationSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(registrationByEmail.pending, (state) => {
-        state.error = undefined;
         state.isLoading = true;
       })
       .addCase(registrationByEmail.fulfilled, (state) => {
         state.isLoading = false;
       })
-      .addCase(registrationByEmail.rejected, (state, action) => {
+      .addCase(registrationByEmail.rejected, (state) => {
         state.isLoading = false;
-        if (action.payload) {
-          state.error = [action.payload];
-        }
       });
   }
 });

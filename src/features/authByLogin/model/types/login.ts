@@ -1,5 +1,3 @@
-import { IError } from "@entities/error";
-
 export interface ILoginData {
   username: string;
   password: string;
@@ -8,7 +6,6 @@ export interface ILoginData {
 export interface ILoginSchema {
   form: ILoginData;
   isLoading: boolean;
-  error?: IError[];
 }
 
 export enum LoginErrorsEnum {

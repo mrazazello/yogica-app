@@ -10,5 +10,4 @@ export interface IFavoriteItem {
 export interface IFavoritesSchema extends EntityState<IFavoriteItem> {
   data?: IFavoriteItem[];
   isLoading: boolean;
-  error?: string;
 }

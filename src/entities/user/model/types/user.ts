@@ -5,5 +5,4 @@ export interface IUser {
 export interface IUserSchema {
   authData?: IUser;
   isLoading: boolean;
-  error?: string;
 }

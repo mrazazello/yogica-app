@@ -8,5 +8,4 @@ export interface ITariff {
 export interface ITariffsSchema {
   data?: ITariff[];
   isLoading: boolean;
-  error?: string;
 }
