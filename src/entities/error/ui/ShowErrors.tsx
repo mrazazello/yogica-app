@@ -9,11 +9,9 @@ export const ShowErrors = () => {
 
   return (
     <>
-      {errors?.length
-        ? errors.map((item, index) => (
-            <Alert key={index} title={item.message} className="mb-20px" />
-          ))
-        : null}
+      {errors?.length ? (
+        <Alert title={errors[errors?.length - 1].message} className="mb-20px" />
+      ) : null}
     </>
   );
 };

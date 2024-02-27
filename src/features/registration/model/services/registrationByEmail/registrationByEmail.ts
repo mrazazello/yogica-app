@@ -6,7 +6,7 @@ import { unInterceptedAxios } from "@shared/api/api";
 import { AxiosError } from "axios";
 import { getRegistrationData } from "../../selectors/getRegistrationData/getRegistrationData";
 import { IRegistrationResponse } from "../../types/registration";
-// import { validateRegData } from "../validateRegData/validateRegData";
+import { validateRegData } from "../validateRegData/validateRegData";
 
 export const registrationByEmail = createAsyncThunk<
   void,
@@ -16,10 +16,10 @@ export const registrationByEmail = createAsyncThunk<
   const { rejectWithValue, getState } = thunkAPI;
   const regData = getRegistrationData(getState());
 
-  // const err = validateRegData(regData);
-  // if (err.length) {
-  //   return rejectWithValue(err);
-  // }
+  const err = validateRegData(regData);
+  if (err) {
+    return rejectWithValue(err);
+  }
 
   try {
     const response = await unInterceptedAxios.post<IRegistrationResponse>(
