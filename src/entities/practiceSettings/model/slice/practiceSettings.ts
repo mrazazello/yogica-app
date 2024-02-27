@@ -10,7 +10,6 @@ import {
 const initialState: IPracticeSettingsSchema = {
   isLoading: false,
   readonly: true,
-  errors: undefined,
   data: undefined,
   form: undefined
 };
@@ -34,13 +33,11 @@ export const practiceSettingsSlice = createSlice({
     cancelEditProfile: (state) => {
       state.readonly = true;
       state.form = state.data;
-      state.errors = undefined;
     }
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchPracticeSettingsData.pending, (state) => {
-        state.errors = undefined;
         state.isLoading = true;
       })
       .addCase(fetchPracticeSettingsData.fulfilled, (state, action) => {
@@ -48,23 +45,19 @@ export const practiceSettingsSlice = createSlice({
         state.data = action.payload;
         state.form = action.payload;
       })
-      .addCase(fetchPracticeSettingsData.rejected, (state, action) => {
+      .addCase(fetchPracticeSettingsData.rejected, (state) => {
         state.isLoading = false;
-        state.errors = action.payload;
       })
       .addCase(updatePracticeSettingsData.pending, (state) => {
-        state.errors = undefined;
         state.isLoading = true;
       })
       .addCase(updatePracticeSettingsData.fulfilled, (state, action) => {
         state.isLoading = false;
         state.data = action.payload;
         state.form = action.payload;
-        state.errors = undefined;
       })
-      .addCase(updatePracticeSettingsData.rejected, (state, action) => {
+      .addCase(updatePracticeSettingsData.rejected, (state) => {
         state.isLoading = false;
-        state.errors = action.payload;
       });
   }
 });

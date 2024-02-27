@@ -3,12 +3,12 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { ChantingSelect } from "@entities/chantingDurations";
+import { ShowErrors } from "@entities/error";
 import { ExerciseDurationSelect } from "@entities/exerciseDurations";
 import { LevelSelect } from "@entities/levels";
 import {
   fetchPracticeSettingsData,
   getPracticeSettingsData,
-  getPracticeSettingsError,
   getPracticeSettingsIsLoading,
   practiceSettingsActions
 } from "@entities/practiceSettings";
@@ -16,7 +16,6 @@ import { PranoyamaSelect } from "@entities/pranoyamaDurations";
 import { ShavasanaSelect } from "@entities/shavasanaSelect";
 import { routePaths } from "@shared/config/router/routes";
 import { useAppDispatch } from "@shared/lib/storeHooks/storeHooks";
-import { Alert } from "@shared/ui/alert/Alert";
 import { Button } from "@shared/ui/button/Button";
 import { Preloader } from "@shared/ui/preloader/Preloader";
 import { VSpace } from "@shared/ui/vSpace/VSpace";
@@ -27,10 +26,10 @@ export const StartClassForm = () => {
   const navigate = useNavigate();
 
   const settings = useSelector(getPracticeSettingsData);
-  const error = useSelector(getPracticeSettingsError);
   const loading = useSelector(getPracticeSettingsIsLoading);
 
   useEffect(() => {
+    console.log("fetch first time");
     dispatch(fetchPracticeSettingsData());
   }, [dispatch]);
 
@@ -39,7 +38,7 @@ export const StartClassForm = () => {
       dispatch(
         practiceSettingsActions.updatePracticeSettings({
           ...settings,
-          preferredDuration: {
+          practicePreferredDuration: {
             ...settings?.preferredDuration,
             asana: Number(value)
           }
@@ -66,8 +65,8 @@ export const StartClassForm = () => {
       dispatch(
         practiceSettingsActions.updatePracticeSettings({
           ...settings,
-          preferredDuration: {
-            ...settings?.preferredDuration,
+          practicePreferredDuration: {
+            ...settings?.practicePreferredDuration,
             pranayama: value
           }
         })
@@ -81,7 +80,10 @@ export const StartClassForm = () => {
       dispatch(
         practiceSettingsActions.updatePracticeSettings({
           ...settings,
-          preferredDuration: { ...settings?.preferredDuration, chanting: value }
+          practicePreferredDuration: {
+            ...settings?.practicePreferredDuration,
+            chanting: value
+          }
         })
       );
     },
@@ -93,8 +95,8 @@ export const StartClassForm = () => {
       dispatch(
         practiceSettingsActions.updatePracticeSettings({
           ...settings,
-          preferredDuration: {
-            ...settings?.preferredDuration,
+          practicePreferredDuration: {
+            ...settings?.practicePreferredDuration,
             relaxation: value
           }
         })
@@ -105,7 +107,9 @@ export const StartClassForm = () => {
 
   const submitHandler = useCallback(async () => {
     if (settings) {
-      const res = await dispatch(getRandomClass(settings?.preferredDuration));
+      const res = await dispatch(
+        getRandomClass(settings?.practicePreferredDuration)
+      );
       if (
         res.meta.requestStatus === "fulfilled" &&
         typeof res.payload === "object"
@@ -122,26 +126,26 @@ export const StartClassForm = () => {
   return (
     settings && (
       <>
-        {error && <Alert title={error.toString()} className="mb-20px" />}
-        <ExerciseDurationSelect
-          onChange={changeAsanaDurationHandler}
-          selected={settings?.preferredDuration.asana.toString()}
-        />
+        <ShowErrors />
         <LevelSelect
           onChange={changeLevelHandler}
           selected={settings.difficultyLevel}
         />
+        <ExerciseDurationSelect
+          onChange={changeAsanaDurationHandler}
+          selected={settings?.practicePreferredDuration.asana.toString()}
+        />
         <PranoyamaSelect
           onChange={changePranoyamaHandler}
-          selected={settings?.preferredDuration.pranayama.toString()}
+          selected={settings?.practicePreferredDuration.pranayama.toString()}
         />
         <ChantingSelect
           onChange={changeChantingHandler}
-          selected={settings?.preferredDuration.chanting.toString()}
+          selected={settings?.practicePreferredDuration.chanting.toString()}
         />
         <ShavasanaSelect
           onChange={changeShavasanaHandler}
-          selected={settings?.preferredDuration.shavasana.toString()}
+          selected={settings?.practicePreferredDuration.shavasana.toString()}
         />
         <VSpace />
         <Button onClick={submitHandler} disabled={loading}>

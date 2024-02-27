@@ -66,7 +66,7 @@ export const setupAxios = (
     (response) => {
       return response;
     },
-    async (error: AxiosError) => {
+    (error: AxiosError) => {
       const { config } = error;
       const originalRequest = config;
       const status = error.response?.status;
@@ -78,16 +78,14 @@ export const setupAxios = (
           store.dispatch(refreshToken()).then((action) => {
             isAlreadyFetchingAccessToken = false;
             if (hasError(action)) {
-              console.log("has error: ", action);
+              return new Promise((resolve) => {
+                addSubscriber(() => resolve(axios(originalRequest)));
+              });
             } else {
               onAccessTokenFetched();
             }
           });
         }
-
-        return new Promise((resolve) => {
-          addSubscriber(() => resolve(axios(originalRequest)));
-        });
       }
     }
   );

@@ -1,4 +1,4 @@
 export enum ShavasanaDurationEnum {
-  NO = "no",
-  YES = "yes"
+  NO = "0",
+  YES = "180"
 }

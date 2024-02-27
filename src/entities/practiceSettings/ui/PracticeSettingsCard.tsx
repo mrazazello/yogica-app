@@ -15,8 +15,8 @@ interface IProps {
   isLoading?: boolean;
   error?: string;
   readonly?: boolean;
-  onChangeFirstName?: (value: string) => void;
-  onChangeLastName?: (value: string) => void;
+  // onChangeFirstName?: (value: string) => void;
+  // onChangeLastName?: (value: string) => void;
 }
 
 export const PracticeSettingsCard: FC<IProps> = (props) => {
@@ -33,17 +33,17 @@ export const PracticeSettingsCard: FC<IProps> = (props) => {
       ) : (
         <>
           <ExerciseDurationSelect
-            selected={data?.preferredDuration.asana.toString()}
+            selected={data?.practicePreferredDuration.asana.toString()}
           />
           <LevelSelect selected={data?.difficultyLevel} />
           <PranoyamaSelect
-            selected={data?.preferredDuration.pranayama.toString()}
+            selected={data?.practicePreferredDuration.pranayama.toString()}
           />
           <ChantingSelect
-            selected={data?.preferredDuration.chanting.toString()}
+            selected={data?.practicePreferredDuration.chanting.toString()}
           />
           <ShavasanaSelect
-            selected={data?.preferredDuration.shavasana.toString()}
+            selected={data?.practicePreferredDuration.shavasana.toString()}
           />
         </>
       )}

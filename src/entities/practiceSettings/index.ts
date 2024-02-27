@@ -1,5 +1,4 @@
 import { getPracticeSettingsData } from "./model/selectors/getPracticeSettingsData/getPracticeSettingsData";
-import { getPracticeSettingsError } from "./model/selectors/getPracticeSettingsError/getPracticeSettingsError";
 import { getPracticeSettingsForm } from "./model/selectors/getPracticeSettingsForm/getPracticeSettingsForm";
 import { getPracticeSettingsIsLoading } from "./model/selectors/getPracticeSettingsIsLoading/getPracticeSettingsIsLoading";
 import { getPracticeSettingsReadonly } from "./model/selectors/getPracticeSettingsReadonly/getPracticeSettingsReadonly";
@@ -16,7 +15,6 @@ export {
   PracticeSettingsCard,
   fetchPracticeSettingsData,
   getPracticeSettingsData,
-  getPracticeSettingsError,
   getPracticeSettingsForm,
   getPracticeSettingsIsLoading,
   getPracticeSettingsReadonly,

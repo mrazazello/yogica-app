@@ -6,7 +6,7 @@ export interface IPracticeSettings {
   language: LanguagesEnum;
   difficultyLevel: LevelsEnum;
   workoutTarget: WorkoutTargetEnum;
-  preferredDuration: {
+  practicePreferredDuration: {
     asana: number;
     chanting: number;
     pranayama: number;

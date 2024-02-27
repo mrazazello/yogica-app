@@ -21,7 +21,7 @@ export const updatePracticeSettingsData = createAsyncThunk<
 
     return response.data;
   } catch (err) {
-    if (err instanceof AxiosError) return rejectWithValue(err.message);
+    if (err instanceof AxiosError) return rejectWithValue(err?.response?.data);
     throw err;
   }
 });

@@ -1,4 +1,4 @@
-export enum PranoyamaDurationEnum {
+export enum MeditationDurationEnum {
   "0MIN" = "0",
   "3MIN" = "180",
   "5MIN" = "300",

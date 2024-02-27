@@ -6,7 +6,7 @@ export interface IRequestClassParams {
   language: LanguagesEnum;
   difficultyLevel: LevelsEnum;
   workoutTarget: WorkoutTargetEnum;
-  preferredDuration: {
+  practicePreferredDuration: {
     asana: number;
     pranayama: number;
     chanting: number;
