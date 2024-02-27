@@ -1,6 +1,5 @@
-import { FC, VideoHTMLAttributes, lazy, useRef } from "react";
-// import ReactHlsPlayer from "react-hls-player/dist";
-const ReactHlsPlayer = lazy(() => import("react-hls-player/dist"));
+import { FC, VideoHTMLAttributes } from "react";
+// const ReactHlsPlayer = lazy(() => import("react-hls-player/dist"));
 
 interface IProps extends VideoHTMLAttributes<HTMLVideoElement> {
   stream: string;
@@ -8,20 +7,21 @@ interface IProps extends VideoHTMLAttributes<HTMLVideoElement> {
   onProgressFinish?: () => void;
 }
 
-export const Player: FC<IProps> = (props) => {
-  const { stream, className, ...otherProps } = props;
-  const playerRef = useRef(null);
+export const Player: FC<IProps> = () => {
+  // const { stream } = props;
+  // const playerRef = useRef(null);
 
   return (
     <>
-      <ReactHlsPlayer
+      Проигрыватель
+      {/* <ReactHlsPlayer
         src={stream}
         playerRef={playerRef}
         disablePictureInPicture={true}
         controlsList="noplaybackrate nodownload"
         className={className}
         {...otherProps}
-      />
+      /> */}
     </>
   );
 };

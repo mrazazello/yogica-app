@@ -13,5 +13,4 @@ export interface IClassDetail {
 export interface IClassDetailSchema {
   data?: IClassDetail;
   isLoading: boolean;
-  error?: string;
 }

@@ -20,15 +20,13 @@ export const startClassSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getRandomClass.pending, (state) => {
-        state.error = undefined;
         state.isLoading = true;
       })
       .addCase(getRandomClass.fulfilled, (state) => {
         state.isLoading = false;
       })
-      .addCase(getRandomClass.rejected, (state, action) => {
+      .addCase(getRandomClass.rejected, (state) => {
         state.isLoading = false;
-        state.error = action.payload;
       });
   }
 });

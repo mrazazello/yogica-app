@@ -2,10 +2,10 @@ export interface ILoginData {
   username: string;
   password: string;
 }
+
 export interface ILoginSchema {
   form: ILoginData;
   isLoading: boolean;
-  error?: string[];
 }
 
 export enum LoginErrorsEnum {

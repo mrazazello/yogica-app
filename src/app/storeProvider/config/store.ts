@@ -3,19 +3,23 @@ import { ReducersMapObject, configureStore } from "@reduxjs/toolkit";
 // import { createReducerManager } from "./reducerManager";
 import { classDetailReducer } from "@entities/classDetail";
 import { classesHistoryReducer } from "@entities/classesHistory";
+import { errorsReducer } from "@entities/error";
 import { favoritesReducer } from "@entities/favorites";
 import { paymentsReducer } from "@entities/payments";
+import { practiceSettingsReducer } from "@entities/practiceSettings";
 import { profileReducer } from "@entities/profile";
+import { tariffsReducer } from "@entities/tariffs/model/slice/tarifSlice";
 import { userReducer } from "@entities/user";
 import { loginReducer } from "@features/authByLogin";
+import { registrationReducer } from "@features/registration";
 import { startClassReducer } from "@features/startClass";
-
-import { tariffsReducer } from "@entities/tariffs/model/slice/tarifSlice";
 import { IStateSchema } from "./stateSchema";
 
 export function createReduxStore(initialState?: IStateSchema) {
   const rootReducers: ReducersMapObject<IStateSchema> = {
+    errors: errorsReducer,
     loginForm: loginReducer,
+    regForm: registrationReducer,
     user: userReducer,
     startClass: startClassReducer,
     profile: profileReducer,
@@ -23,7 +27,8 @@ export function createReduxStore(initialState?: IStateSchema) {
     favorites: favoritesReducer,
     classesHistory: classesHistoryReducer,
     payments: paymentsReducer,
-    tariffs: tariffsReducer
+    tariffs: tariffsReducer,
+    settings: practiceSettingsReducer
   };
 
   //   const reducerManager = createReducerManager(rootReducers);

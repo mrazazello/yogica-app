@@ -14,7 +14,6 @@ export interface IProfileSchema {
   data?: IProfile;
   form?: IProfile;
   isLoading: boolean;
-  errors?: ProfileErrorsEnum[] | string;
   readonly: boolean;
 }
 

@@ -11,7 +11,7 @@ export const fetchProfileData = createAsyncThunk<
 >("profile/fetchProfileData", async (_params, thunkAPI) => {
   const { rejectWithValue } = thunkAPI;
   try {
-    const response = await axios.get<IProfile>("/profile");
+    const response = await axios.get<IProfile>("/my/practice-settings");
 
     if (!response.data) {
       throw new Error("Thunk error");
@@ -19,7 +19,7 @@ export const fetchProfileData = createAsyncThunk<
 
     return response.data;
   } catch (err) {
-    if (err instanceof AxiosError) return rejectWithValue(err.message);
+    if (err instanceof AxiosError) return rejectWithValue(err?.response?.data);
     throw err;
   }
 });

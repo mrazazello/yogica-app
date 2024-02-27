@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import { AppLayout } from "@app/AppLayout";
-import { ExerciseDurationRadio } from "@entities/exerciseDurationSelect";
+import { ExerciseDurationRadio } from "@entities/exerciseDurations";
 import {
   fetchProfileData,
   getProfileData,

@@ -1,22 +1,22 @@
-// export interface IStartClassForm {
-//   exercisesDuration?: string;
-//   level?: string;
-//   pranoyamaDuration?: string;
-//   chantingDuration?: string;
-//   shavasanaDuration?: string;
-// }
+import { LanguagesEnum } from "@entities/languages";
+import { LevelsEnum } from "@entities/levels";
+import { WorkoutTargetEnum } from "@entities/workoutTarget";
 
 export interface IRequestClassParams {
-  exercise?: string;
-  level?: string;
-  breathing?: string;
-  chanting?: string;
-  relaxation?: string;
+  language: LanguagesEnum;
+  difficultyLevel: LevelsEnum;
+  workoutTarget: WorkoutTargetEnum;
+  practicePreferredDuration: {
+    asana: number;
+    pranayama: number;
+    chanting: number;
+    meditation: number;
+    shavasana: number;
+  };
 }
 
 export interface IStartClassSchema {
   isLoading: boolean;
-  error?: string;
 }
 
 export interface IRandomClass {

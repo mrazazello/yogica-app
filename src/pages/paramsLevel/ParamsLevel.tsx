@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { AppLayout } from "@app/AppLayout";
-import { LevelRadio } from "@entities/levelSelect";
+import { LevelRadio } from "@entities/levels";
 import {
   fetchProfileData,
   getProfileData,
