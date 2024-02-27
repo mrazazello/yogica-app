@@ -5,10 +5,11 @@ import { IError } from "@entities/error";
 import { unInterceptedAxios } from "@shared/api/api";
 import { AxiosError } from "axios";
 import { getRegistrationData } from "../../selectors/getRegistrationData/getRegistrationData";
+import { IRegistrationResponse } from "../../types/registration";
 // import { validateRegData } from "../validateRegData/validateRegData";
 
 export const registrationByEmail = createAsyncThunk<
-  any,
+  void,
   void,
   IThunkConfig<IError>
 >("registration/registrationByEmail", async (_, thunkAPI) => {
@@ -21,7 +22,7 @@ export const registrationByEmail = createAsyncThunk<
   // }
 
   try {
-    const response = await unInterceptedAxios.post(
+    const response = await unInterceptedAxios.post<IRegistrationResponse>(
       "/registration/email",
       regData
     );

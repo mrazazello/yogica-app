@@ -13,3 +13,8 @@ export interface IRegistrationSchema {
 export enum RegistrationErrorsEnum {
   NO_REG_DATA = "No data were provided"
 }
+
+export interface IRegistrationResponse {
+  entityCode: string;
+  message: string;
+}

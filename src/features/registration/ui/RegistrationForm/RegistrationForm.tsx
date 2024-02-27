@@ -7,6 +7,7 @@ import { H123 } from "@shared/ui/h123/H123";
 import { TextLine } from "@shared/ui/text/TextLine";
 import { VSpace } from "@shared/ui/vSpace/VSpace";
 
+import { ShowErrors } from "@entities/error";
 import { registrationActions } from "@features/registration";
 import { registrationByEmail } from "@features/registration/model/services/registrationByEmail/registrationByEmail";
 import { useAppDispatch } from "@shared/lib/storeHooks/storeHooks";
@@ -18,7 +19,6 @@ import {
   getRegistrationLastName,
   getRegistrationPassword
 } from "../../model/selectors/getRegistrationData/getRegistrationData";
-import { ShowErrors } from "@entities/error";
 
 export const RegistrationForm = () => {
   const navigate = useNavigate();
@@ -59,9 +59,8 @@ export const RegistrationForm = () => {
 
   const submitHandler = useCallback(async () => {
     const res = await dispatch(registrationByEmail());
-    // console.log("res: ", res);
     if (res.meta.requestStatus === "fulfilled") {
-      // navigate(routePaths.main.URL());
+      navigate(routePaths.main.URL());
     }
   }, [dispatch, navigate]);
 

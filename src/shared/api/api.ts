@@ -32,7 +32,7 @@ export const unInterceptedAxios = axios.create({
 export const setupAxios = (
   store: ToolkitStore<
     IStateSchema,
-    Action<any>,
+    Action,
     [ThunkMiddleware<IStateSchema, AnyAction>]
   >
 ) => {
