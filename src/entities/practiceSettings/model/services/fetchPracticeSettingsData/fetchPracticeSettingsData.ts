@@ -21,6 +21,7 @@ export const fetchPracticeSettingsData = createAsyncThunk<
 
     return response.data;
   } catch (err) {
+    console.log("error: ", err);
     if (err instanceof AxiosError) return rejectWithValue(err?.response?.data);
     throw err;
   }

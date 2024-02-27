@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { ChantingSelect } from "@entities/chantingDurations";
 import { ShowErrors } from "@entities/error";
 import { ExerciseDurationSelect } from "@entities/exerciseDurations";
-import { LevelSelect } from "@entities/levels";
+import { LevelSelect, LevelsEnum } from "@entities/levels";
 import {
   fetchPracticeSettingsData,
   getPracticeSettingsData,
@@ -29,87 +29,89 @@ export const StartClassForm = () => {
   const loading = useSelector(getPracticeSettingsIsLoading);
 
   useEffect(() => {
-    console.log("fetch first time");
     dispatch(fetchPracticeSettingsData());
   }, [dispatch]);
 
   const changeAsanaDurationHandler = useCallback(
     (value: string) => {
-      dispatch(
-        practiceSettingsActions.updatePracticeSettings({
-          ...settings,
-          practicePreferredDuration: {
-            ...settings?.preferredDuration,
-            asana: Number(value)
-          }
-        })
-      );
+      settings &&
+        dispatch(
+          practiceSettingsActions.updatePracticeSettings({
+            ...settings,
+            practicePreferredDuration: {
+              ...settings?.practicePreferredDuration,
+              asana: Number(value)
+            }
+          })
+        );
     },
     [dispatch, settings]
   );
 
   const changeLevelHandler = useCallback(
     (value: string) => {
-      dispatch(
-        practiceSettingsActions.updatePracticeSettings({
-          ...settings,
-          difficultyLevel: value
-        })
-      );
+      settings &&
+        dispatch(
+          practiceSettingsActions.updatePracticeSettings({
+            ...settings,
+            difficultyLevel: value as LevelsEnum
+          })
+        );
     },
     [dispatch, settings]
   );
 
   const changePranoyamaHandler = useCallback(
     (value: string) => {
-      dispatch(
-        practiceSettingsActions.updatePracticeSettings({
-          ...settings,
-          practicePreferredDuration: {
-            ...settings?.practicePreferredDuration,
-            pranayama: value
-          }
-        })
-      );
+      settings &&
+        dispatch(
+          practiceSettingsActions.updatePracticeSettings({
+            ...settings,
+            practicePreferredDuration: {
+              ...settings?.practicePreferredDuration,
+              pranayama: Number(value)
+            }
+          })
+        );
     },
     [dispatch, settings]
   );
 
   const changeChantingHandler = useCallback(
     (value: string) => {
-      dispatch(
-        practiceSettingsActions.updatePracticeSettings({
-          ...settings,
-          practicePreferredDuration: {
-            ...settings?.practicePreferredDuration,
-            chanting: value
-          }
-        })
-      );
+      settings &&
+        dispatch(
+          practiceSettingsActions.updatePracticeSettings({
+            ...settings,
+            practicePreferredDuration: {
+              ...settings?.practicePreferredDuration,
+              chanting: Number(value)
+            }
+          })
+        );
     },
     [dispatch, settings]
   );
 
   const changeShavasanaHandler = useCallback(
     (value: string) => {
-      dispatch(
-        practiceSettingsActions.updatePracticeSettings({
-          ...settings,
-          practicePreferredDuration: {
-            ...settings?.practicePreferredDuration,
-            relaxation: value
-          }
-        })
-      );
+      settings &&
+        dispatch(
+          practiceSettingsActions.updatePracticeSettings({
+            ...settings,
+            practicePreferredDuration: {
+              ...settings?.practicePreferredDuration,
+              shavasana: Number(value)
+            }
+          })
+        );
     },
     [dispatch, settings]
   );
 
   const submitHandler = useCallback(async () => {
     if (settings) {
-      const res = await dispatch(
-        getRandomClass(settings?.practicePreferredDuration)
-      );
+      const res = await dispatch(getRandomClass(settings));
       if (
         res.meta.requestStatus === "fulfilled" &&
         typeof res.payload === "object"
