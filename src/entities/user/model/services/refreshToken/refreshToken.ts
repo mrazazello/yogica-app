@@ -13,9 +13,6 @@ export const refreshToken = createAsyncThunk<IUser, void, IThunkConfig<string>>(
     const { dispatch, rejectWithValue } = thunkAPI;
     try {
       const response = await axiosWithCredentials.post<IUser>("/auth/refresh");
-      if (!response.data) {
-        throw new Error("Thunk error");
-      }
 
       localStorage.setItem(
         USER_LOCALSTORAGE_KEY,

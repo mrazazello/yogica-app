@@ -18,7 +18,10 @@ export const errorsSlice = createSlice({
     builder.addMatcher(
       isThunkActionError,
       (state, action: PayloadAction<IError>) => {
-        state.errors.push(action.payload);
+        if (action.payload) {
+          state.errors.push(action.payload);
+          if (state.errors.length > 3) state.errors.shift();
+        }
       }
     );
   }

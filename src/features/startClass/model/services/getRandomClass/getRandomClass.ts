@@ -17,10 +17,6 @@ export const getRandomClass = createAsyncThunk<
       params
     });
 
-    if (!response.data) {
-      throw new Error("Thunk error");
-    }
-
     return response.data;
   } catch (err) {
     if (err instanceof AxiosError) return rejectWithValue(err?.response?.data);

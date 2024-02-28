@@ -13,9 +13,7 @@ export const fetchClassDetailData = createAsyncThunk<
 
   try {
     const response = await axios.get<IClassDetail>(`/classDetail/${params}`);
-    if (!response.data) {
-      throw new Error("Thunk error");
-    }
+
     return response.data;
   } catch (err) {
     if (err instanceof AxiosError) return rejectWithValue(err?.response?.data);

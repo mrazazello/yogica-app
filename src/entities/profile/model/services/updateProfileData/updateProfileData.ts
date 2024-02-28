@@ -18,10 +18,6 @@ export const updateProfileData = createAsyncThunk<
   try {
     const response = await axios.put<IProfile>("/profile", params);
 
-    if (!response.data) {
-      throw new Error("Thunk error");
-    }
-
     return response.data;
   } catch (err) {
     if (err instanceof AxiosError) return rejectWithValue(err?.response?.data);

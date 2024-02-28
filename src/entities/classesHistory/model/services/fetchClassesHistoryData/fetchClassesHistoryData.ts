@@ -13,9 +13,7 @@ export const fetchClassesHistoryData = createAsyncThunk<
   const { rejectWithValue } = thunkAPI;
   try {
     const response = await axios.get<IClassesHistory[]>("/classesHistory");
-    if (!response.data) {
-      throw new Error("Thunk error");
-    }
+
     return response.data;
   } catch (err) {
     if (err instanceof AxiosError) return rejectWithValue(err?.response?.data);

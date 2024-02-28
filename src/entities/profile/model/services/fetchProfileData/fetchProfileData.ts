@@ -13,10 +13,6 @@ export const fetchProfileData = createAsyncThunk<
   try {
     const response = await axios.get<IProfile>("/my/practice-settings");
 
-    if (!response.data) {
-      throw new Error("Thunk error");
-    }
-
     return response.data;
   } catch (err) {
     if (err instanceof AxiosError) return rejectWithValue(err?.response?.data);

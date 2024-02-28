@@ -15,10 +15,6 @@ export const fetchPracticeSettingsData = createAsyncThunk<
       "/my/practice-settings"
     );
 
-    if (!response.data) {
-      throw new Error("Thunk error");
-    }
-
     return response.data;
   } catch (err) {
     console.log("error: ", err);

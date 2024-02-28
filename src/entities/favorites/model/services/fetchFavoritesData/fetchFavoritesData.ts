@@ -13,12 +13,13 @@ export const fetchFavoritesData = createAsyncThunk<
   const { rejectWithValue } = thunkAPI;
   try {
     const response = await axios.get<IFavoriteItem[]>("/favorites");
-    if (!response.data) {
-      throw new Error("Thunk error");
-    }
+
     return response.data;
   } catch (err) {
-    if (err instanceof AxiosError) return rejectWithValue(err?.response?.data);
+    if (err instanceof AxiosError && err?.response?.data) {
+      console.log("instance?");
+      return rejectWithValue(err.response.data);
+    }
     throw err;
   }
 });
